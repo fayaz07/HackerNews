@@ -5,20 +5,22 @@ gradleKotlin = "1.6.0"
 ktxCore = "1.7.0"
 appcompat = "1.4.0"
 constraintLayout = "2.1.2"
+splashScreen = "1.0.0-alpha02"
 
 material = "1.4.0"
 
 [libraries]
-gradle-android = { module = "com.android.tools.build:gradle" , version.ref = "gradleAndroid"}
-gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin" , version.ref = "gradleKotlin"}
+gradle-android = { module = "com.android.tools.build:gradle", version.ref = "gradleAndroid" }
+gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "gradleKotlin" }
 
-androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore"}
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat"}
-androidx-constraintLayout = {module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout"}
+androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+androidx-splashScreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
 
-google-material = {module = "com.google.android.material:material", version.ref = "material"}
+google-material = { module = "com.google.android.material:material", version.ref = "material" }
 
 
 [bundles]
-androidx = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout"]
+androidx = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen"]
 google = ["google-material"]

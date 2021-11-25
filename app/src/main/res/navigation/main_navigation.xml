@@ -3,22 +3,22 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/main_navigation"
-  app:startDestination="@id/topStoriesFragment">
+  app:startDestination="@id/newStories">
 
   <fragment
-    android:id="@+id/jobsFragment"
+    android:id="@+id/jobs"
     android:name="com.mohammadfayaz.news.ui.jobs.JobsFragment"
-    android:label="fragment_jobs"
-    tools:layout="@layout/fragment_jobs" >
+    android:label="@string/jobs"
+    tools:layout="@layout/fragment_jobs">
     <action
       android:id="@+id/action_jobsFragment_to_jobDetailFragment"
       app:destination="@id/jobDetailFragment" />
   </fragment>
   <fragment
-    android:id="@+id/newStoriesFragment"
+    android:id="@+id/newStories"
     android:name="com.mohammadfayaz.news.ui.new_stories.NewStoriesFragment"
-    android:label="fragment_new_stories"
-    tools:layout="@layout/fragment_new_stories" >
+    android:label="@string/new_stories"
+    tools:layout="@layout/fragment_new_stories">
     <action
       android:id="@+id/action_newStoriesFragment_to_storyDetailFragment"
       app:destination="@id/storyDetailFragment" />
@@ -33,10 +33,10 @@
       app:destination="@id/userInfoFragment" />
   </fragment>
   <fragment
-    android:id="@+id/topStoriesFragment"
+    android:id="@+id/topStories"
     android:name="com.mohammadfayaz.news.ui.top_stories.TopStoriesFragment"
-    android:label="fragment_top_stories"
-    tools:layout="@layout/fragment_top_stories" >
+    android:label="@string/top_stories"
+    tools:layout="@layout/fragment_top_stories">
     <action
       android:id="@+id/action_topStoriesFragment_to_storyDetailFragment"
       app:destination="@id/storyDetailFragment" />

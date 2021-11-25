@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">News</string>
+  <string name="new_stories">New Stories</string>
+  <string name="top_stories">Top Stories</string>
+  <string name="jobs">Jobs</string>
 </resources>

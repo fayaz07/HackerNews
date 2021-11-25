@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:id="@+id/newStories"
+    android:icon="@drawable/ic_baseline_auto_stories_24"
+    android:title="@string/new_stories" />
+
+  <item
+    android:id="@+id/topStories"
+    android:icon="@drawable/ic_baseline_auto_stories_24"
+    android:title="@string/top_stories" />
+
+  <item
+    android:id="@+id/jobs"
+    android:icon="@drawable/ic_baseline_work_24"
+    android:title="@string/jobs" />
+</menu>

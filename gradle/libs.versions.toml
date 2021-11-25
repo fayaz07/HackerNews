@@ -6,21 +6,28 @@ ktxCore = "1.7.0"
 appcompat = "1.4.0"
 constraintLayout = "2.1.2"
 splashScreen = "1.0.0-alpha02"
+navigation = "2.3.5"
 
 material = "1.4.0"
 
 [libraries]
+# Plugins go here
 gradle-android = { module = "com.android.tools.build:gradle", version.ref = "gradleAndroid" }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "gradleKotlin" }
+androidx-safeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 
+# all other dependencies go here
 androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 androidx-splashScreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
 
+androidx-navigationKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+androidx-navigationFragmentKtx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
 
 
 [bundles]
-androidx = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen"]
+androidx = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-navigationKtx", "androidx-navigationFragmentKtx"]
 google = ["google-material"]

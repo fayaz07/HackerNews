@@ -9,6 +9,16 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// for reading local.properties
+def properties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    properties.load(localPropertiesFile.newDataInputStream())
+}
+
+def hnBaseUrl = properties.getProperty('hn.baseUrl') != null
+        ? properties.getProperty('hn.baseUrl') : ""
+
 android {
     compileSdk 31
 
@@ -23,6 +33,11 @@ android {
     }
 
     buildTypes {
+
+        buildTypes.each {
+            it.buildConfigField("String", "hnBaseUrl", "\"${hnBaseUrl}\"")
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

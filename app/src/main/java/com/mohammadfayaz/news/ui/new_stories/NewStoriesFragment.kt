@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.mohammadfayaz.news.BuildConfig
 import com.mohammadfayaz.news.R
 import com.mohammadfayaz.news.databinding.FragmentNewStoriesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,7 +23,7 @@ class NewStoriesFragment : Fragment() {
   ): View {
     binding = FragmentNewStoriesBinding.inflate(layoutInflater)
 
-    binding.textView.text = viewModel.helloWorldText
+    binding.textView.text = viewModel.helloWorldText + "\n" + BuildConfig.hnBaseUrl
 
     return binding.root
   }

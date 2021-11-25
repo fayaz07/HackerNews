@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:id="@+id/main_navigation">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main_navigation"
+  app:startDestination="@id/topStoriesFragment">
 
+  <fragment
+    android:id="@+id/jobsFragment"
+    android:name="com.mohammadfayaz.news.ui.jobs.JobsFragment"
+    android:label="fragment_jobs"
+    tools:layout="@layout/fragment_jobs" >
+    <action
+      android:id="@+id/action_jobsFragment_to_jobDetailFragment"
+      app:destination="@id/jobDetailFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/newStoriesFragment"
+    android:name="com.mohammadfayaz.news.ui.new_stories.NewStoriesFragment"
+    android:label="fragment_new_stories"
+    tools:layout="@layout/fragment_new_stories" >
+    <action
+      android:id="@+id/action_newStoriesFragment_to_storyDetailFragment"
+      app:destination="@id/storyDetailFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/storyDetailFragment"
+    android:name="com.mohammadfayaz.news.ui.story_detail.StoryDetailFragment"
+    android:label="fragment_story_detail"
+    tools:layout="@layout/fragment_story_detail" >
+    <action
+      android:id="@+id/action_storyDetailFragment_to_userInfoFragment"
+      app:destination="@id/userInfoFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/topStoriesFragment"
+    android:name="com.mohammadfayaz.news.ui.top_stories.TopStoriesFragment"
+    android:label="fragment_top_stories"
+    tools:layout="@layout/fragment_top_stories" >
+    <action
+      android:id="@+id/action_topStoriesFragment_to_storyDetailFragment"
+      app:destination="@id/storyDetailFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/userInfoFragment"
+    android:name="com.mohammadfayaz.news.ui.user_info.UserInfoFragment"
+    android:label="fragment_user_info"
+    tools:layout="@layout/fragment_user_info" />
+  <fragment
+    android:id="@+id/jobDetailFragment"
+    android:name="com.mohammadfayaz.news.ui.job_detail.JobDetailFragment"
+    android:label="fragment_job_detail"
+    tools:layout="@layout/fragment_job_detail" >
+    <action
+      android:id="@+id/action_jobDetailFragment_to_userInfoFragment"
+      app:destination="@id/userInfoFragment" />
+  </fragment>
 </navigation>

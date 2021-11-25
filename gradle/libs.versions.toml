@@ -7,6 +7,7 @@ appcompat = "1.4.0"
 constraintLayout = "2.1.2"
 splashScreen = "1.0.0-alpha02"
 navigation = "2.3.5"
+lifecycle = "2.4.0"
 
 material = "1.4.0"
 
@@ -25,9 +26,14 @@ androidx-splashScreen = { module = "androidx.core:core-splashscreen", version.re
 androidx-navigationKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-navigationFragmentKtx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 
+androidx-lifecycle-viewmodel = {module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle"}
+
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
 
 
 [bundles]
-androidx = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-navigationKtx", "androidx-navigationFragmentKtx"]
+androidxCore = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen"]
+androidxNavigation = ["androidx-navigationKtx", "androidx-navigationFragmentKtx"]
+androidxLifecycle = ["androidx-lifecycle-viewmodel"]
+
 google = ["google-material"]

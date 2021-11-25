@@ -5,17 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mohammadfayaz.news.R
+import androidx.fragment.app.viewModels
+import com.mohammadfayaz.news.databinding.FragmentJobDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class JobDetailFragment : Fragment() {
 
-  private lateinit var viewModel: JobDetailViewModel
+  private val viewModel: JobDetailViewModel by viewModels()
+  private lateinit var binding: FragmentJobDetailBinding
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_job_detail, container, false)
+  ): View {
+    binding = FragmentJobDetailBinding.inflate(layoutInflater)
+    return binding.root
   }
 
 }

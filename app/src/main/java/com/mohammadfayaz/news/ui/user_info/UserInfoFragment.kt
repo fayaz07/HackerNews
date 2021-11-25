@@ -5,17 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mohammadfayaz.news.R
+import androidx.fragment.app.viewModels
+import com.mohammadfayaz.news.databinding.FragmentUserInfoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserInfoFragment : Fragment() {
 
-  private lateinit var viewModel: UserInfoViewModel
+  private val viewModel: UserInfoViewModel by viewModels()
+  private lateinit var binding: FragmentUserInfoBinding
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_user_info, container, false)
+  ): View {
+    binding = FragmentUserInfoBinding.inflate(layoutInflater)
+    return binding.root
   }
 
 }

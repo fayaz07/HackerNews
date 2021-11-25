@@ -5,16 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mohammadfayaz.news.R
+import androidx.fragment.app.viewModels
+import com.mohammadfayaz.news.databinding.FragmentTopStoriesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopStoriesFragment : Fragment() {
 
-  private lateinit var viewModel: TopStoriesViewModel
+  private val viewModel: TopStoriesViewModel by viewModels()
+  private lateinit var binding: FragmentTopStoriesBinding
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_top_stories, container, false)
+  ): View {
+    binding = FragmentTopStoriesBinding.inflate(layoutInflater)
+    return binding.root
   }
 }

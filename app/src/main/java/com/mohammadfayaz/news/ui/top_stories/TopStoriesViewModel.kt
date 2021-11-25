@@ -1,7 +1,10 @@
 package com.mohammadfayaz.news.ui.top_stories
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TopStoriesViewModel : ViewModel() {
+@HiltViewModel
+class TopStoriesViewModel @Inject constructor() : ViewModel() {
   // TODO: Implement the ViewModel
 }

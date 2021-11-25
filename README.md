@@ -1,5 +1,5 @@
 # News-app
-Android app consuming https://www.thenewsapi.com/ API
+Android app consuming [HackerNews](https://hacker-news.firebaseio.com/v0/) API
 
 ## About app
 
@@ -8,3 +8,4 @@ Android app consuming https://www.thenewsapi.com/ API
 3. ViewBinding
 4. Navigation Components using Fragments
 5. LiveData & ViewModel
+6. Dagger2 + Hilt - dependency injection

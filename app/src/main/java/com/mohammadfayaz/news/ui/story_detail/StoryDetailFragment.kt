@@ -5,17 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.mohammadfayaz.news.R
+import com.mohammadfayaz.news.databinding.FragmentStoryDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StoryDetailFragment : Fragment() {
 
-  private lateinit var viewModel: StoryDetailViewModel
+  private val viewModel: StoryDetailViewModel by viewModels()
+  private lateinit var binding: FragmentStoryDetailBinding
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_story_detail, container, false)
+  ): View {
+    binding = FragmentStoryDetailBinding.inflate(layoutInflater)
+    return binding.root
   }
 
 }

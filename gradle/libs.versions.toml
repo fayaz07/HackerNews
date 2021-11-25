@@ -1,6 +1,9 @@
 [versions]
 gradleAndroid = "7.0.3"
 gradleKotlin = "1.6.0"
+daggerHilt = "2.40"
+dagger = "2.31.2"
+hiltViewModel = "1.0.0-alpha03"
 
 ktxCore = "1.7.0"
 appcompat = "1.4.0"
@@ -17,6 +20,7 @@ material = "1.4.0"
 gradle-android = { module = "com.android.tools.build:gradle", version.ref = "gradleAndroid" }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "gradleKotlin" }
 androidx-safeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
+gradle-daggerHiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "daggerHilt" }
 
 # all other dependencies go here
 androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" }
@@ -29,15 +33,24 @@ androidx-navigationFragmentKtx = { module = "androidx.navigation:navigation-frag
 
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
-
 androidx-legacySupport = { module = "androidx.legacy:legacy-support-v4", version.ref = "legacySupport" }
+androidx-lifecycle-hiltViewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref = "hiltViewModel" }
+
 
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
+google-daggerHilt = { module = "com.google.dagger:hilt-android", version.ref = "daggerHilt" }
+google-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+
+kapt-dagger = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+kapt-daggerHilt = { module = "com.google.dagger:hilt-android-compiler", version.ref = "daggerHilt" }
 
 
 [bundles]
 androidxCore = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-legacySupport"]
 androidxNavigation = ["androidx-navigationKtx", "androidx-navigationFragmentKtx"]
-androidxLifecycle = ["androidx-lifecycle-viewmodel", "androidx-lifecycle-livedata"]
+androidxLifecycle = ["androidx-lifecycle-viewmodel", "androidx-lifecycle-livedata", "androidx-lifecycle-hiltViewmodel"]
 
-google = ["google-material"]
+google = ["google-material", "google-daggerHilt", "google-dagger"]
+
+kapt = ["kapt-daggerHilt", "kapt-dagger"]
+

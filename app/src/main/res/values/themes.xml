@@ -14,9 +14,15 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+    <style name="Theme.MySplash" parent="Theme.SplashScreen">
+        <item name="android:layout_margin">0sp</item>
+        <item name="android:padding">0sp</item>
+        <item name="windowSplashScreenBackground">@color/primaryColor</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
         <item name="postSplashScreenTheme">@style/Theme.News</item>
+<!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
+        <item name="windowSplashScreenAnimatedIcon">
+            @drawable/splash_logo
+        </item>
     </style>
 </resources>

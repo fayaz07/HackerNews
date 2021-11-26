@@ -1,5 +1,6 @@
 package com.mohammadfayaz.news.network
 
+import com.google.gson.Gson
 import com.mohammadfayaz.news.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,11 +31,11 @@ class RetrofitAPI {
         .build()
     }
 
-    fun build(okHttpClient: OkHttpClient): Retrofit {
+    fun build(okHttpClient: OkHttpClient, gsonInstance: Gson): Retrofit {
       return Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(BuildConfig.hnBaseUrl)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gsonInstance))
         .build()
     }
   }

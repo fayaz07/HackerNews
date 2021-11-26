@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.bundles.androidxLifecycle)
     implementation(libs.bundles.google)
     implementation(libs.bundles.jakewharton)
+    implementation(libs.bundles.retrofit)
 
     kapt(libs.bundles.kapt)
 

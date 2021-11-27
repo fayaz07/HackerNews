@@ -17,9 +17,9 @@ class ShowStoriesViewModel @Inject constructor(private val repo: HackerNewsRepo)
   val liveData: LiveData<String> = _liveData
 
   fun pullData() {
-    viewModelScope.launch {
-      val response = repo.pullTopStories()
-      _liveData.postValue(response.body().toString())
-    }
+//    viewModelScope.launch {
+//      val response = repo.pullTopStories()
+//      _liveData.postValue(response.body().toString())
+//    }
   }
 }

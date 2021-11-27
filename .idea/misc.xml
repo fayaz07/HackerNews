@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2101851851851852" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_ask_stories.xml" value="0.34057971014492755" />
         <entry key="app/src/main/res/layout/fragment_job_detail.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_jobs.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/fragment_new_stories.xml" value="0.35520833333333335" />

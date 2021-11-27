@@ -32,7 +32,7 @@ class RetrofitInstance {
     }
 
     fun build(okHttpClient: OkHttpClient, gsonInstance: Gson): Retrofit {
-      println(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion )
+      println(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion)
       return Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion)

@@ -11,4 +11,3 @@ interface HackerNewsAPI {
   suspend fun fetchTopStories(): Response<TopStoriesResponse>
 
 }
-

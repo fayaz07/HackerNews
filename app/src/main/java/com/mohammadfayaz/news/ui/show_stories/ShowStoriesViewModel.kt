@@ -1,4 +1,4 @@
-package com.mohammadfayaz.news.ui.new_stories
+package com.mohammadfayaz.news.ui.show_stories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NewStoriesViewModel @Inject constructor(private val repo: HackerNewsRepo) : ViewModel() {
-  val helloWorldText = "Hello from New Stories View Model"
+class ShowStoriesViewModel @Inject constructor(private val repo: HackerNewsRepo) : ViewModel() {
+  val helloWorldText = "Hello from Show Stories View Model"
 
   private val _liveData = MutableLiveData<String>()
   val liveData: LiveData<String> = _liveData

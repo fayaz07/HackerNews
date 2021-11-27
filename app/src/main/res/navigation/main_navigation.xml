@@ -3,7 +3,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/main_navigation"
-  app:startDestination="@id/newStories">
+  app:startDestination="@id/showStories">
 
   <fragment
     android:id="@+id/jobs"
@@ -15,10 +15,10 @@
       app:destination="@id/jobDetailFragment" />
   </fragment>
   <fragment
-    android:id="@+id/newStories"
-    android:name="com.mohammadfayaz.news.ui.new_stories.NewStoriesFragment"
-    android:label="@string/new_stories"
-    tools:layout="@layout/fragment_new_stories">
+    android:id="@+id/showStories"
+    android:name="com.mohammadfayaz.news.ui.show_stories.ShowStoriesFragment"
+    android:label="@string/show_stories"
+    tools:layout="@layout/fragment_show_stories">
     <action
       android:id="@+id/action_newStoriesFragment_to_storyDetailFragment"
       app:destination="@id/storyDetailFragment" />
@@ -54,5 +54,14 @@
     <action
       android:id="@+id/action_jobDetailFragment_to_userInfoFragment"
       app:destination="@id/userInfoFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/askStories"
+    android:name="com.mohammadfayaz.news.ui.ask_stories.AskStoriesFragment"
+    android:label="@string/ask_stories"
+    tools:layout="@layout/fragment_ask_stories">
+    <action
+      android:id="@+id/action_askStoriesFragment_to_storyDetailFragment"
+      app:destination="@id/storyDetailFragment" />
   </fragment>
 </navigation>

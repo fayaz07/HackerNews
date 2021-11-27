@@ -6,6 +6,4 @@ import dagger.hilt.components.SingletonComponent
 
 @Module(includes = [NetworkModule::class, RepositoryModule::class])
 @InstallIn(SingletonComponent::class)
-class AppModule {
-
-}
+class AppModule

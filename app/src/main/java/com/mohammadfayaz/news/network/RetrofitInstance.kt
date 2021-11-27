@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RetrofitAPI {
+class RetrofitInstance {
 
   companion object {
 
@@ -32,9 +32,10 @@ class RetrofitAPI {
     }
 
     fun build(okHttpClient: OkHttpClient, gsonInstance: Gson): Retrofit {
+      println(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion )
       return Retrofit.Builder()
         .client(okHttpClient)
-        .baseUrl(BuildConfig.hnBaseUrl)
+        .baseUrl(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion)
         .addConverterFactory(GsonConverterFactory.create(gsonInstance))
         .build()
     }

@@ -25,6 +25,13 @@ class NewStoriesFragment : Fragment() {
 
     binding.textView.text = viewModel.helloWorldText + "\n" + BuildConfig.hnBaseUrl
 
+
+    viewModel.pullData()
+
+    viewModel.liveData.observe(viewLifecycleOwner) {
+      binding.textView.text = it
+    }
+
     return binding.root
   }
 

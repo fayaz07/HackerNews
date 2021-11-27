@@ -18,6 +18,8 @@ if (localPropertiesFile.exists()) {
 
 def hnBaseUrl = properties.getProperty('hn.baseUrl') != null
         ? properties.getProperty('hn.baseUrl') : ""
+def hnApiVersion = properties.getProperty('hn.apiVersion') != null
+        ? properties.getProperty('hn.apiVersion') : ""
 
 android {
     compileSdk 31
@@ -36,6 +38,7 @@ android {
 
         buildTypes.each {
             it.buildConfigField("String", "hnBaseUrl", "\"${hnBaseUrl}\"")
+            it.buildConfigField("String", "hnApiVersion", "\"${hnApiVersion}\"")
         }
 
         release {

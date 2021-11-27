@@ -2,12 +2,14 @@ package com.mohammadfayaz.news.di
 
 import com.google.gson.Gson
 import com.mohammadfayaz.news.network.GsonInstance
-import com.mohammadfayaz.news.network.RetrofitAPI
+import com.mohammadfayaz.news.network.RetrofitInstance
+import com.mohammadfayaz.news.network.api.HackerNewsAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
@@ -20,10 +22,15 @@ class NetworkModule {
 
   @Provides
   @Singleton
-  fun provideOkHttpClient() = RetrofitAPI.buildOkHttpClient()
+  fun provideOkHttpClient() = RetrofitInstance.buildOkHttpClient()
 
   @Provides
   @Singleton
   fun provideRetrofit(okHttpClient: OkHttpClient, gsonInstance: Gson) =
-    RetrofitAPI.build(okHttpClient, gsonInstance)
+    RetrofitInstance.build(okHttpClient, gsonInstance)
+
+  @Provides
+  @Singleton
+  fun hackerNewsAPI(retrofit: Retrofit): HackerNewsAPI =
+    retrofit.create(HackerNewsAPI::class.java)
 }

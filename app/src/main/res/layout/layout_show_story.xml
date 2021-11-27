@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="8sp"
+  app:cardCornerRadius="8sp"
+  app:cardElevation="8sp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8sp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/titleTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/story_title"
+      android:textColor="@color/black"
+      android:textSize="16sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/authorNameTextView"
+      style="@style/TextAppearance.AppCompat.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/author"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/timeTextView"
+      style="@style/TextAppearance.AppCompat.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8sp"
+      android:text="@string/sample_date"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/authorNameTextView" />
+
+    <com.mikepenz.iconics.view.IconicsImageView
+      android:id="@+id/commentsImageView"
+      android:layout_width="16sp"
+      android:layout_height="16sp"
+      android:layout_marginStart="32dp"
+      app:iiv_color="@android:color/holo_red_dark"
+      app:iiv_icon="gmd-favorite"
+      app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
+      app:layout_constraintStart_toEndOf="@+id/timeTextView"
+      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/commentsTextView"
+      style="@style/TextAppearance.AppCompat.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="4sp"
+      android:text="@string/zero"
+      app:layout_constraintBottom_toBottomOf="@+id/commentsImageView"
+      app:layout_constraintStart_toEndOf="@+id/commentsImageView"
+      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+
+    <com.mikepenz.iconics.view.IconicsImageView
+      android:id="@+id/scoreImageView"
+      android:layout_width="16sp"
+      android:layout_height="16sp"
+      android:layout_marginStart="16sp"
+      app:iiv_color="@android:color/holo_red_dark"
+      app:iiv_icon="gmd-favorite"
+      app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
+      app:layout_constraintStart_toEndOf="@+id/commentsTextView"
+      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/scoreTextView"
+      style="@style/TextAppearance.AppCompat.Caption"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8sp"
+      android:text="@string/zero"
+      app:layout_constraintBottom_toBottomOf="@+id/scoreImageView"
+      app:layout_constraintStart_toEndOf="@+id/scoreImageView"
+      app:layout_constraintTop_toTopOf="@+id/scoreImageView" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

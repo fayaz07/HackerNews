@@ -66,9 +66,8 @@ dependencies {
     implementation(libs.bundles.google)
     implementation(libs.bundles.jakewharton)
     implementation(libs.bundles.retrofit)
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation(libs.bundles.mikepenz)
+    implementation(libs.bundles.androidxViews)
 
     kapt(libs.bundles.kapt)
 

@@ -4,4 +4,8 @@
   <string name="top_stories">Top Stories</string>
   <string name="jobs">Jobs</string>
   <string name="ask_stories">Ask Stories</string>
+  <string name="sample_date">23:05 11/11/2021</string>
+  <string name="zero">0</string>
+  <string name="author">Anonymous</string>
+  <string name="story_title">Show story title</string>
 </resources>

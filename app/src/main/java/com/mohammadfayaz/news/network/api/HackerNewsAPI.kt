@@ -5,6 +5,7 @@ import com.mohammadfayaz.news.network.EndPoints
 import com.mohammadfayaz.news.network.models.response.IdsResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface HackerNewsAPI {
 
@@ -18,24 +19,24 @@ interface HackerNewsAPI {
   suspend fun getAskStories(): Response<IdsResponse>
 
   @GET(EndPoints.JOB_STORIES)
-  suspend fun getJobStories(id: Int): Response<IdsResponse>
+  suspend fun getJobStories(): Response<IdsResponse>
 
   @GET(EndPoints.UPDATES)
-  suspend fun getUpdates(id: String): Response<UpdatesModel>
+  suspend fun getUpdates(): Response<UpdatesModel>
 
   @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getShowStoryById(id: Int): Response<ShowStoryModel>
+  suspend fun getShowStoryById(@Path("id") id: Int): Response<ShowStoryModel>
 
   @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getAskStoryById(id: Int): Response<AskStoryModel>
+  suspend fun getAskStoryById(@Path("id") id: Int): Response<AskStoryModel>
 
   @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getTopStoryById(id: Int): Response<TopStoryModel>
+  suspend fun getTopStoryById(@Path("id") id: Int): Response<TopStoryModel>
 
   @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getJobById(id: Int): Response<JobStoryModel>
+  suspend fun getJobById(@Path("id") id: Int): Response<JobStoryModel>
 
   @GET(EndPoints.USER_BY_ID)
-  suspend fun getUserById(id: String): Response<UserModel>
-  
+  suspend fun getUserById(@Path("id") id: String): Response<UserModel>
+
 }

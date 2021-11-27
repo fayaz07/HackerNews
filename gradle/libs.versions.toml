@@ -14,11 +14,17 @@ lifecycle = "2.4.0"
 legacySupport = "1.0.0"
 
 material = "1.4.0"
+recyclerView = "1.2.1"
 
 timber = "5.0.1"
 gson = "2.8.7"
 okHttpLogger = "4.8.1"
 retrofit = "2.9.0"
+
+icons = "5.3.3"
+faIcons = "5.9.0.2-kotlin"
+
+
 
 [libraries]
 # Plugins go here
@@ -32,6 +38,7 @@ androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" 
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 androidx-splashScreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
+androidx-recyclerView = {module = "androidx.recyclerview:recyclerview", version.ref = "recyclerView"}
 
 androidx-navigationKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-navigationFragmentKtx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
@@ -45,7 +52,7 @@ androidx-lifecycle-hiltViewmodel = { module = "androidx.hilt:hilt-lifecycle-view
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
 google-daggerHilt = { module = "com.google.dagger:hilt-android", version.ref = "daggerHilt" }
 google-dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
-google-gson = { module ="com.google.code.gson:gson", version.ref="gson" }
+google-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
 kapt-dagger = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 kapt-daggerHilt = { module = "com.google.dagger:hilt-android-compiler", version.ref = "daggerHilt" }
@@ -53,9 +60,14 @@ kapt-daggerHilt = { module = "com.google.dagger:hilt-android-compiler", version.
 
 jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
-retrofit-okHttpLogger = { module ="com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLogger"}
-retrofit-core =  { module ="com.squareup.retrofit2:retrofit", version.ref = "retrofit"}
-retrofit-gsonConverter = { module ="com.squareup.retrofit2:converter-gson", version.ref = "retrofit"}
+retrofit-okHttpLogger = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okHttpLogger" }
+retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-gsonConverter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+
+mikepenz-icons = { module = "com.mikepenz:iconics-core", version.ref = "icons" }
+mikepenz-fa = { module = "com.mikepenz:fontawesome-typeface", version.ref = "faIcons" }
+mikepenz-view = { module = "com.mikepenz:iconics-views", version.ref = "icons" }
+
 
 [bundles]
 androidxCore = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-legacySupport"]
@@ -68,4 +80,8 @@ kapt = ["kapt-daggerHilt", "kapt-dagger"]
 
 jakewharton = ["jakewharton-timber"]
 
-retrofit = ["retrofit-okHttpLogger","retrofit-core","retrofit-gsonConverter"]
+retrofit = ["retrofit-okHttpLogger", "retrofit-core", "retrofit-gsonConverter"]
+
+mikepenz = ["mikepenz-icons", "mikepenz-fa", "mikepenz-view"]
+
+androidxViews = ["androidx-recyclerView"]

@@ -15,8 +15,6 @@
     </style>
 
     <style name="Theme.MySplash" parent="Theme.SplashScreen">
-        <item name="android:layout_margin">0sp</item>
-        <item name="android:padding">0sp</item>
         <item name="windowSplashScreenBackground">@color/primaryColor</item>
         <item name="windowSplashScreenAnimationDuration">200</item>
         <item name="postSplashScreenTheme">@style/Theme.News</item>

@@ -15,6 +15,9 @@ legacySupport = "1.0.0"
 
 material = "1.4.0"
 recyclerView = "1.2.1"
+swipeRefresh = "1.2.0-alpha01"
+room = "2.3.0"
+paging = "3.1.0"
 
 timber = "5.0.1"
 gson = "2.8.7"
@@ -38,7 +41,9 @@ androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" 
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 androidx-splashScreen = { module = "androidx.core:core-splashscreen", version.ref = "splashScreen" }
-androidx-recyclerView = {module = "androidx.recyclerview:recyclerview", version.ref = "recyclerView"}
+
+androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerView" }
+androidx-swipeRefresh = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeRefresh" }
 
 androidx-navigationKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 androidx-navigationFragmentKtx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
@@ -48,6 +53,9 @@ androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-
 androidx-legacySupport = { module = "androidx.legacy:legacy-support-v4", version.ref = "legacySupport" }
 androidx-lifecycle-hiltViewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref = "hiltViewModel" }
 
+androidx-roomRuntime = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-roomKtx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-paging = { module = "androidx.paging:paging-runtime-ktx", version.ref = "paging" }
 
 google-material = { module = "com.google.android.material:material", version.ref = "material" }
 google-daggerHilt = { module = "com.google.dagger:hilt-android", version.ref = "daggerHilt" }
@@ -56,6 +64,7 @@ google-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
 kapt-dagger = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 kapt-daggerHilt = { module = "com.google.dagger:hilt-android-compiler", version.ref = "daggerHilt" }
+kapt-room = { module = "androidx.room:room-compiler", version.ref = "room" }
 
 
 jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
@@ -76,7 +85,7 @@ androidxLifecycle = ["androidx-lifecycle-viewmodel", "androidx-lifecycle-livedat
 
 google = ["google-material", "google-daggerHilt", "google-dagger", "google-gson"]
 
-kapt = ["kapt-daggerHilt", "kapt-dagger"]
+kapt = ["kapt-daggerHilt", "kapt-dagger", "kapt-room"]
 
 jakewharton = ["jakewharton-timber"]
 
@@ -84,4 +93,6 @@ retrofit = ["retrofit-okHttpLogger", "retrofit-core", "retrofit-gsonConverter"]
 
 mikepenz = ["mikepenz-icons", "mikepenz-fa", "mikepenz-view"]
 
-androidxViews = ["androidx-recyclerView"]
+androidxViews = ["androidx-recyclerView", "androidx-swipeRefresh"]
+
+androidxCache = ["androidx-roomRuntime", "androidx-roomKtx", "androidx-paging"]

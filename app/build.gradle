@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.mikepenz)
     implementation(libs.bundles.androidxViews)
+    implementation(libs.bundles.androidxCache)
 
     kapt(libs.bundles.kapt)
 

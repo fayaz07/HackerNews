@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mohammadfayaz.news.data.db.converters.ListConverters
+import com.mohammadfayaz.news.data.db.dao.ShowStoryDao
 import com.mohammadfayaz.news.data.models.ShowStoryModel
 import com.mohammadfayaz.news.utils.AppConstants
 
@@ -18,6 +19,9 @@ import com.mohammadfayaz.news.utils.AppConstants
   *[ListConverters::class]
 )
 abstract class HackerNewsDB : RoomDatabase() {
+
+  abstract fun showStoryDao(): ShowStoryDao
+
   companion object {
     fun getInstance(context: Context): HackerNewsDB {
       return Room.databaseBuilder(

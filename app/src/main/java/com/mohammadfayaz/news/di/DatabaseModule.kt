@@ -16,4 +16,8 @@ class DatabaseModule {
   @Singleton
   fun provideDatabase(@ApplicationContext context: Context) =
     HackerNewsDB.getInstance(context)
+
+  @Provides
+  @Singleton
+  fun provideShowStoriesDao(db: HackerNewsDB) = db.showStoryDao()
 }

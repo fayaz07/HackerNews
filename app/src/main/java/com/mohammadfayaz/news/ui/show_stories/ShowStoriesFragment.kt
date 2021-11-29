@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.mikepenz.iconics.Iconics
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
@@ -15,6 +16,8 @@ import com.mohammadfayaz.news.BuildConfig
 import com.mohammadfayaz.news.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.news.ui.adapters.show_stories.ShowStoryListAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ShowStoriesFragment : Fragment() {
@@ -39,13 +42,22 @@ class ShowStoriesFragment : Fragment() {
 
     viewModel.liveData.observe(viewLifecycleOwner) {
 //      binding.textView.text = it
+//      adapter.submitData(viewModel.getPaginated(it))
+      lifecycleScope.launch {
+        viewModel.getPaginated(it).collect {
+          adapter.submitData(it)
+        }
+      }
+
+//      adapter.submitData(viewLifecycleOwner.lifecycle, viewModel.getPaginated(it))
     }
 
-    viewModel.liveData2.observe(viewLifecycleOwner) {
-//      Toast.makeText(requireContext(), it.size.toString(), Toast.LENGTH_LONG).show()
-//      binding.textView.text = it.size.toString()
-      adapter.submitList(it)
-    }
+//    viewModel.liveData2.observe(viewLifecycleOwner) {
+////      Toast.makeText(requireContext(), it.size.toString(), Toast.LENGTH_LONG).show()
+////      binding.textView.text = it.size.toString()
+////      adapter.submitList(it)
+//
+//    }
 
 //    binding.imageaaa.icon = IconicsDrawable(requireContext(), FontAwesome.Icon.faw_comment)
     return binding.root

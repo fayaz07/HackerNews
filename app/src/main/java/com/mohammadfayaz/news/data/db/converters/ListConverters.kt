@@ -17,6 +17,7 @@ class ListConverters {
 
   @TypeConverter
   fun listFromString(list: String?): List<String> {
+    if (list == null) return emptyList()
     return GsonInstance.instance().fromJson(list, stringListType) as List<String>
   }
 
@@ -27,6 +28,7 @@ class ListConverters {
 
   @TypeConverter
   fun intListFromString(list: String?): List<Int> {
+    if (list == null) return emptyList()
     return GsonInstance.instance().fromJson(list, intListType) as List<Int>
   }
 }

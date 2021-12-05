@@ -1,6 +1,6 @@
 package com.mohammadfayaz.news.di
 
-import com.mohammadfayaz.news.data.db.dao.ShowStoryDao
+import com.mohammadfayaz.news.data.db.dao.StoryDao
 import com.mohammadfayaz.news.network.api.HackerNewsAPI
 import com.mohammadfayaz.news.domain.repository.ShowStoriesRepo
 import dagger.Module
@@ -15,6 +15,6 @@ class RepositoryModule {
 
   @Provides
   @Singleton
-  fun showStoriesRepo(api: HackerNewsAPI, dao: ShowStoryDao) = ShowStoriesRepo(api, dao)
+  fun showStoriesRepo(api: HackerNewsAPI, dao: StoryDao) = ShowStoriesRepo(api, dao)
 
 }

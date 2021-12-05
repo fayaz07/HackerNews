@@ -4,19 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.mikepenz.iconics.Iconics
-import com.mikepenz.iconics.IconicsDrawable
-import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
-import com.mikepenz.iconics.utils.icon
-import com.mohammadfayaz.news.BuildConfig
 import com.mohammadfayaz.news.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.news.ui.adapters.loading_adapter.LoadingIndicatorAdapter
-import com.mohammadfayaz.news.ui.adapters.loading_adapter.LoadingIndicatorViewHolder
-import com.mohammadfayaz.news.ui.adapters.show_stories.ShowStoryListAdapter
+import com.mohammadfayaz.news.ui.adapters.show_stories.StoryListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -27,7 +20,7 @@ class ShowStoriesFragment : Fragment() {
   private val viewModel: ShowStoriesViewModel by viewModels()
   private lateinit var binding: FragmentShowStoriesBinding
 
-  private lateinit var adapter: ShowStoryListAdapter
+  private lateinit var adapter: StoryListAdapter
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +35,7 @@ class ShowStoriesFragment : Fragment() {
   }
 
   private fun registerViewEvents() {
-    adapter = ShowStoryListAdapter()
+    adapter = StoryListAdapter()
     binding.apply {
       recyclerView.setHasFixedSize(true)
       recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
@@ -54,9 +47,11 @@ class ShowStoriesFragment : Fragment() {
 
   private fun addObservers() {
     viewModel.liveData.observe(viewLifecycleOwner) {
-
       lifecycleScope.launch {
-        viewModel.getPaginated(it).collect {
+
+        binding.progressBar.visibility = View.GONE
+
+        viewModel.getPaginatedFlow(it).collect {
           adapter.submitData(it)
         }
       }

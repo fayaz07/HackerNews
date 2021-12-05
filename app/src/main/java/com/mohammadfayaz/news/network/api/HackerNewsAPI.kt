@@ -25,6 +25,9 @@ interface HackerNewsAPI {
   suspend fun getUpdates(): Response<UpdatesModel>
 
   @GET(EndPoints.ITEM_BY_ID)
+  suspend fun getStoryById(@Path("id") id: Int): Response<StoryModel>
+  
+  @GET(EndPoints.ITEM_BY_ID)
   suspend fun getShowStoryById(@Path("id") id: Int): Response<ShowStoryModel>
 
   @GET(EndPoints.ITEM_BY_ID)

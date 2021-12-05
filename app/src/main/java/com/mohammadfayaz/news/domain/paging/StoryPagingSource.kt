@@ -32,7 +32,7 @@ class StoryPagingSource(
         val minOffset = (position * MAX_ITEMS_LIMIT) - 1
 
         if (minOffset > ids.size) {
-          LoadResult.Invalid()
+          // no data to fetch
         } else {
           var maxOffset = (position * MAX_ITEMS_LIMIT) - 1 + MAX_ITEMS_LIMIT
           if (maxOffset > ids.size) {
@@ -62,12 +62,13 @@ class StoryPagingSource(
             }
           }
 //        Timber.d("Res: $list")
-          LoadResult.Page(
-            data = list,
-            prevKey = if (position == START_PAGE_INDEX) null else position - 1,
-            nextKey = if (list.isEmpty()) null else position + 1
-          )
+
         }
+        LoadResult.Page(
+          data = list,
+          prevKey = if (position == START_PAGE_INDEX) null else position - 1,
+          nextKey = if (list.isEmpty()) null else position + 1
+        )
 
       }
     } catch (e: Exception) {

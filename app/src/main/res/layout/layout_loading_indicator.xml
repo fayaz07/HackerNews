@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+
+  <ProgressBar
+    android:id="@+id/progressbar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="8sp" />
+
+  <TextView
+    android:id="@+id/statusTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingHorizontal="8sp"
+    android:text="@string/unable_to_load_data" />
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/retryButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="@string/retry" />
+</LinearLayout>

@@ -14,6 +14,8 @@ import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mikepenz.iconics.utils.icon
 import com.mohammadfayaz.news.BuildConfig
 import com.mohammadfayaz.news.databinding.FragmentShowStoriesBinding
+import com.mohammadfayaz.news.ui.adapters.loading_adapter.LoadingIndicatorAdapter
+import com.mohammadfayaz.news.ui.adapters.loading_adapter.LoadingIndicatorViewHolder
 import com.mohammadfayaz.news.ui.adapters.show_stories.ShowStoryListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -33,34 +35,32 @@ class ShowStoriesFragment : Fragment() {
   ): View {
     binding = FragmentShowStoriesBinding.inflate(layoutInflater)
 
-//    binding.textView.text = viewModel.helloWorldText + "\n" + BuildConfig.hnBaseUrl
+    registerViewEvents()
+    addObservers()
 
+    return binding.root
+  }
+
+  private fun registerViewEvents() {
     adapter = ShowStoryListAdapter()
-    binding.recyclerView.adapter = adapter
+    binding.apply {
+      recyclerView.setHasFixedSize(true)
+      recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+        header = LoadingIndicatorAdapter { adapter.retry() },
+        footer = LoadingIndicatorAdapter { adapter.retry() }
+      )
+    }
+  }
 
-    viewModel.pullData()
-
+  private fun addObservers() {
     viewModel.liveData.observe(viewLifecycleOwner) {
-//      binding.textView.text = it
-//      adapter.submitData(viewModel.getPaginated(it))
+
       lifecycleScope.launch {
         viewModel.getPaginated(it).collect {
           adapter.submitData(it)
         }
       }
-
-//      adapter.submitData(viewLifecycleOwner.lifecycle, viewModel.getPaginated(it))
     }
-
-//    viewModel.liveData2.observe(viewLifecycleOwner) {
-////      Toast.makeText(requireContext(), it.size.toString(), Toast.LENGTH_LONG).show()
-////      binding.textView.text = it.size.toString()
-////      adapter.submitList(it)
-//
-//    }
-
-//    binding.imageaaa.icon = IconicsDrawable(requireContext(), FontAwesome.Icon.faw_comment)
-    return binding.root
   }
 
 }

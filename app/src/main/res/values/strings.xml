@@ -8,4 +8,6 @@
   <string name="zero">0</string>
   <string name="author">Anonymous</string>
   <string name="story_title">Show story title</string>
+  <string name="unable_to_load_data">Unable to load data</string>
+  <string name="retry">Retry</string>
 </resources>

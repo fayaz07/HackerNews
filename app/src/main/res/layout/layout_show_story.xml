@@ -24,7 +24,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/authorNameTextView"
-      style="@style/TextAppearance.AppCompat.Caption"
+      style="@style/TextAppearance.AppCompat.Caption.Custom"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/author"
@@ -33,7 +33,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/timeTextView"
-      style="@style/TextAppearance.AppCompat.Caption"
+      style="@style/TextAppearance.AppCompat.Caption.Custom"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="8sp"
@@ -54,7 +54,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/commentsTextView"
-      style="@style/TextAppearance.AppCompat.Caption"
+      style="@style/TextAppearance.AppCompat.Caption.Custom"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="4sp"
@@ -76,7 +76,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/scoreTextView"
-      style="@style/TextAppearance.AppCompat.Caption"
+      style="@style/TextAppearance.AppCompat.Caption.Custom"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8sp"

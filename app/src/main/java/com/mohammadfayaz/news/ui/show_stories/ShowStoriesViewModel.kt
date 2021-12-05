@@ -13,12 +13,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShowStoriesViewModel @Inject constructor(private val repo: ShowStoriesRepo) : ViewModel() {
-  val helloWorldText = "Hello from Show Stories View Model"
+
+  init {
+    pullData()
+  }
 
   private val _liveData = MutableLiveData<List<Int>>()
   val liveData: LiveData<List<Int>> = _liveData
 
-  fun pullData() {
+  private fun pullData() {
     viewModelScope.launch {
       val response = repo.pullTopStories()
       _liveData.postValue(response.body())

@@ -2,7 +2,6 @@ package com.mohammadfayaz.news.ui.adapters.show_stories
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.ListAdapter
 import com.mohammadfayaz.news.data.models.ShowStoryModel
 
 class ShowStoryListAdapter :

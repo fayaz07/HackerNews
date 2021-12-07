@@ -14,17 +14,17 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/titleTextView"
+      style="@style/TextAppearance.Material3.TitleLarge"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/story_title"
-      android:textColor="@color/black"
       android:textSize="16sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/authorNameTextView"
-      style="@style/TextAppearance.AppCompat.Caption.Custom"
+      style="@style/TextAppearance.Material3.BodySmall"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/author"
@@ -33,7 +33,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/timeTextView"
-      style="@style/TextAppearance.AppCompat.Caption.Custom"
+      style="@style/TextAppearance.Material3.BodyMedium"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="8sp"
@@ -45,19 +45,19 @@
       android:id="@+id/commentsImageView"
       android:layout_width="16sp"
       android:layout_height="16sp"
-      android:layout_marginStart="32dp"
-      app:iiv_color="@android:color/holo_red_dark"
+      android:layout_marginStart="32sp"
       app:iiv_icon="gmd-favorite"
       app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
       app:layout_constraintStart_toEndOf="@+id/timeTextView"
-      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+      app:layout_constraintTop_toTopOf="@+id/timeTextView"
+      app:tint="@color/iconColor" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/commentsTextView"
-      style="@style/TextAppearance.AppCompat.Caption.Custom"
+      style="@style/TextAppearance.Material3.BodyMedium"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="4sp"
+      android:layout_marginStart="8sp"
       android:text="@string/zero"
       app:layout_constraintBottom_toBottomOf="@+id/commentsImageView"
       app:layout_constraintStart_toEndOf="@+id/commentsImageView"
@@ -68,15 +68,15 @@
       android:layout_width="16sp"
       android:layout_height="16sp"
       android:layout_marginStart="16sp"
-      app:iiv_color="@android:color/holo_red_dark"
       app:iiv_icon="gmd-favorite"
       app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
       app:layout_constraintStart_toEndOf="@+id/commentsTextView"
-      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+      app:layout_constraintTop_toTopOf="@+id/timeTextView"
+      app:tint="@color/iconColor" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/scoreTextView"
-      style="@style/TextAppearance.AppCompat.Caption.Custom"
+      style="@style/TextAppearance.Material3.BodyMedium"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8sp"

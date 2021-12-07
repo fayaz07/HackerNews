@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
+import com.mikepenz.iconics.utils.color
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.LayoutShowStoryBinding
 

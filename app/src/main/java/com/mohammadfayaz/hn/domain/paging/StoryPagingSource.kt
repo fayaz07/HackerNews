@@ -53,7 +53,7 @@ class StoryPagingSource(
               id to apiResponse // associate id and response for later
             }
           }
-          delay(3000)
+//          delay(3000)
           val responses = runningTasks.awaitAll()
           responses.forEach { (_, response) ->
             if (response.success) {

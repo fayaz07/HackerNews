@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">HackerNews</string>
+  <string name="app_name">Hacker News</string>
   <string name="show_stories">Show Stories</string>
   <string name="top_stories">Top Stories</string>
   <string name="jobs">Jobs</string>

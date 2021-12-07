@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="Theme.News" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+  <style name="Theme.News" parent="Theme.Material3.DayNight">
     <!-- Primary brand color. -->
     <item name="colorPrimary">@color/primaryColor</item>
     <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
@@ -12,6 +12,10 @@
     <!-- Status bar color. -->
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     <!-- Customize your theme here. -->
+
+    <item name="colorPrimaryDark">@color/primaryColor</item>
+    <item name="android:colorBackground">@color/backgroundColor</item>
+    <item name="colorError">@color/errorColor</item>
   </style>
 
   <style name="Theme.MySplash" parent="Theme.SplashScreen">
@@ -20,7 +24,7 @@
     <item name="postSplashScreenTheme">@style/Theme.News</item>
     <!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
     <item name="windowSplashScreenAnimatedIcon">
-      @drawable/splash_logo
+      @drawable/text_logo
     </item>
   </style>
 

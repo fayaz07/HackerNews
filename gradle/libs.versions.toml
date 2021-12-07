@@ -13,7 +13,7 @@ navigation = "2.3.5"
 lifecycle = "2.4.0"
 legacySupport = "1.0.0"
 
-material = "1.4.0"
+material = "1.5.0-beta01"
 recyclerView = "1.2.1"
 swipeRefresh = "1.2.0-alpha01"
 room = "2.3.0"

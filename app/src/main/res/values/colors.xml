@@ -18,4 +18,11 @@
   <color name="secondaryTextColor">#ffffff</color>
 
   <color name="captionTextColor">#6C6C6C</color>
+  <color name="iconColor">@color/black</color>
+
+  <color name="splashBgColor">@color/primaryColor</color>
+
+  <color name="errorColor">#DC2012</color>
+
+  <color name="backgroundColor">@color/white</color>
 </resources>

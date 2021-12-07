@@ -13,4 +13,18 @@
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+  <ProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true" />
+
+  <include
+    android:id="@+id/errorViewLayout"
+    layout="@layout/layout_load_error"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:visibility="gone" />
+
 </RelativeLayout>

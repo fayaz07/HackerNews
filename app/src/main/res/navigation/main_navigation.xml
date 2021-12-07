@@ -7,7 +7,7 @@
 
   <fragment
     android:id="@+id/jobs"
-    android:name="com.mohammadfayaz.news.ui.jobs.JobsFragment"
+    android:name="com.mohammadfayaz.hn.ui.jobs.JobsFragment"
     android:label="@string/jobs"
     tools:layout="@layout/fragment_jobs">
     <action
@@ -16,7 +16,7 @@
   </fragment>
   <fragment
     android:id="@+id/showStories"
-    android:name="com.mohammadfayaz.news.ui.show_stories.ShowStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment"
     android:label="@string/show_stories"
     tools:layout="@layout/fragment_show_stories">
     <action
@@ -25,7 +25,7 @@
   </fragment>
   <fragment
     android:id="@+id/storyDetailFragment"
-    android:name="com.mohammadfayaz.news.ui.story_detail.StoryDetailFragment"
+    android:name="com.mohammadfayaz.hn.ui.story_detail.StoryDetailFragment"
     android:label="fragment_story_detail"
     tools:layout="@layout/fragment_story_detail" >
     <action
@@ -34,7 +34,7 @@
   </fragment>
   <fragment
     android:id="@+id/topStories"
-    android:name="com.mohammadfayaz.news.ui.top_stories.TopStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.top_stories.TopStoriesFragment"
     android:label="@string/top_stories"
     tools:layout="@layout/fragment_top_stories">
     <action
@@ -43,12 +43,12 @@
   </fragment>
   <fragment
     android:id="@+id/userInfoFragment"
-    android:name="com.mohammadfayaz.news.ui.user_info.UserInfoFragment"
+    android:name="com.mohammadfayaz.hn.ui.user_info.UserInfoFragment"
     android:label="fragment_user_info"
     tools:layout="@layout/fragment_user_info" />
   <fragment
     android:id="@+id/jobDetailFragment"
-    android:name="com.mohammadfayaz.news.ui.job_detail.JobDetailFragment"
+    android:name="com.mohammadfayaz.hn.ui.job_detail.JobDetailFragment"
     android:label="fragment_job_detail"
     tools:layout="@layout/fragment_job_detail" >
     <action
@@ -57,7 +57,7 @@
   </fragment>
   <fragment
     android:id="@+id/askStories"
-    android:name="com.mohammadfayaz.news.ui.ask_stories.AskStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.ask_stories.AskStoriesFragment"
     android:label="@string/ask_stories"
     tools:layout="@layout/fragment_ask_stories">
     <action

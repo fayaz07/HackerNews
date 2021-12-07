@@ -14,17 +14,17 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/titleTextView"
-      style="@style/TextAppearance.Material3.TitleLarge"
+      style="@style/TextAppearance.MaterialComponents.Headline6"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/story_title"
-      android:textSize="16sp"
+      android:textSize="18sp"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/authorNameTextView"
-      style="@style/TextAppearance.Material3.BodySmall"
+      style="@style/TextAppearance.MaterialComponents.Body2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/author"
@@ -33,10 +33,10 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/timeTextView"
-      style="@style/TextAppearance.Material3.BodyMedium"
+      style="@style/TextAppearance.MaterialComponents.Body2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8sp"
+      android:layout_marginTop="8dp"
       android:text="@string/sample_date"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/authorNameTextView" />
@@ -54,14 +54,14 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/commentsTextView"
-      style="@style/TextAppearance.Material3.BodyMedium"
+      style="@style/TextAppearance.MaterialComponents.Body2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8sp"
       android:text="@string/zero"
       app:layout_constraintBottom_toBottomOf="@+id/commentsImageView"
       app:layout_constraintStart_toEndOf="@+id/commentsImageView"
-      app:layout_constraintTop_toTopOf="@+id/timeTextView" />
+      app:layout_constraintTop_toTopOf="@+id/commentsImageView" />
 
     <com.mikepenz.iconics.view.IconicsImageView
       android:id="@+id/scoreImageView"
@@ -76,7 +76,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/scoreTextView"
-      style="@style/TextAppearance.Material3.BodyMedium"
+      style="@style/TextAppearance.MaterialComponents.Body2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="8sp"

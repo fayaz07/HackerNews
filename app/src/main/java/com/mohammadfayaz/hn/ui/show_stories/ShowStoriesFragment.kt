@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
+import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
 import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryListAdapter
+import com.mohammadfayaz.hn.utils.ViewEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -36,6 +39,14 @@ class ShowStoriesFragment : Fragment() {
     return binding.root
   }
 
+  private fun showLoader() {
+    binding.progressBar.visibility = View.VISIBLE
+  }
+
+  private fun hideLoader() {
+    binding.progressBar.visibility = View.GONE
+  }
+
   private fun showErrorViews() {
     binding.errorViewLayout.root.visibility = View.VISIBLE
   }
@@ -52,18 +63,35 @@ class ShowStoriesFragment : Fragment() {
         header = LoadingIndicatorAdapter { adapter.retry() },
         footer = LoadingIndicatorAdapter { adapter.retry() }
       )
+
+      errorViewLayout.retryButton.setOnClickListener {
+        viewModel.pullData()
+      }
     }
   }
 
   private fun addObservers() {
     viewModel.liveData.observe(viewLifecycleOwner) {
-      lifecycleScope.launch {
-
-        binding.progressBar.visibility = View.GONE
-
-        viewModel.getPaginatedFlow(it).collect {
-//          hideErrorViews()
-          adapter.submitData(it)
+      when (it) {
+        is ViewEvent.Error<*> -> {
+          binding.errorViewLayout.errorTextView.text = it.error
+          hideLoader()
+          showErrorViews()
+        }
+        ViewEvent.Idle -> {
+          hideLoader()
+        }
+        ViewEvent.Loading -> {
+          hideErrorViews()
+          showLoader()
+        }
+        is ViewEvent.Success<*> -> {
+          when (it.code) {
+            FETCHED_IDS -> {
+              listenToPaginationFlow(it.data!! as IdsResponse)
+              hideLoader()
+            }
+          }
         }
       }
     }
@@ -78,6 +106,23 @@ class ShowStoriesFragment : Fragment() {
         hideErrorViews()
       }
     }
+  }
+
+//  private fun showError(error: String) {
+//    Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
+//  }
+
+  private fun listenToPaginationFlow(ids: IdsResponse) {
+    lifecycleScope.launch {
+      binding.progressBar.visibility = View.GONE
+      viewModel.getPaginatedFlow(ids).collect {
+        adapter.submitData(it)
+      }
+    }
+  }
+
+  companion object {
+    const val FETCHED_IDS: Int = 1
   }
 
 }

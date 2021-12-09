@@ -35,5 +35,10 @@ fun MutableLiveData<ViewEvent>.error(error: String, code: Int, data: Any?) {
 }
 
 fun MutableLiveData<ViewEvent>.networkError() {
-  this.postValue(ViewEvent.Error(error = AppConstants.INTERNET_ERROR, AppConstants.INTERNET_ERROR_CODE, null))
+  this.postValue(
+    ViewEvent.Error(
+      error = AppConstants.INTERNET_ERROR,
+      AppConstants.INTERNET_ERROR_CODE, null
+    )
+  )
 }

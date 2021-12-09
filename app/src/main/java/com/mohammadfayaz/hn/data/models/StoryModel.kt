@@ -36,6 +36,5 @@ data class StoryModel(
     if (parts == null) {
       parts = emptyList()
     }
-
   }
 }

@@ -37,5 +37,4 @@ class ShowStoriesViewModel @Inject constructor(private val repo: ShowStoriesRepo
   }
 
   fun getPaginatedFlow(idsList: List<Int>) = repo.getPaginatedFlow(idsList)
-
 }

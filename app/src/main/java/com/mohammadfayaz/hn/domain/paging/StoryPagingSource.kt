@@ -42,7 +42,10 @@ class StoryPagingSource(
             maxOffset
           )
 
-          Timber.d("Sublist from : ${((position - 1) * MAX_ITEMS_LIMIT)} to ${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}")
+          Timber.d(
+            "Sublist from : ${((position - 1) * MAX_ITEMS_LIMIT)} to " +
+              "${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}"
+          )
 
           Timber.d("List size: " + ids.size)
           Timber.d("fetching : $multipleIds")
@@ -61,14 +64,12 @@ class StoryPagingSource(
             }
           }
 //        Timber.d("Res: $list")
-
         }
         LoadResult.Page(
           data = list,
           prevKey = if (position == START_PAGE_INDEX) null else position - 1,
           nextKey = if (list.isEmpty()) null else position + 1
         )
-
       }
     } catch (e: Exception) {
 //      LoadResult.Error(e)

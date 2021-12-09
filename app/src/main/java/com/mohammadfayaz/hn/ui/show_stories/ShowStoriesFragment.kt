@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
@@ -28,7 +27,8 @@ class ShowStoriesFragment : Fragment() {
   private lateinit var adapter: StoryListAdapter
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding = FragmentShowStoriesBinding.inflate(layoutInflater)
@@ -124,5 +124,4 @@ class ShowStoriesFragment : Fragment() {
   companion object {
     const val FETCHED_IDS: Int = 1
   }
-
 }

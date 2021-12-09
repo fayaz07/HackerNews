@@ -23,9 +23,11 @@ class ShowStoriesRepo @Inject constructor(
   private val storyType: StoryType = StoryType.SHOW
 
   override suspend fun fetchStories(): ApiResult<IdsResponse> {
-    return when (val response = ResultWrapper.safeApiCall {
-      api.getShowStories()
-    }) {
+    return when (
+      val response = ResultWrapper.safeApiCall {
+        api.getShowStories()
+      }
+    ) {
       is ResultWrapper.GenericError -> ApiResult.ERROR(response.error)
       ResultWrapper.NetworkError -> ApiResult.NETWORK_ERROR
       is ResultWrapper.Success -> ApiResult.OK("", response.value.body()!!)
@@ -44,5 +46,4 @@ class ShowStoriesRepo @Inject constructor(
     ),
     pagingSourceFactory = { StoryPagingSource(::fetchItemById, idsList) }
   ).flow
-
 }

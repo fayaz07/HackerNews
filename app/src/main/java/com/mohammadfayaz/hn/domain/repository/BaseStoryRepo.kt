@@ -40,12 +40,10 @@ abstract class BaseStoryRepo constructor(
           ApiResult.OK(res = fromNetwork.value.body()!!)
         }
       }
-
     } catch (e: Exception) {
       e.printStackTrace()
       throw e
     }
-
   }
 
   private suspend fun fetchItemByIdFromLocalDb(id: Int): StoryModel? {

@@ -16,11 +16,11 @@ class UserInfoFragment : Fragment() {
   private lateinit var binding: FragmentUserInfoBinding
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding = FragmentUserInfoBinding.inflate(layoutInflater)
     return binding.root
   }
-
 }

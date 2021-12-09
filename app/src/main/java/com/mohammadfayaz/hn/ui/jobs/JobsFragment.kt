@@ -16,12 +16,11 @@ class JobsFragment : Fragment() {
   private lateinit var binding: FragmentJobsBinding
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding = FragmentJobsBinding.inflate(layoutInflater)
     return binding.root
   }
-
-
 }

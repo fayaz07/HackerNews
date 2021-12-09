@@ -16,11 +16,11 @@ class StoryDetailFragment : Fragment() {
   private lateinit var binding: FragmentStoryDetailBinding
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding = FragmentStoryDetailBinding.inflate(layoutInflater)
     return binding.root
   }
-
 }

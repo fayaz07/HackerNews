@@ -8,18 +8,22 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
+import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryItemClickListener
 import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryListAdapter
+import com.mohammadfayaz.hn.ui.story_detail.StoryDetailedActivity
 import com.mohammadfayaz.hn.utils.ViewEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ShowStoriesFragment : Fragment() {
+class ShowStoriesFragment : Fragment(), StoryItemClickListener {
 
   private val viewModel: ShowStoriesViewModel by viewModels()
   private lateinit var binding: FragmentShowStoriesBinding
@@ -56,7 +60,7 @@ class ShowStoriesFragment : Fragment() {
   }
 
   private fun registerViewEvents() {
-    adapter = StoryListAdapter()
+    adapter = StoryListAdapter(this)
     binding.apply {
       recyclerView.setHasFixedSize(true)
       recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
@@ -119,6 +123,14 @@ class ShowStoriesFragment : Fragment() {
         adapter.submitData(it)
       }
     }
+  }
+
+  override fun onClick(item: StoryModel) {
+    StoryDetailedActivity.open(requireActivity())
+  }
+
+  override fun onClickError() {
+
   }
 
   companion object {

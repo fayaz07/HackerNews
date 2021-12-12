@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <font
+    app:font="@font/source_sans_pro_extra_light"
+    app:fontStyle="normal"
+    app:fontWeight="200" />
+  <font
+    app:font="@font/source_sans_pro_extra_light_italic"
+    app:fontStyle="italic"
+    app:fontWeight="200" />
+
+  <font
+    app:font="@font/source_sans_pro_light"
+    app:fontStyle="normal"
+    app:fontWeight="300" />
+  <font
+    app:font="@font/source_sans_pro_light_italic"
+    app:fontStyle="italic"
+    app:fontWeight="300" />
+
   <font
     app:font="@font/source_sans_pro_regular"
     app:fontStyle="normal"
@@ -8,6 +27,31 @@
     app:font="@font/source_sans_pro_italic"
     app:fontStyle="italic"
     app:fontWeight="400" />
+
+  <font
+    app:font="@font/source_sans_pro_semi_bold"
+    app:fontStyle="normal"
+    app:fontWeight="600" />
+  <font
+    app:font="@font/source_sans_pro_semi_bold_italic"
+    app:fontStyle="italic"
+    app:fontWeight="600" />
+
+  <font
+    app:font="@font/source_sans_pro_bold"
+    app:fontStyle="normal"
+    app:fontWeight="700" />
+  <font
+    app:font="@font/source_sans_pro_bold_italic"
+    app:fontStyle="italic"
+    app:fontWeight="700" />
+
+  <font
+    app:font="@font/source_sans_pro_black"
+    app:fontStyle="normal"
+    app:fontWeight="900" />
+  <font
+    app:font="@font/source_sans_pro_black_italic"
+    app:fontStyle="italic"
+    app:fontWeight="900" />
 </font-family>
-
-

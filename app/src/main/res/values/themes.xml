@@ -18,8 +18,6 @@
     <item name="android:colorBackground">@color/backgroundColor</item>
     <item name="colorError">@color/errorColor</item>
 
-    <item name="android:fontFamily">@font/source_sans_pro</item>
-
   </style>
 
   <style name="Theme.MySplash" parent="Theme.SplashScreen">
@@ -32,7 +30,4 @@
     </item>
   </style>
 
-  <style name="TextAppearance.AppCompat.Caption.Custom" parent="TextAppearance.AppCompat.Caption">
-    <item name="android:textColor">@color/captionTextColor</item>
-  </style>
 </resources>

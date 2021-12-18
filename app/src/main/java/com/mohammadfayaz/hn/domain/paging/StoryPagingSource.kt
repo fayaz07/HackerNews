@@ -28,21 +28,29 @@ class StoryPagingSource(
         Timber.d("Curr position: $position")
         val list = mutableListOf<StoryModel>()
 
-        val minOffset = (position * MAX_ITEMS_LIMIT) - 1
+        var minOffset = (position * MAX_ITEMS_LIMIT) - 1
 
         if (minOffset > ids.size) {
           // no data to fetch
         } else {
           var maxOffset = (position * MAX_ITEMS_LIMIT) - 1 + MAX_ITEMS_LIMIT
-          if (maxOffset > ids.size) {
+
+          if (maxOffset >= ids.size) {
             maxOffset = ids.size - 1
           }
+
+          if (minOffset >= maxOffset) {
+            minOffset = maxOffset - MAX_ITEMS_LIMIT
+          }
+
           val multipleIds = ids.subList(
             minOffset,
             maxOffset
           )
 
-          Timber.d("Sublist from : ${((position - 1) * MAX_ITEMS_LIMIT)} to ${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}")
+          val logStmt = "Sublist from: ${(position - 1) * MAX_ITEMS_LIMIT}" +
+            " to  ${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}"
+          Timber.d(logStmt)
 
           Timber.d("List size: " + ids.size)
           Timber.d("fetching : $multipleIds")
@@ -53,7 +61,7 @@ class StoryPagingSource(
               id to apiResponse // associate id and response for later
             }
           }
-          delay(3000)
+//          delay(3000)
           val responses = runningTasks.awaitAll()
           responses.forEach { (_, response) ->
             if (response.success) {
@@ -61,14 +69,12 @@ class StoryPagingSource(
             }
           }
 //        Timber.d("Res: $list")
-
         }
         LoadResult.Page(
           data = list,
           prevKey = if (position == START_PAGE_INDEX) null else position - 1,
           nextKey = if (list.isEmpty()) null else position + 1
         )
-
       }
     } catch (e: Exception) {
 //      LoadResult.Error(e)

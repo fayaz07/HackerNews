@@ -20,9 +20,11 @@
 
   <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottomNavBar"
-    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+    style="Widget.Material3.BottomNavigationView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:elevation="8sp"
+    app:flow_wrapMode="aligned"
     app:labelVisibilityMode="labeled"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"

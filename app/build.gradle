@@ -1,78 +1,81 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-parcelize'
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-parcelize'
 
-    id 'androidx.navigation.safeargs.kotlin'
+  id 'androidx.navigation.safeargs.kotlin'
 
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+  id 'kotlin-kapt'
+  id 'dagger.hilt.android.plugin'
 }
 
 // for reading local.properties
 def properties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
-    properties.load(localPropertiesFile.newDataInputStream())
+  properties.load(localPropertiesFile.newDataInputStream())
 }
 
 def hnBaseUrl = properties.getProperty('hn.baseUrl') != null
-        ? properties.getProperty('hn.baseUrl') : ""
+    ? properties.getProperty('hn.baseUrl') : ""
 def hnApiVersion = properties.getProperty('hn.apiVersion') != null
-        ? properties.getProperty('hn.apiVersion') : ""
+    ? properties.getProperty('hn.apiVersion') : ""
 
 android {
-    compileSdk 31
+  compileSdk 31
 
-    defaultConfig {
-        applicationId "com.mohammadfayaz.news"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+  defaultConfig {
+    applicationId "com.mohammadfayaz.news"
+    minSdk 21
+    targetSdk 31
+    versionCode 1
+    versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+
+    buildTypes.each {
+      it.buildConfigField("String", "hnBaseUrl", "\"${hnBaseUrl}\"")
+      it.buildConfigField("String", "hnApiVersion", "\"${hnApiVersion}\"")
     }
 
-    buildTypes {
-
-        buildTypes.each {
-            it.buildConfigField("String", "hnBaseUrl", "\"${hnBaseUrl}\"")
-            it.buildConfigField("String", "hnApiVersion", "\"${hnApiVersion}\"")
-        }
-
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding true
-    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+  buildFeatures {
+    viewBinding true
+  }
 }
 
 dependencies {
 
-    implementation(libs.bundles.androidxCore)
-    implementation(libs.bundles.androidxNavigation)
-    implementation(libs.bundles.androidxLifecycle)
-    implementation(libs.bundles.google)
-    implementation(libs.bundles.jakewharton)
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.mikepenz)
-    implementation(libs.bundles.androidxViews)
-    implementation(libs.bundles.androidxCache)
+  implementation(libs.bundles.androidxCore)
+  implementation(libs.bundles.androidxNavigation)
+  implementation(libs.bundles.androidxLifecycle)
+  implementation(libs.bundles.google)
+  implementation(libs.bundles.jakewharton)
+  implementation(libs.bundles.retrofit)
+  implementation(libs.bundles.mikepenz)
+  implementation(libs.bundles.androidxViews)
+  implementation(libs.bundles.androidxCache)
+  implementation 'androidx.appcompat:appcompat:1.4.0'
+  implementation 'com.google.android.material:material:1.4.0'
+  implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
 
-    kapt(libs.bundles.kapt)
+  kapt(libs.bundles.kapt)
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+  testImplementation 'junit:junit:4.+'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

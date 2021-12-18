@@ -5,6 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class StoryDetailViewModel @Inject constructor() : ViewModel() {
+class StoryDetailedViewModel @Inject constructor() : ViewModel() {
   // TODO: Implement the ViewModel
 }

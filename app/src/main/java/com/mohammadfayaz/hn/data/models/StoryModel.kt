@@ -13,7 +13,7 @@ data class StoryModel(
   @PrimaryKey @SerializedName("id") val id: Int,
   @SerializedName("type") val type: String,
 
-  @SerializedName("title") val title: String? = "",
+  @SerializedName("title") var title: String? = "",
   @SerializedName("url") val url: String? = "",
   @SerializedName("by") val by: String? = "hn",
   @SerializedName("dead") val dead: Boolean? = false,
@@ -36,6 +36,5 @@ data class StoryModel(
     if (parts == null) {
       parts = emptyList()
     }
-
   }
 }

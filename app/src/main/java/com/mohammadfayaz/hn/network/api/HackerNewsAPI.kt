@@ -26,7 +26,7 @@ interface HackerNewsAPI {
 
   @GET(EndPoints.ITEM_BY_ID)
   suspend fun getStoryById(@Path("id") id: Int): Response<StoryModel>
-  
+
   @GET(EndPoints.ITEM_BY_ID)
   suspend fun getShowStoryById(@Path("id") id: Int): Response<ShowStoryModel>
 
@@ -41,5 +41,4 @@ interface HackerNewsAPI {
 
   @GET(EndPoints.USER_BY_ID)
   suspend fun getUserById(@Path("id") id: String): Response<UserModel>
-
 }

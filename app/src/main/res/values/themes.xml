@@ -11,7 +11,13 @@
     <item name="colorOnSecondary">@color/black</item>
     <!-- Status bar color. -->
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    <item name="android:colorPrimary">@color/primaryColor</item>
     <!-- Customize your theme here. -->
+
+    <item name="colorPrimaryDark">@color/primaryColor</item>
+    <item name="android:colorBackground">@color/backgroundColor</item>
+    <item name="colorError">@color/errorColor</item>
+
   </style>
 
   <style name="Theme.MySplash" parent="Theme.SplashScreen">
@@ -20,11 +26,8 @@
     <item name="postSplashScreenTheme">@style/Theme.News</item>
     <!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
     <item name="windowSplashScreenAnimatedIcon">
-      @drawable/splash_logo
+      @drawable/text_logo
     </item>
   </style>
 
-  <style name="TextAppearance.AppCompat.Caption.Custom" parent="TextAppearance.AppCompat.Caption">
-    <item name="android:textColor">@color/captionTextColor</item>
-  </style>
 </resources>

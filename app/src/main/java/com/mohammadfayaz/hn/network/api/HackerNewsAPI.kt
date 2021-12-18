@@ -27,18 +27,6 @@ interface HackerNewsAPI {
   @GET(EndPoints.ITEM_BY_ID)
   suspend fun getStoryById(@Path("id") id: Int): Response<StoryModel>
 
-  @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getShowStoryById(@Path("id") id: Int): Response<ShowStoryModel>
-
-  @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getAskStoryById(@Path("id") id: Int): Response<AskStoryModel>
-
-  @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getTopStoryById(@Path("id") id: Int): Response<TopStoryModel>
-
-  @GET(EndPoints.ITEM_BY_ID)
-  suspend fun getJobById(@Path("id") id: Int): Response<JobStoryModel>
-
   @GET(EndPoints.USER_BY_ID)
   suspend fun getUserById(@Path("id") id: String): Response<UserModel>
 }

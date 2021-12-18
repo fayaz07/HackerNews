@@ -6,14 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mohammadfayaz.hn.data.db.converters.ListConverters
-import com.mohammadfayaz.hn.data.db.dao.ShowStoryDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
-import com.mohammadfayaz.hn.data.models.ShowStoryModel
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.utils.AppConstants
 
 @Database(
-  entities = [ShowStoryModel::class, StoryModel::class],
+  entities = [StoryModel::class],
   version = 1,
   exportSchema = false
 )
@@ -21,8 +19,6 @@ import com.mohammadfayaz.hn.utils.AppConstants
   *[ListConverters::class]
 )
 abstract class HackerNewsDB : RoomDatabase() {
-
-  abstract fun showStoryDao(): ShowStoryDao
 
   abstract fun storyDao(): StoryDao
 

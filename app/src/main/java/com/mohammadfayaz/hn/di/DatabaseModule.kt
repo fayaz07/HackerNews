@@ -19,9 +19,5 @@ class DatabaseModule {
 
   @Provides
   @Singleton
-  fun provideShowStoriesDao(db: HackerNewsDB) = db.showStoryDao()
-
-  @Provides
-  @Singleton
   fun provideStoryDao(db: HackerNewsDB) = db.storyDao()
 }

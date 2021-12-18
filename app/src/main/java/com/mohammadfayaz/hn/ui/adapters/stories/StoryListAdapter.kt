@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.adapters.show_stories
+package com.mohammadfayaz.hn.ui.adapters.stories
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mohammadfayaz.hn.data.models.StoryModel
-import com.mohammadfayaz.hn.databinding.LayoutShowStoryBinding
+import com.mohammadfayaz.hn.databinding.LayoutStoryItemBinding
 
 class StoryListAdapter constructor(private val listener: StoryItemClickListener) :
   PagingDataAdapter<StoryModel, StoryListAdapter.StoryViewHolder>(StoryDiffUtilCallBack()) {
@@ -17,7 +17,7 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
 
   fun from(parent: ViewGroup): StoryViewHolder {
     return StoryViewHolder(
-      LayoutShowStoryBinding.inflate(
+      LayoutStoryItemBinding.inflate(
         LayoutInflater.from(
           parent.context
         ),
@@ -32,7 +32,7 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
   }
 
   inner class StoryViewHolder constructor(
-    private val binding: LayoutShowStoryBinding
+    private val binding: LayoutStoryItemBinding
   ) :
     RecyclerView.ViewHolder(binding.root) {
 

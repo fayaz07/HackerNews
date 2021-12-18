@@ -11,7 +11,7 @@ import androidx.paging.LoadState
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
-import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryListAdapter
+import com.mohammadfayaz.hn.ui.adapters.stories.StoryListAdapter
 import com.mohammadfayaz.hn.ui.base.BaseFragment
 import com.mohammadfayaz.hn.utils.ViewEvent
 import dagger.hilt.android.AndroidEntryPoint

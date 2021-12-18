@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.adapters.show_stories
+package com.mohammadfayaz.hn.ui.adapters.stories
 
 import com.mohammadfayaz.hn.data.models.StoryModel
 

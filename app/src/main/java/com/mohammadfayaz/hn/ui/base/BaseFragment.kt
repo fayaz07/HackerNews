@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.data.models.StoryModel
-import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryItemClickListener
+import com.mohammadfayaz.hn.ui.adapters.stories.StoryItemClickListener
 import com.mohammadfayaz.hn.ui.story_detail.StoryDetailedActivity
 import timber.log.Timber
 

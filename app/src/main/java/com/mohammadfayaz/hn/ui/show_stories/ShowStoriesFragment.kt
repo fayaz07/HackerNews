@@ -5,26 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import com.google.android.material.snackbar.Snackbar
-import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
-import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryItemClickListener
 import com.mohammadfayaz.hn.ui.adapters.show_stories.StoryListAdapter
-import com.mohammadfayaz.hn.ui.story_detail.StoryDetailedActivity
+import com.mohammadfayaz.hn.ui.base.BaseFragment
 import com.mohammadfayaz.hn.utils.ViewEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 @AndroidEntryPoint
-class ShowStoriesFragment : Fragment(), StoryItemClickListener {
+class ShowStoriesFragment : BaseFragment() {
 
   private val viewModel: ShowStoriesViewModel by viewModels()
   private lateinit var binding: FragmentShowStoriesBinding
@@ -38,29 +33,23 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
   ): View {
     binding = FragmentShowStoriesBinding.inflate(layoutInflater)
 
+    setBinding(binding)
+
     registerViewEvents()
     addObservers()
 
     return binding.root
   }
 
-  private fun showLoader() {
-    binding.progressBar.visibility = View.VISIBLE
+  private fun showHideLoader(show: Boolean) {
+    binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
   }
 
-  private fun hideLoader() {
-    binding.progressBar.visibility = View.GONE
+  private fun showHideErrorViews(show: Boolean) {
+    binding.errorViewLayout.root.visibility = if (show) View.VISIBLE else View.GONE
   }
 
-  private fun showErrorViews() {
-    binding.errorViewLayout.root.visibility = View.VISIBLE
-  }
-
-  private fun hideErrorViews() {
-    binding.errorViewLayout.root.visibility = View.GONE
-  }
-
-  private fun registerViewEvents() {
+  override fun registerViewEvents() {
     adapter = StoryListAdapter(this)
     setupRecyclerView()
 
@@ -79,7 +68,7 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
     }
   }
 
-  private fun addObservers() {
+  override fun addObservers() {
     viewModel.liveData.observe(viewLifecycleOwner) {
       handleViewEvents(it)
     }
@@ -91,21 +80,21 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
     when (viewEvent) {
       is ViewEvent.Error<*> -> {
         binding.errorViewLayout.errorTextView.text = viewEvent.error
-        hideLoader()
-        showErrorViews()
+        showHideLoader(false)
+        showHideErrorViews(false)
       }
       ViewEvent.Idle -> {
-        hideLoader()
+        showHideLoader(false)
       }
       ViewEvent.Loading -> {
-        hideErrorViews()
-        showLoader()
+        showHideErrorViews(false)
+        showHideLoader(true)
       }
       is ViewEvent.Success<*> -> {
         when (viewEvent.code) {
           FETCHED_IDS -> {
             listenToPaginationFlow(viewEvent.data!! as IdsResponse)
-            hideLoader()
+            showHideErrorViews(false)
           }
         }
       }
@@ -116,18 +105,14 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
     adapter.addLoadStateListener { loadStates ->
       binding.progressBar.isVisible = loadStates.refresh is LoadState.Loading
       if (loadStates.refresh is LoadState.Error) {
-        showErrorViews()
+        showHideErrorViews(true)
         binding.errorViewLayout.errorTextView.text =
           (loadStates.refresh as LoadState.Error).error.localizedMessage
       } else {
-        hideErrorViews()
+        showHideErrorViews(false)
       }
     }
   }
-
-//  private fun showError(error: String) {
-//    Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
-//  }
 
   private fun listenToPaginationFlow(ids: IdsResponse) {
     lifecycleScope.launch {
@@ -136,15 +121,6 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
         adapter.submitData(it)
       }
     }
-  }
-
-  override fun onClick(item: StoryModel) {
-    Timber.d("$item ")
-    StoryDetailedActivity.open(requireActivity(), item)
-  }
-
-  override fun onClickError() {
-    Snackbar.make(binding.root, "Unable to open story", Snackbar.LENGTH_SHORT).show()
   }
 
   companion object {

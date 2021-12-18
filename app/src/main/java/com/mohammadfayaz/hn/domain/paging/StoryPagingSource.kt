@@ -39,7 +39,7 @@ class StoryPagingSource(
             maxOffset = ids.size - 1
           }
 
-          if(minOffset >= maxOffset){
+          if (minOffset >= maxOffset) {
             minOffset = maxOffset - MAX_ITEMS_LIMIT
           }
 
@@ -48,10 +48,9 @@ class StoryPagingSource(
             maxOffset
           )
 
-          Timber.d(
-            "Sublist from : ${((position - 1) * MAX_ITEMS_LIMIT)} to " +
-              "${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}"
-          )
+          val logStmt = "Sublist from: ${(position - 1) * MAX_ITEMS_LIMIT}" +
+            " to  ${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}"
+          Timber.d(logStmt)
 
           Timber.d("List size: " + ids.size)
           Timber.d("fetching : $multipleIds")

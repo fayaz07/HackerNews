@@ -6,6 +6,7 @@
    <a href="https://www.codacy.com/gh/fayaz07/HackerNews/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fayaz07/HackerNews&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/437257ee0dfa4fb9948ce147729270be"/></a> 
    <a href="https://circleci.com/gh/fayaz07/HackerNews/tree/main"><img alt="CircleCI" src="https://circleci.com/gh/fayaz07/HackerNews/tree/main.svg?style=svg" /></a> 
    <a href="https://ktlint.github.io/"><img alt="ktlint" src="https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg" /></a>
+   <a href="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml"><img alt="lint-check" src="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml/badge.svg"/> </a>
 </div>
 
 # MAD Scorecard
@@ -43,4 +44,3 @@ hn.apiVersion=v0/
 ## Screenshots
 
 <img src="screenshots/Screenshot_1638044797.png" width="30%" height="30%"/> <img src="screenshots/Screenshot_1638188243.png" width="30%" height="30%"/>
-

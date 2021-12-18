@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
+import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
@@ -126,12 +127,12 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
   }
 
   override fun onClick(item: StoryModel) {
-    Timber.d(item.toString() + " ")
+    Timber.d("$item ")
     StoryDetailedActivity.open(requireActivity(), item)
   }
 
   override fun onClickError() {
-
+    Snackbar.make(binding.root, "Unable to open story", Snackbar.LENGTH_SHORT).show()
   }
 
   companion object {

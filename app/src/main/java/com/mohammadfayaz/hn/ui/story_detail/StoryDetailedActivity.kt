@@ -3,7 +3,6 @@ package com.mohammadfayaz.hn.ui.story_detail
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebResourceError
@@ -11,6 +10,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.ActivityStoryDetailedBinding
@@ -72,7 +72,7 @@ class StoryDetailedActivity : AppCompatActivity() {
     }
   }
 
-  private fun registerViewEvents(){
+  private fun registerViewEvents() {
     binding.apply {
       webView.apply {
         settings.javaScriptEnabled = true
@@ -100,7 +100,7 @@ class StoryDetailedActivity : AppCompatActivity() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
       super.onPageStarted(view, url, favicon)
       startLoading()
-      Timber.d("onPageStarted ${url}")
+      Timber.d("onPageStarted $url")
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
@@ -115,7 +115,7 @@ class StoryDetailedActivity : AppCompatActivity() {
       error: WebResourceError?
     ) {
       super.onReceivedError(view, request, error)
-      showError("We are unable to load the webpage ${request?.url} " )
+      showError("We are unable to load the webpage ${request?.url} ")
     }
   }
 }

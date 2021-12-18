@@ -62,45 +62,57 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
 
   private fun registerViewEvents() {
     adapter = StoryListAdapter(this)
+    setupRecyclerView()
+
+    binding.errorViewLayout.retryButton.setOnClickListener {
+      viewModel.pullData()
+    }
+  }
+
+  private fun setupRecyclerView() {
     binding.apply {
       recyclerView.setHasFixedSize(true)
       recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
         header = LoadingIndicatorAdapter { adapter.retry() },
         footer = LoadingIndicatorAdapter { adapter.retry() }
       )
-
-      errorViewLayout.retryButton.setOnClickListener {
-        viewModel.pullData()
-      }
     }
   }
 
   private fun addObservers() {
     viewModel.liveData.observe(viewLifecycleOwner) {
-      when (it) {
-        is ViewEvent.Error<*> -> {
-          binding.errorViewLayout.errorTextView.text = it.error
-          hideLoader()
-          showErrorViews()
-        }
-        ViewEvent.Idle -> {
-          hideLoader()
-        }
-        ViewEvent.Loading -> {
-          hideErrorViews()
-          showLoader()
-        }
-        is ViewEvent.Success<*> -> {
-          when (it.code) {
-            FETCHED_IDS -> {
-              listenToPaginationFlow(it.data!! as IdsResponse)
-              hideLoader()
-            }
+      handleViewEvents(it)
+    }
+
+    listenToLoadingStates()
+  }
+
+  private fun handleViewEvents(viewEvent: ViewEvent) {
+    when (viewEvent) {
+      is ViewEvent.Error<*> -> {
+        binding.errorViewLayout.errorTextView.text = viewEvent.error
+        hideLoader()
+        showErrorViews()
+      }
+      ViewEvent.Idle -> {
+        hideLoader()
+      }
+      ViewEvent.Loading -> {
+        hideErrorViews()
+        showLoader()
+      }
+      is ViewEvent.Success<*> -> {
+        when (viewEvent.code) {
+          FETCHED_IDS -> {
+            listenToPaginationFlow(viewEvent.data!! as IdsResponse)
+            hideLoader()
           }
         }
       }
     }
+  }
 
+  private fun listenToLoadingStates() {
     adapter.addLoadStateListener { loadStates ->
       binding.progressBar.isVisible = loadStates.refresh is LoadState.Loading
       if (loadStates.refresh is LoadState.Error) {

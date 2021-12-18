@@ -57,6 +57,7 @@ abstract class BaseStoryRepo constructor(
   private suspend fun storeInDb(item: StoryModel, type: StoryType) {
     item.storyType = type
     item.setDefaults()
+    item.title = item.title?.replace("Show HN: ", "")
 //    Timber.d("Storing in localdb")
     dao.insert(item)
   }

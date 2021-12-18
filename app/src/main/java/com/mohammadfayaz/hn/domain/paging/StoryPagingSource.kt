@@ -28,15 +28,21 @@ class StoryPagingSource(
         Timber.d("Curr position: $position")
         val list = mutableListOf<StoryModel>()
 
-        val minOffset = (position * MAX_ITEMS_LIMIT) - 1
+        var minOffset = (position * MAX_ITEMS_LIMIT) - 1
 
         if (minOffset > ids.size) {
           // no data to fetch
         } else {
           var maxOffset = (position * MAX_ITEMS_LIMIT) - 1 + MAX_ITEMS_LIMIT
-          if (maxOffset > ids.size) {
+
+          if (maxOffset >= ids.size) {
             maxOffset = ids.size - 1
           }
+
+          if(minOffset >= maxOffset){
+            minOffset = maxOffset - MAX_ITEMS_LIMIT
+          }
+
           val multipleIds = ids.subList(
             minOffset,
             maxOffset

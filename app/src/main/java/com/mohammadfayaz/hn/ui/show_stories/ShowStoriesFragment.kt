@@ -8,7 +8,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
@@ -21,6 +20,7 @@ import com.mohammadfayaz.hn.utils.ViewEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class ShowStoriesFragment : Fragment(), StoryItemClickListener {
@@ -126,7 +126,8 @@ class ShowStoriesFragment : Fragment(), StoryItemClickListener {
   }
 
   override fun onClick(item: StoryModel) {
-    StoryDetailedActivity.open(requireActivity())
+    Timber.d(item.toString() + " ")
+    StoryDetailedActivity.open(requireActivity(), item)
   }
 
   override fun onClickError() {

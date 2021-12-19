@@ -81,7 +81,7 @@ class ShowStoriesFragment : BaseFragment() {
       is ViewEvent.Error<*> -> {
         binding.errorViewLayout.errorTextView.text = viewEvent.error
         showHideLoader(false)
-        showHideErrorViews(false)
+        showHideErrorViews(true)
       }
       ViewEvent.Idle -> {
         showHideLoader(false)

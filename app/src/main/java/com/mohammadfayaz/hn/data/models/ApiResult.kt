@@ -4,7 +4,7 @@ sealed class ApiResult<out T>(val result: T?, val success: Boolean, val message:
   data class ERROR<out T>(val error: String) :
     ApiResult<T>(result = null, success = false, message = error)
 
-  object NETWORK_ERROR :
+  object NetworkError :
     ApiResult<Nothing>(
       result = null,
       success = false,

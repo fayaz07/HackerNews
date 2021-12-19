@@ -34,7 +34,7 @@ abstract class BaseStoryRepo constructor(
 
       return when (val fromNetwork = fetchItemByIdFromNetwork(id)) {
         is ResultWrapper.GenericError -> ApiResult.ERROR(fromNetwork.error)
-        ResultWrapper.NetworkError -> ApiResult.NETWORK_ERROR
+        ResultWrapper.NetworkError -> ApiResult.NetworkError
         is ResultWrapper.Success -> {
           storeInDb(fromNetwork.value.body()!!, type)
           ApiResult.OK(res = fromNetwork.value.body()!!)

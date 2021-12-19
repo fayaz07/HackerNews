@@ -13,6 +13,8 @@ sealed class ResultWrapper<out T> {
 
   companion object {
 
+    private const val safeApiCall = "safeApiCall"
+
     const val SOMETHING_WENT_WRONG: String = "Something went wrong"
     const val SOMETHING_WENT_WRONG_CODE: Int = 500
 
@@ -23,25 +25,30 @@ sealed class ResultWrapper<out T> {
       )
       try {
         val res = apiCall.invoke()
-//    Timber.tag("ttt").d(res.toString())
         res as retrofit2.Response<*>
         response = if (res.isSuccessful) {
           Success(res)
         } else {
           val errorResponse = getError(res)
+          Timber.tag(safeApiCall).d("Generic Error- $errorResponse")
           GenericError(res.code(), errorResponse)
         }
       } catch (throwable: Throwable) {
+        Timber.tag(safeApiCall).d("Exception caught- ")
         throwable.printStackTrace()
         when (throwable) {
-          is IOException -> NetworkError
+          is IOException -> {
+            Timber.tag(safeApiCall).d("Network Error - ")
+            response = NetworkError
+          }
           is HttpException -> {
+            Timber.tag(safeApiCall).d("Http Exception- ")
             val code = throwable.code()
             val err = throwable.response()?.errorBody()?.charStream()
             response = GenericError(code, err.toString())
           }
           else -> {
-            Timber.log(3, throwable)
+            Timber.tag(safeApiCall).d("Some Generic Error- ")
             response = GenericError(
               SOMETHING_WENT_WRONG_CODE,
               SOMETHING_WENT_WRONG

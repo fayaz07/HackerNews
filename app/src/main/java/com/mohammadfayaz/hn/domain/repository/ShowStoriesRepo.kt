@@ -31,7 +31,7 @@ class ShowStoriesRepo @Inject constructor(
       }
     ) {
       is ResultWrapper.GenericError -> ApiResult.ERROR(response.error)
-      ResultWrapper.NetworkError -> ApiResult.NETWORK_ERROR
+      ResultWrapper.NetworkError -> ApiResult.NetworkError
       is ResultWrapper.Success -> ApiResult.OK("", response.value.body()!!)
     }
   }

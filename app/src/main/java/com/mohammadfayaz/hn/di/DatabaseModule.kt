@@ -2,6 +2,8 @@ package com.mohammadfayaz.hn.di
 
 import android.content.Context
 import com.mohammadfayaz.hn.data.db.HackerNewsDB
+import com.mohammadfayaz.hn.data.db.dao.IdsDao
+import com.mohammadfayaz.hn.data.db.dao.StoryDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,5 +21,9 @@ class DatabaseModule {
 
   @Provides
   @Singleton
-  fun provideStoryDao(db: HackerNewsDB) = db.storyDao()
+  fun provideStoryDao(db: HackerNewsDB): StoryDao = db.storyDao()
+
+  @Provides
+  @Singleton
+  fun provideIdsDao(db: HackerNewsDB): IdsDao = db.idsDao()
 }

@@ -3,6 +3,7 @@ package com.mohammadfayaz.hn.domain.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
 import com.mohammadfayaz.hn.data.models.ApiResult
 import com.mohammadfayaz.hn.data.models.StoryModel
@@ -14,25 +15,46 @@ import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
 import com.mohammadfayaz.hn.network.ResultWrapper
 import com.mohammadfayaz.hn.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ShowStoriesRepo @Inject constructor(
   private val api: HackerNewsAPI,
-  dao: StoryDao
-) : BaseStoryRepo(api, dao) {
+  storyDao: StoryDao,
+  idDao: IdsDao
+) : BaseStoryRepo(api, storyDao, idDao) {
 
   private val storyType: StoryType = StoryType.SHOW
 
-  override suspend fun fetchStories(): ApiResult<IdsResponse> {
-    return when (
-      val response = ResultWrapper.safeApiCall {
-        api.getShowStories()
+  override suspend fun fetchStoryIds(): ApiResult<IdsResponse> {
+
+    withContext(Dispatchers.Default) {
+      val idRequests = mutableListOf<Any>()
+      idRequests.add(
+        ResultWrapper.safeApiCall {
+          api.getShowStories()
+        })
+      idRequests.add(fetchIdsFromDb(storyType))
+
+      val runningTasks = idRequests.map {
+        async {
+          it
+        }
       }
-    ) {
-      is ResultWrapper.GenericError -> ApiResult.ERROR(response.error)
-      ResultWrapper.NetworkError -> ApiResult.NetworkError
-      is ResultWrapper.Success -> ApiResult.OK("", response.value.body()!!)
+      val responses = runningTasks.awaitAll()
+
+      
+//      return when (
+//        response
+//      ) {
+//        is ResultWrapper.GenericError -> ApiResult.ERROR(response.error)
+//        ResultWrapper.NetworkError -> ApiResult.NetworkError
+//        is ResultWrapper.Success -> ApiResult.OK("", response.value.body()!!)
+//      }
     }
   }
 

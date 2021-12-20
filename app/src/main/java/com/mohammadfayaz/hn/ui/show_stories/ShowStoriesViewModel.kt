@@ -28,7 +28,7 @@ class ShowStoriesViewModel @Inject constructor(private val repo: ShowStoriesRepo
   fun pullData() {
     viewModelScope.launch {
       _liveData.load()
-      val response = repo.fetchStories()
+      val response = repo.fetchStoryIds()
       if (response.success)
         _liveData.success(response.result!!, "", FETCHED_IDS)
       else

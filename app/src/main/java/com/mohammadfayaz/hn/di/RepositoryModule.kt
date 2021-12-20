@@ -1,5 +1,6 @@
 package com.mohammadfayaz.hn.di
 
+import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
 import com.mohammadfayaz.hn.domain.repository.ShowStoriesRepo
 import com.mohammadfayaz.hn.network.api.HackerNewsAPI
@@ -15,5 +16,6 @@ class RepositoryModule {
 
   @Provides
   @Singleton
-  fun showStoriesRepo(api: HackerNewsAPI, dao: StoryDao) = ShowStoriesRepo(api, dao)
+  fun showStoriesRepo(api: HackerNewsAPI, dao: StoryDao, idsDao: IdsDao) =
+    ShowStoriesRepo(api, dao, idsDao)
 }

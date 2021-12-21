@@ -1,5 +1,10 @@
 package com.mohammadfayaz.hn.ui.base
 
+import android.text.Layout
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.AlignmentSpan
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -34,5 +39,15 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
 
   override fun onClickError() {
     showError("Unable to open story")
+  }
+
+  fun showToast(msg: String) {
+    val centeredText: Spannable = SpannableString(msg)
+    centeredText.setSpan(
+      AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+      0, msg.length - 1,
+      Spannable.SPAN_INCLUSIVE_INCLUSIVE
+    )
+    Toast.makeText(requireContext(), centeredText, Toast.LENGTH_SHORT).show()
   }
 }

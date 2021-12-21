@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
 import com.mohammadfayaz.hn.data.models.ApiResult
+import com.mohammadfayaz.hn.data.models.StoryIdModel
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.data.models.StoryType
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
@@ -15,11 +16,7 @@ import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
 import com.mohammadfayaz.hn.network.ResultWrapper
 import com.mohammadfayaz.hn.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ShowStoriesRepo @Inject constructor(
@@ -30,32 +27,59 @@ class ShowStoriesRepo @Inject constructor(
 
   private val storyType: StoryType = StoryType.SHOW
 
-  override suspend fun fetchStoryIds(): ApiResult<IdsResponse> {
+  override suspend fun fetchStoryIds(): ApiResult<List<Int>> {
 
-    withContext(Dispatchers.Default) {
-      val idRequests = mutableListOf<Any>()
-      idRequests.add(
-        ResultWrapper.safeApiCall {
-          api.getShowStories()
-        })
-      idRequests.add(fetchIdsFromDb(storyType))
+    val networkResponse = ResultWrapper.safeApiCall {
+      api.getShowStories()
+    }
+    val localResponse: List<StoryIdModel> = fetchIdsFromDb(storyType)
 
-      val runningTasks = idRequests.map {
-        async {
-          it
+    val idsList = mutableSetOf<Int>()
+
+    return when (
+      networkResponse
+    ) {
+      is ResultWrapper.GenericError -> {
+        if (localResponse.isNotEmpty()) {
+          idsList.addAll(copyIdsIntoList(localResponse))
+          ApiResult.OK("Unable to fetch data from internet, fetched cached data", idsList.toList())
+        }else{
+          ApiResult.ERROR(networkResponse.error + ", no data available in cached storage")
         }
       }
-      val responses = runningTasks.awaitAll()
-
-      
-//      return when (
-//        response
-//      ) {
-//        is ResultWrapper.GenericError -> ApiResult.ERROR(response.error)
-//        ResultWrapper.NetworkError -> ApiResult.NetworkError
-//        is ResultWrapper.Success -> ApiResult.OK("", response.value.body()!!)
-//      }
+      ResultWrapper.NetworkError -> {
+        if (localResponse.isNotEmpty()) {
+          idsList.addAll(copyIdsIntoList(localResponse))
+          ApiResult.OK("No internet connection, fetched cached data", idsList.toList())
+        }else{
+          ApiResult.NetworkError
+        }
+      }
+      is ResultWrapper.Success -> {
+        if (networkResponse.value.body() != null) {
+          val list = mutableListOf<StoryIdModel>()
+          val currentTimestamp = System.currentTimeMillis()
+          for (i in networkResponse.value.body()!!) {
+            idsList.add(i)
+            list.add(StoryIdModel(i, storyType, currentTimestamp))
+          }
+          storeIdsInDb(list)
+          ApiResult.OK("", idsList.toList())
+        } else {
+          ApiResult.ERROR("No data found")
+        }
+      }
     }
+  }
+
+  private fun copyIdsIntoList(
+    fromList: List<StoryIdModel>
+  ): MutableSet<Int> {
+    val idsList: MutableSet<Int> = mutableSetOf()
+    for (i in fromList) {
+      idsList.add(i.id)
+    }
+    return idsList
   }
 
   override suspend fun fetchItemById(id: Int): ApiResult<StoryModel> {

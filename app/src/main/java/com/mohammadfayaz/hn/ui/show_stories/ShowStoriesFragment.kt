@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
-import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
 import com.mohammadfayaz.hn.ui.adapters.stories.StoryListAdapter
 import com.mohammadfayaz.hn.ui.base.BaseFragment
@@ -93,7 +92,8 @@ class ShowStoriesFragment : BaseFragment() {
       is ViewEvent.Success<*> -> {
         when (viewEvent.code) {
           FETCHED_IDS -> {
-            listenToPaginationFlow(viewEvent.data!! as IdsResponse)
+            showToast(viewEvent.message)
+            listenToPaginationFlow(viewEvent.data as List<Int>)
             showHideErrorViews(false)
           }
         }
@@ -114,7 +114,7 @@ class ShowStoriesFragment : BaseFragment() {
     }
   }
 
-  private fun listenToPaginationFlow(ids: IdsResponse) {
+  private fun listenToPaginationFlow(ids: List<Int>) {
     lifecycleScope.launch {
       binding.progressBar.visibility = View.GONE
       viewModel.getPaginatedFlow(ids).collect {

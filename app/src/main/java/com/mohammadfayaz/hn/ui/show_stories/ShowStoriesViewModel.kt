@@ -30,9 +30,9 @@ class ShowStoriesViewModel @Inject constructor(private val repo: ShowStoriesRepo
       _liveData.load()
       val response = repo.fetchStoryIds()
       if (response.success)
-        _liveData.success(response.result!!, "", FETCHED_IDS)
+        _liveData.success(response.result!!, response.message, FETCHED_IDS)
       else
-        _liveData.error(response.message + "\nUnable to fetch story ids", API_ERROR, null)
+        _liveData.error(response.message, API_ERROR, null)
     }
   }
 

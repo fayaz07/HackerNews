@@ -20,7 +20,7 @@ abstract class BaseStoryRepo(
   private val idDao: IdsDao
 ) {
 
-  abstract suspend fun fetchStoryIds(): ApiResult<IdsResponse>
+  abstract suspend fun fetchStoryIds(): ApiResult<List<Int>>
 
   abstract suspend fun fetchItemById(id: Int): ApiResult<StoryModel>
 
@@ -38,8 +38,12 @@ abstract class BaseStoryRepo(
         is ResultWrapper.GenericError -> ApiResult.ERROR(fromNetwork.error)
         ResultWrapper.NetworkError -> ApiResult.NetworkError
         is ResultWrapper.Success -> {
-          storeItemInDb(fromNetwork.value.body()!!, type)
-          ApiResult.OK(res = fromNetwork.value.body()!!)
+          if (fromNetwork.value.body() != null) {
+            storeItemInDb(fromNetwork.value.body()!!, type)
+            ApiResult.OK(res = fromNetwork.value.body()!!)
+          } else {
+            ApiResult.ERROR("Unable to fetch data")
+          }
         }
       }
     } catch (e: Exception) {

@@ -9,7 +9,9 @@ import android.view.View
 import android.webkit.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.google.android.material.snackbar.Snackbar
+import com.mohammadfayaz.hn.R
 import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.ActivityStoryDetailedBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -65,9 +67,7 @@ class StoryDetailedActivity : AppCompatActivity() {
   }
 
   private fun stopLoading() {
-    runOnUiThread {
-      binding.progressBar.visibility = View.GONE
-    }
+    binding.progressBar.visibility = View.GONE
   }
 
   @SuppressLint("SetJavaScriptEnabled")

@@ -42,6 +42,7 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
   }
 
   fun showToast(msg: String) {
+    if (msg.isBlank()) return
     val centeredText: Spannable = SpannableString(msg)
     centeredText.setSpan(
       AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),

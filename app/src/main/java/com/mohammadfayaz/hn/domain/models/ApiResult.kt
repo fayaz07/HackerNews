@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.data.models
+package com.mohammadfayaz.hn.domain.models
 
 sealed class ApiResult<out T>(val result: T?, val success: Boolean, val message: String = "") {
   data class ERROR<out T>(val error: String) :

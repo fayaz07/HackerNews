@@ -3,14 +3,13 @@ package com.mohammadfayaz.hn.domain.repository
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
-import com.mohammadfayaz.hn.data.models.ApiResult
-import com.mohammadfayaz.hn.data.models.StoryIdModel
-import com.mohammadfayaz.hn.data.models.StoryModel
-import com.mohammadfayaz.hn.data.models.StoryType
+import com.mohammadfayaz.hn.domain.models.ApiResult
+import com.mohammadfayaz.hn.domain.models.StoryIdModel
+import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.StoryType
 import com.mohammadfayaz.hn.network.ResultWrapper
 import com.mohammadfayaz.hn.network.ResultWrapper.Companion.safeApiCall
 import com.mohammadfayaz.hn.network.api.HackerNewsAPI
-import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 

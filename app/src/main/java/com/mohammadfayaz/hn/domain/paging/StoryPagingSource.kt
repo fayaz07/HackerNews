@@ -2,8 +2,8 @@ package com.mohammadfayaz.hn.domain.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mohammadfayaz.hn.data.models.ApiResult
-import com.mohammadfayaz.hn.data.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.ApiResult
+import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
 import com.mohammadfayaz.hn.domain.DataConfig.START_PAGE_INDEX
 import kotlinx.coroutines.*

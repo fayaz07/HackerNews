@@ -8,8 +8,8 @@ import androidx.room.TypeConverters
 import com.mohammadfayaz.hn.data.db.converters.ListConverters
 import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
-import com.mohammadfayaz.hn.data.models.StoryIdModel
-import com.mohammadfayaz.hn.data.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.StoryIdModel
+import com.mohammadfayaz.hn.domain.models.StoryModel
 
 @Database(
   entities = [StoryModel::class, StoryIdModel::class],

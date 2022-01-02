@@ -2,8 +2,8 @@ package com.mohammadfayaz.hn.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.mohammadfayaz.hn.data.models.StoryIdModel
-import com.mohammadfayaz.hn.data.models.StoryType
+import com.mohammadfayaz.hn.domain.models.StoryIdModel
+import com.mohammadfayaz.hn.domain.models.StoryType
 
 @Dao
 interface IdsDao : BaseDao<StoryIdModel> {

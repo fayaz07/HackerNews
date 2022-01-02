@@ -5,17 +5,16 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.db.dao.IdsDao
 import com.mohammadfayaz.hn.data.db.dao.StoryDao
-import com.mohammadfayaz.hn.data.models.ApiResult
-import com.mohammadfayaz.hn.data.models.StoryIdModel
-import com.mohammadfayaz.hn.data.models.StoryModel
-import com.mohammadfayaz.hn.data.models.StoryType
+import com.mohammadfayaz.hn.domain.models.ApiResult
+import com.mohammadfayaz.hn.domain.models.StoryIdModel
+import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.StoryType
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_PAGE_SIZE
 import com.mohammadfayaz.hn.domain.DataConfig.PRE_FETCH_DISTANCE
 import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
 import com.mohammadfayaz.hn.network.ResultWrapper
 import com.mohammadfayaz.hn.network.api.HackerNewsAPI
-import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

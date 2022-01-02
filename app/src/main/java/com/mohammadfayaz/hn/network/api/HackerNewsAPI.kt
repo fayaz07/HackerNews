@@ -1,6 +1,6 @@
 package com.mohammadfayaz.hn.network.api
 
-import com.mohammadfayaz.hn.data.models.*
+import com.mohammadfayaz.hn.domain.models.*
 import com.mohammadfayaz.hn.network.EndPoints
 import com.mohammadfayaz.hn.network.models.response.IdsResponse
 import retrofit2.Response

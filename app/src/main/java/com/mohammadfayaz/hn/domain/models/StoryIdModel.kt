@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.data.models
+package com.mohammadfayaz.hn.domain.models
 
 import android.os.Parcelable
 import androidx.room.Entity

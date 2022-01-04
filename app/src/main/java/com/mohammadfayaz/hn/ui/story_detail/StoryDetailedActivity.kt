@@ -10,8 +10,8 @@ import android.webkit.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.databinding.ActivityStoryDetailedBinding
+import com.mohammadfayaz.hn.domain.models.StoryModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

@@ -6,8 +6,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
-import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.databinding.LayoutStoryItemBinding
+import com.mohammadfayaz.hn.domain.models.StoryModel
 
 class StoryListAdapter constructor(private val listener: StoryItemClickListener) :
   PagingDataAdapter<StoryModel, StoryListAdapter.StoryViewHolder>(StoryDiffUtilCallBack()) {

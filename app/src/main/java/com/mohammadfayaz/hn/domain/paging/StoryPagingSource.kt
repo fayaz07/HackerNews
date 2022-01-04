@@ -2,11 +2,14 @@ package com.mohammadfayaz.hn.domain.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mohammadfayaz.hn.domain.models.ApiResult
-import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
 import com.mohammadfayaz.hn.domain.DataConfig.START_PAGE_INDEX
-import kotlinx.coroutines.*
+import com.mohammadfayaz.hn.domain.models.ApiResult
+import com.mohammadfayaz.hn.domain.models.StoryModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class StoryPagingSource(
@@ -48,9 +51,7 @@ class StoryPagingSource(
             maxOffset
           )
 
-          val logStmt = "Sublist from: ${(position - 1) * MAX_ITEMS_LIMIT}" +
-            " to  ${(position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT}"
-          Timber.d(logStmt)
+          printLogStatement(position)
 
           Timber.d("List size: " + ids.size)
           Timber.d("fetching : $multipleIds")
@@ -80,5 +81,12 @@ class StoryPagingSource(
 //      LoadResult.Error(e)
       throw e
     }
+  }
+
+  private fun printLogStatement(position: Int) {
+    val from = (position - 1) * MAX_ITEMS_LIMIT
+    val to = (position - 1) * MAX_ITEMS_LIMIT + MAX_ITEMS_LIMIT
+    val logStmt = "Sublist from: $from to  $to"
+    Timber.d(logStmt)
   }
 }

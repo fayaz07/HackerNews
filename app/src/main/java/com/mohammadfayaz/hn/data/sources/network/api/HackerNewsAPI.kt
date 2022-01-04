@@ -1,8 +1,10 @@
 package com.mohammadfayaz.hn.data.sources.network.api
 
-import com.mohammadfayaz.hn.domain.models.*
 import com.mohammadfayaz.hn.data.sources.network.EndPoints
 import com.mohammadfayaz.hn.data.sources.network.response.IdsResponse
+import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.UpdatesModel
+import com.mohammadfayaz.hn.domain.models.UserModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

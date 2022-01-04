@@ -5,16 +5,16 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
 import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
+import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
+import com.mohammadfayaz.hn.domain.DataConfig.MAX_PAGE_SIZE
+import com.mohammadfayaz.hn.domain.DataConfig.PRE_FETCH_DISTANCE
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.StoryType
-import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
-import com.mohammadfayaz.hn.domain.DataConfig.MAX_PAGE_SIZE
-import com.mohammadfayaz.hn.domain.DataConfig.PRE_FETCH_DISTANCE
 import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
-import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
-import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -41,8 +41,11 @@ class ShowStoriesRepo @Inject constructor(
       is ResultWrapper.GenericError -> {
         if (localResponse.isNotEmpty()) {
           idsList.addAll(copyIdsIntoList(localResponse))
-          ApiResult.OK("Unable to fetch data from internet, fetched cached data", idsList.toList())
-        }else{
+          ApiResult.OK(
+            "Unable to fetch data from internet, fetched cached data",
+            idsList.toList()
+          )
+        } else {
           ApiResult.ERROR(networkResponse.error + ", no data available in cached storage")
         }
       }
@@ -50,7 +53,7 @@ class ShowStoriesRepo @Inject constructor(
         if (localResponse.isNotEmpty()) {
           idsList.addAll(copyIdsIntoList(localResponse))
           ApiResult.OK("No internet connection, fetched cached data", idsList.toList())
-        }else{
+        } else {
           ApiResult.NetworkError
         }
       }

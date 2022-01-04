@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.network
+package com.mohammadfayaz.hn.data.sources.network
 
 object EndPoints {
   const val TOP_STORIES = "topstories.json"

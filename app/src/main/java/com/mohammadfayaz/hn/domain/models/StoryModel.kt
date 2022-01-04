@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.mohammadfayaz.hn.data.db.HackerNewsDB.Companion.storiesTable
+import com.mohammadfayaz.hn.data.sources.local.HackerNewsDB.Companion.storiesTable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

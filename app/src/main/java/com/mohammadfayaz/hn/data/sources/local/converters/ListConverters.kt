@@ -1,8 +1,8 @@
-package com.mohammadfayaz.hn.data.db.converters
+package com.mohammadfayaz.hn.data.sources.local.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.reflect.TypeToken
-import com.mohammadfayaz.hn.network.GsonInstance
+import com.mohammadfayaz.hn.data.sources.network.GsonInstance
 import java.lang.reflect.Type
 
 class ListConverters {

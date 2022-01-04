@@ -1,9 +1,9 @@
 package com.mohammadfayaz.hn.di
 
 import com.google.gson.Gson
-import com.mohammadfayaz.hn.network.GsonInstance
-import com.mohammadfayaz.hn.network.RetrofitInstance
-import com.mohammadfayaz.hn.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.data.sources.network.GsonInstance
+import com.mohammadfayaz.hn.data.sources.network.RetrofitInstance
+import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.network
+package com.mohammadfayaz.hn.data.sources.network
 
 import okio.IOException
 import retrofit2.HttpException

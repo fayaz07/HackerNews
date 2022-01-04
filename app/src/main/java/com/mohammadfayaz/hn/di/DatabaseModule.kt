@@ -1,9 +1,9 @@
 package com.mohammadfayaz.hn.di
 
 import android.content.Context
-import com.mohammadfayaz.hn.data.db.HackerNewsDB
-import com.mohammadfayaz.hn.data.db.dao.IdsDao
-import com.mohammadfayaz.hn.data.db.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.local.HackerNewsDB
+import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
+import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

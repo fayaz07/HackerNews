@@ -3,7 +3,7 @@ package com.mohammadfayaz.hn.domain.models
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.mohammadfayaz.hn.data.db.HackerNewsDB.Companion.idsTable
+import com.mohammadfayaz.hn.data.sources.local.HackerNewsDB.Companion.idsTable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

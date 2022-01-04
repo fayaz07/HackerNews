@@ -3,8 +3,8 @@ package com.mohammadfayaz.hn.domain.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.mohammadfayaz.hn.data.db.dao.IdsDao
-import com.mohammadfayaz.hn.data.db.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
+import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
@@ -13,8 +13,8 @@ import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_PAGE_SIZE
 import com.mohammadfayaz.hn.domain.DataConfig.PRE_FETCH_DISTANCE
 import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
-import com.mohammadfayaz.hn.network.ResultWrapper
-import com.mohammadfayaz.hn.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
+import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

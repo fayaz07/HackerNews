@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.data.db.dao
+package com.mohammadfayaz.hn.data.sources.local.dao
 
 import androidx.room.Delete
 import androidx.room.Insert

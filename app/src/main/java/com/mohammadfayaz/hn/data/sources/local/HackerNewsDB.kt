@@ -1,13 +1,13 @@
-package com.mohammadfayaz.hn.data.db
+package com.mohammadfayaz.hn.data.sources.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.mohammadfayaz.hn.data.db.converters.ListConverters
-import com.mohammadfayaz.hn.data.db.dao.IdsDao
-import com.mohammadfayaz.hn.data.db.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.local.converters.ListConverters
+import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
+import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 

@@ -69,9 +69,6 @@ dependencies {
   implementation(libs.bundles.mikepenz)
   implementation(libs.bundles.androidxViews)
   implementation(libs.bundles.androidxCache)
-  implementation 'androidx.appcompat:appcompat:1.4.0'
-  implementation 'com.google.android.material:material:1.4.0'
-  implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
 
   kapt(libs.bundles.kapt)
 

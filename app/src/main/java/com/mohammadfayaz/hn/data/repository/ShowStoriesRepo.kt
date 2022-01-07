@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.domain.repository
+package com.mohammadfayaz.hn.data.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -14,7 +14,7 @@ import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.StoryType
-import com.mohammadfayaz.hn.domain.paging.StoryPagingSource
+import com.mohammadfayaz.hn.data.paging.StoryPagingSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

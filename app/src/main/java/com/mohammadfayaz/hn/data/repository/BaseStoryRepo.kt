@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.domain.repository
+package com.mohammadfayaz.hn.data.repository
 
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource

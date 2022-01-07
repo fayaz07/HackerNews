@@ -1,10 +1,10 @@
 package com.mohammadfayaz.hn.di
 
+import com.mohammadfayaz.hn.data.repository.ShowStoriesRepo
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
 import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
 import com.mohammadfayaz.hn.data.sources.network.source.IdsNetworkSource
 import com.mohammadfayaz.hn.data.sources.network.source.StoriesNetworkSource
-import com.mohammadfayaz.hn.domain.repository.ShowStoriesRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mohammadfayaz.hn.domain.repository.ShowStoriesRepo
+import com.mohammadfayaz.hn.data.repository.ShowStoriesRepo
 import com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment.Companion.FETCHED_IDS
 import com.mohammadfayaz.hn.utils.AppConstants.API_ERROR
 import com.mohammadfayaz.hn.utils.ViewEvent
@@ -12,7 +12,7 @@ import com.mohammadfayaz.hn.utils.error
 import com.mohammadfayaz.hn.utils.load
 import com.mohammadfayaz.hn.utils.success
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

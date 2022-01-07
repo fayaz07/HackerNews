@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.domain.paging
+package com.mohammadfayaz.hn.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

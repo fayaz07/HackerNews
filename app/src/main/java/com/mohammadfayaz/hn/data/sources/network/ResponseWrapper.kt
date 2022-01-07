@@ -4,25 +4,22 @@ import okio.IOException
 import retrofit2.HttpException
 import timber.log.Timber
 
-sealed class ResultWrapper<out T> {
-  data class Success<out T>(val value: T) : ResultWrapper<T>()
+sealed class ResponseWrapper<out T> {
+  data class Success<out T>(val value: T) : ResponseWrapper<T>()
   data class GenericError(val code: Int, val error: String) :
-    ResultWrapper<Nothing>()
+    ResponseWrapper<Nothing>()
 
-  object NetworkError : ResultWrapper<Nothing>()
+  object NetworkError : ResponseWrapper<Nothing>()
 
   companion object {
 
     private const val safeApiCall = "safeApiCall"
 
-    const val SOMETHING_WENT_WRONG: String = "Something went wrong"
-    const val SOMETHING_WENT_WRONG_CODE: Int = 500
+    private const val SOMETHING_WENT_WRONG: String = "Something went wrong"
+    private const val SOMETHING_WENT_WRONG_CODE: Int = 500
 
-    suspend fun <T> safeApiCall(apiCall: suspend () -> T): ResultWrapper<T> {
-      var response: ResultWrapper<T> = GenericError(
-        SOMETHING_WENT_WRONG_CODE,
-        SOMETHING_WENT_WRONG
-      )
+    suspend fun <T> safeApiCall(apiCall: suspend () -> T): ResponseWrapper<T> {
+      var response: ResponseWrapper<T>
       try {
         val res = apiCall.invoke()
         res as retrofit2.Response<*>

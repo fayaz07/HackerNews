@@ -1,6 +1,6 @@
 package com.mohammadfayaz.hn.data.sources.network.source
 
-import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
+import com.mohammadfayaz.hn.data.sources.network.ResponseWrapper
 import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
@@ -16,15 +16,15 @@ class IdsNetworkSource(private val api: HackerNewsAPI) : BaseNetworkSource() {
     val idsList = mutableSetOf<Int>()
 
     return when (
-      val networkResponse = ResultWrapper.safeApiCall {
+      val networkResponse = ResponseWrapper.safeApiCall {
         api.getShowStories()
       }
     ) {
-      is ResultWrapper.GenericError ->
+      is ResponseWrapper.GenericError ->
         ApiResult.ERROR(networkResponse.error + ", no data available in cached storage")
-      ResultWrapper.NetworkError ->
+      ResponseWrapper.NetworkError ->
         ApiResult.NetworkError
-      is ResultWrapper.Success -> {
+      is ResponseWrapper.Success -> {
         if (networkResponse.value.body() != null) {
           val list = mutableListOf<StoryIdModel>()
           val currentTimestamp = System.currentTimeMillis()

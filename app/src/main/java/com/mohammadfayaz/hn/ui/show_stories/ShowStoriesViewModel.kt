@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mohammadfayaz.hn.data.repository.ShowStoriesRepo
 import com.mohammadfayaz.hn.domain.usecases.GetShowStoryIdsUseCase
+import com.mohammadfayaz.hn.domain.usecases.ShowStoryPaginationUseCase
 import com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment.Companion.FETCHED_IDS
 import com.mohammadfayaz.hn.utils.AppConstants.API_ERROR
 import com.mohammadfayaz.hn.utils.ViewEvent
@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ShowStoriesViewModel @Inject constructor(
   private val getShowStoryIdsUseCase: GetShowStoryIdsUseCase,
-  private val repo: ShowStoriesRepo
+  private val showStoriesPaginationUseCase: ShowStoryPaginationUseCase
 ) : ViewModel() {
 
   private val _liveData = MutableLiveData<ViewEvent>()
@@ -40,5 +40,5 @@ class ShowStoriesViewModel @Inject constructor(
     }
   }
 
-  fun getPaginatedFlow(idsList: List<Int>) = repo.getPaginatedFlow(idsList)
+  fun getPaginatedFlow(idsList: List<Int>) = showStoriesPaginationUseCase.invoke(idsList)
 }

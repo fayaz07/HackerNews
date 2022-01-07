@@ -3,6 +3,8 @@ package com.mohammadfayaz.hn.domain.repository
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
 import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
+import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
 import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
 import com.mohammadfayaz.hn.data.sources.network.ResultWrapper.Companion.safeApiCall
 import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
@@ -15,8 +17,8 @@ import retrofit2.Response
 
 abstract class BaseStoryRepo(
   private val api: HackerNewsAPI,
-  private val storyDao: StoryDao,
-  private val idDao: IdsDao
+  private val storyLocalSource: StoriesLocalSource,
+  private val idsLocalSource: IdsLocalSource
 ) {
 
   abstract suspend fun fetchStoryIds(): ApiResult<List<Int>>
@@ -52,7 +54,7 @@ abstract class BaseStoryRepo(
   }
 
   private suspend fun fetchItemByIdFromLocalDb(id: Int): StoryModel? {
-    return storyDao.getById(id)
+    return storyLocalSource.getById(id)
   }
 
   private suspend fun fetchItemByIdFromNetwork(id: Int): ResultWrapper<Response<StoryModel>> {
@@ -60,18 +62,14 @@ abstract class BaseStoryRepo(
   }
 
   private suspend fun storeItemInDb(item: StoryModel, type: StoryType) {
-    item.storyType = type
-    item.setDefaults()
-    item.title = item.title?.replace("Show HN: ", "")
-//    Timber.d("Storing in localdb")
-    storyDao.insert(item)
+    storyLocalSource.put(item, type)
   }
 
   suspend fun fetchIdsFromDb(type: StoryType): List<StoryIdModel> {
-    return idDao.getAllIdsByType(type)
+    return idsLocalSource.getIdsByStoryType(type)
   }
 
   suspend fun storeIdsInDb(list: List<StoryIdModel>) {
-    idDao.insertAll(list)
+    idsLocalSource.putIds(list)
   }
 }

@@ -3,8 +3,8 @@ package com.mohammadfayaz.hn.domain.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
-import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
+import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
+import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
 import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
 import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.domain.DataConfig.MAX_ITEMS_LIMIT
@@ -20,9 +20,9 @@ import javax.inject.Inject
 
 class ShowStoriesRepo @Inject constructor(
   private val api: HackerNewsAPI,
-  storyDao: StoryDao,
-  idDao: IdsDao
-) : BaseStoryRepo(api, storyDao, idDao) {
+  storyLocalSource: StoriesLocalSource,
+  idsLocalSource: IdsLocalSource
+) : BaseStoryRepo(api, storyLocalSource, idsLocalSource) {
 
   private val storyType: StoryType = StoryType.SHOW
 

@@ -72,7 +72,9 @@ dependencies {
 
   kapt(libs.bundles.kapt)
 
-  testImplementation 'junit:junit:4.+'
+  testImplementation(libs.bundles.testDependencies)
+  kaptTest(libs.bundles.daggerTestsAnnotation)
+
   androidTestImplementation 'androidx.test.ext:junit:1.1.3'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

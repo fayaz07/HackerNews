@@ -7,7 +7,12 @@ import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
 
 class IdsNetworkSource(private val api: HackerNewsAPI) : BaseNetworkSource() {
-  suspend fun getIdsByType(storyType: StoryType): ApiResult<List<Int>> {
+
+  suspend fun getShowStoryIds(): ApiResult<List<Int>> {
+    return getIdsByType(StoryType.SHOW)
+  }
+
+  private suspend fun getIdsByType(storyType: StoryType): ApiResult<List<Int>> {
     val idsList = mutableSetOf<Int>()
 
     return when (

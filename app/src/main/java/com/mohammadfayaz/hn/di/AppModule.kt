@@ -4,6 +4,11 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-@Module(includes = [NetworkModule::class, RepositoryModule::class, DatabaseModule::class, LocalSourceModule::class])
+@Module(
+  includes = [
+    NetworkModule::class, RepositoryModule::class, DatabaseModule::class,
+    LocalSourceModule::class, NetworkSourceModule::class
+  ]
+)
 @InstallIn(SingletonComponent::class)
 class AppModule

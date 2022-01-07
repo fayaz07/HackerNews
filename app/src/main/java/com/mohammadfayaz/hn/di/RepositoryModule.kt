@@ -2,7 +2,8 @@ package com.mohammadfayaz.hn.di
 
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
 import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
-import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.data.sources.network.source.IdsNetworkSource
+import com.mohammadfayaz.hn.data.sources.network.source.StoriesNetworkSource
 import com.mohammadfayaz.hn.domain.repository.ShowStoriesRepo
 import dagger.Module
 import dagger.Provides
@@ -17,8 +18,10 @@ class RepositoryModule {
   @Provides
   @Singleton
   fun showStoriesRepo(
-    api: HackerNewsAPI, idsLocalSource: IdsLocalSource,
+    idsNetworkSource: IdsNetworkSource,
+    storiesNetworkSource: StoriesNetworkSource,
+    idsLocalSource: IdsLocalSource,
     storiesLocalSource: StoriesLocalSource
   ) =
-    ShowStoriesRepo(api, storiesLocalSource, idsLocalSource)
+    ShowStoriesRepo(idsNetworkSource, storiesNetworkSource, storiesLocalSource, idsLocalSource)
 }

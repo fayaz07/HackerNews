@@ -1,22 +1,20 @@
 package com.mohammadfayaz.hn.domain.repository
 
 import androidx.paging.PagingData
-import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
-import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
 import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
-import com.mohammadfayaz.hn.data.sources.network.ResultWrapper
-import com.mohammadfayaz.hn.data.sources.network.ResultWrapper.Companion.safeApiCall
-import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.data.sources.network.source.IdsNetworkSource
+import com.mohammadfayaz.hn.data.sources.network.source.StoriesNetworkSource
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.StoryType
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
+import timber.log.Timber
 
 abstract class BaseStoryRepo(
-  private val api: HackerNewsAPI,
+  private val idsNetworkSource: IdsNetworkSource,
+  private val storiesNetworkSource: StoriesNetworkSource,
   private val storyLocalSource: StoriesLocalSource,
   private val idsLocalSource: IdsLocalSource
 ) {
@@ -30,23 +28,16 @@ abstract class BaseStoryRepo(
   protected suspend fun fetchItemByIdAndType(id: Int, type: StoryType): ApiResult<StoryModel> {
     val fromLocal = fetchItemByIdFromLocalDb(id)
     if (fromLocal != null) {
-//      Timber.d("Item exists in localdb $fromLocal")
+      Timber.d("Item exists in localdb $fromLocal")
       return ApiResult.OK(res = fromLocal)
     }
 
     try {
-      return when (val fromNetwork = fetchItemByIdFromNetwork(id)) {
-        is ResultWrapper.GenericError -> ApiResult.ERROR(fromNetwork.error)
-        ResultWrapper.NetworkError -> ApiResult.NetworkError
-        is ResultWrapper.Success -> {
-          if (fromNetwork.value.body() != null) {
-            storeItemInDb(fromNetwork.value.body()!!, type)
-            ApiResult.OK(res = fromNetwork.value.body()!!)
-          } else {
-            ApiResult.ERROR("Unable to fetch data")
-          }
-        }
-      }
+      val fromNetwork = fetchItemByIdFromNetwork(id)
+      if (fromNetwork.success)
+        storeItemInDb(fromNetwork.result!!, type)
+
+      return fromNetwork
     } catch (e: Exception) {
       e.printStackTrace()
       throw e
@@ -57,8 +48,8 @@ abstract class BaseStoryRepo(
     return storyLocalSource.getById(id)
   }
 
-  private suspend fun fetchItemByIdFromNetwork(id: Int): ResultWrapper<Response<StoryModel>> {
-    return safeApiCall { api.getStoryById(id) }
+  private suspend fun fetchItemByIdFromNetwork(id: Int): ApiResult<StoryModel> {
+    return storiesNetworkSource.getStoryById(id)
   }
 
   private suspend fun storeItemInDb(item: StoryModel, type: StoryType) {

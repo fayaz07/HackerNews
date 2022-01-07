@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_top_stories.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/layout_load_error.xml" value="0.33967391304347827" />
         <entry key="app/src/main/res/layout/layout_loading_indicator.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/layout_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/layout_show_story.xml" value="0.33" />
         <entry key="app/src/main/res/layout/non_working.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.35572916666666665" />

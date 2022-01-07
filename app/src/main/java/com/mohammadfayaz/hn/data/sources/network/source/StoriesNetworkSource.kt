@@ -4,8 +4,10 @@ import com.mohammadfayaz.hn.data.sources.network.ResponseWrapper
 import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import javax.inject.Inject
 
-class StoriesNetworkSource(private val api: HackerNewsAPI) : BaseNetworkSource() {
+class StoriesNetworkSource @Inject constructor(private val api: HackerNewsAPI) :
+  BaseNetworkSource() {
   suspend fun getStoryById(id: Int): ApiResult<StoryModel> {
     return when (val fromNetwork = ResponseWrapper.safeApiCall { api.getStoryById(id) }) {
       is ResponseWrapper.GenericError -> ApiResult.ERROR(fromNetwork.error)

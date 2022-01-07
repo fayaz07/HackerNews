@@ -5,8 +5,9 @@ import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
+import javax.inject.Inject
 
-class IdsNetworkSource(private val api: HackerNewsAPI) : BaseNetworkSource() {
+class IdsNetworkSource @Inject constructor(private val api: HackerNewsAPI) : BaseNetworkSource() {
 
   suspend fun getShowStoryIds(): ApiResult<List<Int>> {
     return getIdsByType(StoryType.SHOW)

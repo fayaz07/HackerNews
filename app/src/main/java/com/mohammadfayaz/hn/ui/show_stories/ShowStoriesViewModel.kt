@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mohammadfayaz.hn.data.repository.IdsRepo
 import com.mohammadfayaz.hn.data.repository.ShowStoriesRepo
-import com.mohammadfayaz.hn.domain.models.StoryType
+import com.mohammadfayaz.hn.domain.usecases.GetShowStoryIdsUseCase
 import com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment.Companion.FETCHED_IDS
 import com.mohammadfayaz.hn.utils.AppConstants.API_ERROR
 import com.mohammadfayaz.hn.utils.ViewEvent
@@ -19,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShowStoriesViewModel @Inject constructor(
-  private val idsRepo: IdsRepo,
+  private val getShowStoryIdsUseCase: GetShowStoryIdsUseCase,
   private val repo: ShowStoriesRepo
 ) : ViewModel() {
 
@@ -33,7 +32,7 @@ class ShowStoriesViewModel @Inject constructor(
   fun pullData() {
     viewModelScope.launch {
       _liveData.load()
-      val response = idsRepo.fetchStoryIds(StoryType.SHOW)
+      val response = getShowStoryIdsUseCase.invoke()
       if (response.success)
         _liveData.success(response.result!!, response.message, FETCHED_IDS)
       else

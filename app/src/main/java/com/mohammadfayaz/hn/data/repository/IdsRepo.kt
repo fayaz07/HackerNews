@@ -5,8 +5,9 @@ import com.mohammadfayaz.hn.data.sources.network.source.IdsNetworkSource
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
+import javax.inject.Inject
 
-class IdsRepo(
+class IdsRepo @Inject constructor(
   private val idsLocalSource: IdsLocalSource,
   private val idsNetworkSource: IdsNetworkSource
 ) {

@@ -4,8 +4,9 @@ import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.StoryType
 import timber.log.Timber
+import javax.inject.Inject
 
-class StoriesLocalSource(private val storyDao: StoryDao) : BaseLocalSource() {
+class StoriesLocalSource @Inject constructor(private val storyDao: StoryDao) : BaseLocalSource() {
   suspend fun put(item: StoryModel, type: StoryType) {
     item.storyType = type
     item.setDefaults()

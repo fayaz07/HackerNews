@@ -1,5 +1,6 @@
 package com.mohammadfayaz.hn.di
 
+import com.mohammadfayaz.hn.data.repository.IdsRepo
 import com.mohammadfayaz.hn.data.repository.ShowStoriesRepo
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
 import com.mohammadfayaz.hn.data.sources.local.source.StoriesLocalSource
@@ -18,10 +19,16 @@ class RepositoryModule {
   @Provides
   @Singleton
   fun showStoriesRepo(
-    idsNetworkSource: IdsNetworkSource,
     storiesNetworkSource: StoriesNetworkSource,
-    idsLocalSource: IdsLocalSource,
     storiesLocalSource: StoriesLocalSource
   ) =
-    ShowStoriesRepo(idsNetworkSource, storiesNetworkSource, storiesLocalSource, idsLocalSource)
+    ShowStoriesRepo(storiesNetworkSource, storiesLocalSource)
+
+  @Provides
+  @Singleton
+  fun showIdsRepo(
+    idsLocalSource: IdsLocalSource,
+    idsNetworkSource: IdsNetworkSource
+  ) =
+    IdsRepo(idsLocalSource, idsNetworkSource)
 }

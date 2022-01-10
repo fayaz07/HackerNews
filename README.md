@@ -25,6 +25,7 @@
 12. [Kotlin Flow](https://developer.android.com/kotlin/flow)
 13. [Material Design](https://material.io/develop/android)
 14. [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
+15. Clean code with Tests
 
 ## Screenshots
 
@@ -41,6 +42,6 @@ hn.apiVersion=v0/
 
 # MAD Scorecard
 
-https://madscorecard.withgoogle.com/scorecards/1383581412/
+https://madscorecard.withgoogle.com/scorecards/496158960/
 
 <img src="screenshots/mad/summary.png"/>

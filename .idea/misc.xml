@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.371875" />
         <entry key="app/src/main/res/font/source_sans_pro.xml" value="0.16296296296296298" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_story_detailed.xml" value="0.33" />
@@ -13,9 +15,11 @@
         <entry key="app/src/main/res/layout/fragment_new_stories.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_show_stories.xml" value="0.2907608695652174" />
         <entry key="app/src/main/res/layout/fragment_story_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_story_detailed.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_top_stories.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/layout_load_error.xml" value="0.33967391304347827" />
         <entry key="app/src/main/res/layout/layout_loading_indicator.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/layout_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/layout_show_story.xml" value="0.33" />
         <entry key="app/src/main/res/layout/non_working.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.35572916666666665" />

@@ -9,12 +9,6 @@
    <a href="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml"><img alt="lint-check" src="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml/badge.svg"/> </a>
 </div>
 
-# MAD Scorecard
-
-https://madscorecard.withgoogle.com/scorecards/1383581412/
-
-<img src="screenshots/mad/summary.png"/>
-
 ## About app
 
 1. Manages dependencies using Gradle's [**version catalog and toml**](https://docs.gradle.org/current/userguide/platforms.html) config.
@@ -31,6 +25,11 @@ https://madscorecard.withgoogle.com/scorecards/1383581412/
 12. [Kotlin Flow](https://developer.android.com/kotlin/flow)
 13. [Material Design](https://material.io/develop/android)
 14. [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
+15. Clean code with Tests
+
+## Screenshots
+
+<img src="screenshots/Screenshot_1639852787.png" width="30%" height="30%"/>
 
 ## Config
 
@@ -41,6 +40,8 @@ hn.baseUrl=https://hacker-news.firebaseio.com/
 hn.apiVersion=v0/
 ```
 
-## Screenshots
+# MAD Scorecard
 
-<img src="screenshots/Screenshot_1638044797.png" width="30%" height="30%"/> <img src="screenshots/Screenshot_1638188243.png" width="30%" height="30%"/>
+https://madscorecard.withgoogle.com/scorecards/496158960/
+
+<img src="screenshots/mad/summary.png"/>

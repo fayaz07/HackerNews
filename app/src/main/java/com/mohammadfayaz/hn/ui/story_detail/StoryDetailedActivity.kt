@@ -1,19 +1,17 @@
 package com.mohammadfayaz.hn.ui.story_detail
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.mohammadfayaz.hn.data.models.StoryModel
 import com.mohammadfayaz.hn.databinding.ActivityStoryDetailedBinding
+import com.mohammadfayaz.hn.domain.models.StoryModel
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -67,15 +65,15 @@ class StoryDetailedActivity : AppCompatActivity() {
   }
 
   private fun stopLoading() {
-    runOnUiThread {
-      binding.progressBar.visibility = View.GONE
-    }
+    binding.progressBar.visibility = View.GONE
   }
 
+  @SuppressLint("SetJavaScriptEnabled")
   private fun registerViewEvents() {
     binding.apply {
       webView.apply {
         settings.javaScriptEnabled = true
+        settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webViewClient = MyWebViewClient()
       }
 
@@ -83,6 +81,18 @@ class StoryDetailedActivity : AppCompatActivity() {
         finish()
       }
     }
+  }
+
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    Timber.d("Saving state")
+    binding.webView.saveState(outState)
+  }
+
+  override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+    super.onRestoreInstanceState(savedInstanceState)
+    Timber.d("Restoring state")
+    binding.webView.restoreState(savedInstanceState)
   }
 
   companion object {
@@ -96,7 +106,7 @@ class StoryDetailedActivity : AppCompatActivity() {
     }
   }
 
-  inner class MyWebViewClient() : WebViewClient() {
+  inner class MyWebViewClient : WebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
       super.onPageStarted(view, url, favicon)
       startLoading()

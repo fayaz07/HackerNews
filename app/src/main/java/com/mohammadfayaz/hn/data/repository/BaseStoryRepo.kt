@@ -25,16 +25,11 @@ abstract class BaseStoryRepo(
       return ApiResult.OK(res = fromLocal)
     }
 
-    try {
-      val fromNetwork = fetchItemByIdFromNetwork(id)
-      if (fromNetwork.success)
-        storeItemInDb(fromNetwork.result!!, type)
+    val fromNetwork = fetchItemByIdFromNetwork(id)
+    if (fromNetwork.success)
+      storeItemInDb(fromNetwork.result!!, type)
 
-      return fromNetwork
-    } catch (e: Exception) {
-      e.printStackTrace()
-      throw e
-    }
+    return fromNetwork
   }
 
   private suspend fun fetchItemByIdFromLocalDb(id: Int): StoryModel? {

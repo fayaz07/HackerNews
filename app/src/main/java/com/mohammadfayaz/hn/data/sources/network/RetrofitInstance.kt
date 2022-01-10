@@ -4,6 +4,7 @@ import android.net.Uri
 import com.google.gson.Gson
 import com.mohammadfayaz.hn.BuildConfig
 import com.mohammadfayaz.hn.utils.AppConstants
+import com.mohammadfayaz.hn.utils.exceptions.InvalidUrlException
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -37,13 +38,13 @@ class RetrofitInstance {
 //      println(BuildConfig.hnBaseUrl + BuildConfig.hnApiVersion)
 
       if (!Uri.parse(BuildConfig.hnBaseUrl).isAbsolute) {
-        throw Exception(AppConstants.INVALID_HN_API_URL)
+        throw InvalidUrlException(AppConstants.INVALID_HN_API_URL)
       }
 
       if (BuildConfig.hnApiVersion.isBlank() ||
         !BuildConfig.hnApiVersion.contains("v")
       ) {
-        throw Exception(AppConstants.INVALID_HN_API_VERSION)
+        throw InvalidUrlException(AppConstants.INVALID_HN_API_VERSION)
       }
 
       return Retrofit.Builder()

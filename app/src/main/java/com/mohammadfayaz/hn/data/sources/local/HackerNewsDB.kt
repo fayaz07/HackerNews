@@ -29,8 +29,11 @@ abstract class HackerNewsDB : RoomDatabase() {
     const val idsTable = "ids"
     const val storiesTable = "stories"
 
-    fun getInstance(context: Context): HackerNewsDB {
-      return Room.databaseBuilder(
+    fun getInstance(context: Context, isInMemory: Boolean = false): HackerNewsDB {
+      return if (isInMemory) {
+        Room.inMemoryDatabaseBuilder(context.applicationContext, HackerNewsDB::class.java)
+          .allowMainThreadQueries().build()
+      } else Room.databaseBuilder(
         context.applicationContext,
         HackerNewsDB::class.java,
         db

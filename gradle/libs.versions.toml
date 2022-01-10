@@ -1,8 +1,8 @@
 [versions]
 gradleAndroid = "7.0.3"
 gradleKotlin = "1.6.0"
-daggerHilt = "2.40"
-dagger = "2.31.2"
+daggerHilt = "2.40.5"
+dagger = "2.40.1"
 hiltViewModel = "1.0.0-alpha03"
 
 ktxCore = "1.7.0"
@@ -110,6 +110,6 @@ androidxViews = ["androidx-recyclerView", "androidx-swipeRefresh"]
 
 androidxCache = ["androidx-roomRuntime", "androidx-roomKtx", "androidx-paging"]
 
-testDependencies = ["google-daggerHiltTest", "junit-test", "truth-assert"]
+testDependencies = ["truth-assert", "google-daggerHiltTest", "junit-test"]
 
 daggerTestsAnnotation = ["google-daggerHiltTestAnnotation"]

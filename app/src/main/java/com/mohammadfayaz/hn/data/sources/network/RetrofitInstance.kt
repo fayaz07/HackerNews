@@ -12,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitInstance {
-
   companion object {
 
     private const val timeOutInSeconds = 15L

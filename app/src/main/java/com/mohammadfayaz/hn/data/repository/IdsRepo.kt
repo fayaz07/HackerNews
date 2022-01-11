@@ -5,14 +5,15 @@ import com.mohammadfayaz.hn.data.sources.network.source.IdsNetworkSource
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
+import com.mohammadfayaz.hn.domain.repository.IIdsRepo
 import javax.inject.Inject
 
 class IdsRepo @Inject constructor(
   private val idsLocalSource: IdsLocalSource,
   private val idsNetworkSource: IdsNetworkSource
-) {
+) : IIdsRepo {
 
-  suspend fun fetchStoryIds(storyType: StoryType): ApiResult<List<Int>> {
+  override suspend fun fetchStoryIds(storyType: StoryType): ApiResult<List<Int>> {
     val networkResponse = idsNetworkSource.getShowStoryIds()
     val localResponse: List<StoryIdModel> = fetchIdsFromDb(storyType)
 

@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.top_stories
+package com.mohammadfayaz.hn.ui.stories.top
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

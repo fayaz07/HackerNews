@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.ask_stories
+package com.mohammadfayaz.hn.ui.stories.top
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.mohammadfayaz.hn.databinding.FragmentAskStoriesBinding
+import com.mohammadfayaz.hn.databinding.FragmentTopStoriesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AskStoriesFragment : Fragment() {
+class TopStoriesFragment : Fragment() {
 
-  private val viewModel: AskStoriesViewModel by viewModels()
-  private lateinit var binding: FragmentAskStoriesBinding
+  private val viewModel: TopStoriesViewModel by viewModels()
+  private lateinit var binding: FragmentTopStoriesBinding
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-    binding = FragmentAskStoriesBinding.inflate(layoutInflater)
+    binding = FragmentTopStoriesBinding.inflate(layoutInflater)
     return binding.root
   }
 }

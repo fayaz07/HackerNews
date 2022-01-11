@@ -10,7 +10,7 @@ import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.ui.adapters.stories.StoryItemClickListener
-import com.mohammadfayaz.hn.ui.story_detail.StoryDetailedActivity
+import com.mohammadfayaz.hn.ui.stories.detail.StoryDetailedActivity
 import timber.log.Timber
 
 abstract class BaseFragment : Fragment(), StoryItemClickListener {

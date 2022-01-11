@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.user_info
+package com.mohammadfayaz.hn.ui.user
 
 import android.os.Bundle
 import android.view.LayoutInflater

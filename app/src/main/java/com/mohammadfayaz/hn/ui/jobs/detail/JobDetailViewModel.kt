@@ -1,8 +1,8 @@
-package com.mohammadfayaz.hn.ui.story_detail
+package com.mohammadfayaz.hn.ui.jobs.detail
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class StoryDetailedViewModel @Inject constructor() : ViewModel()
+class JobDetailViewModel @Inject constructor() : ViewModel()

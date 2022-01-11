@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.adapters.loading_adapter
+package com.mohammadfayaz.hn.ui.adapters.loading
 
 import android.view.ViewGroup
 import androidx.paging.LoadState

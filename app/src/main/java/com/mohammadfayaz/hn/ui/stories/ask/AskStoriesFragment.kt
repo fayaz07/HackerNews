@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.job_detail
+package com.mohammadfayaz.hn.ui.stories.ask
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.mohammadfayaz.hn.databinding.FragmentJobDetailBinding
+import com.mohammadfayaz.hn.databinding.FragmentAskStoriesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class JobDetailFragment : Fragment() {
+class AskStoriesFragment : Fragment() {
 
-  private val viewModel: JobDetailViewModel by viewModels()
-  private lateinit var binding: FragmentJobDetailBinding
+  private val viewModel: AskStoriesViewModel by viewModels()
+  private lateinit var binding: FragmentAskStoriesBinding
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-    binding = FragmentJobDetailBinding.inflate(layoutInflater)
+    binding = FragmentAskStoriesBinding.inflate(layoutInflater)
     return binding.root
   }
 }

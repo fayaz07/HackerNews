@@ -16,22 +16,22 @@
   </fragment>
   <fragment
     android:id="@+id/showStories"
-    android:name="com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.stories.show.ShowStoriesFragment"
     android:label="@string/show_stories"
     tools:layout="@layout/fragment_show_stories"/>
   <fragment
     android:id="@+id/topStories"
-    android:name="com.mohammadfayaz.hn.ui.top_stories.TopStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.stories.top.TopStoriesFragment"
     android:label="@string/top_stories"
     tools:layout="@layout/fragment_top_stories"/>
   <fragment
     android:id="@+id/userInfoFragment"
-    android:name="com.mohammadfayaz.hn.ui.user_info.UserInfoFragment"
+    android:name="com.mohammadfayaz.hn.ui.user.UserInfoFragment"
     android:label="fragment_user_info"
     tools:layout="@layout/fragment_user_info" />
   <fragment
     android:id="@+id/jobDetailFragment"
-    android:name="com.mohammadfayaz.hn.ui.job_detail.JobDetailFragment"
+    android:name="com.mohammadfayaz.hn.ui.jobs.detail.JobDetailFragment"
     android:label="fragment_job_detail"
     tools:layout="@layout/fragment_job_detail" >
     <action
@@ -40,7 +40,7 @@
   </fragment>
   <fragment
     android:id="@+id/askStories"
-    android:name="com.mohammadfayaz.hn.ui.ask_stories.AskStoriesFragment"
+    android:name="com.mohammadfayaz.hn.ui.stories.ask.AskStoriesFragment"
     android:label="@string/ask_stories"
     tools:layout="@layout/fragment_ask_stories"/>
 </navigation>

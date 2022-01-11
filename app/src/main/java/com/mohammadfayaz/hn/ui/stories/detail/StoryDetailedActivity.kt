@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.story_detail
+package com.mohammadfayaz.hn.ui.stories.detail
 
 import android.annotation.SuppressLint
 import android.app.Activity

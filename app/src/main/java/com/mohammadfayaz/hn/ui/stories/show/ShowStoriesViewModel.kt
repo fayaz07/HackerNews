@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.show_stories
+package com.mohammadfayaz.hn.ui.stories.show
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mohammadfayaz.hn.domain.usecases.GetShowStoryIdsUseCase
 import com.mohammadfayaz.hn.domain.usecases.ShowStoryPaginationUseCase
-import com.mohammadfayaz.hn.ui.show_stories.ShowStoriesFragment.Companion.FETCHED_IDS
+import com.mohammadfayaz.hn.ui.stories.show.ShowStoriesFragment.Companion.FETCHED_IDS
 import com.mohammadfayaz.hn.utils.AppConstants.API_ERROR
 import com.mohammadfayaz.hn.utils.ViewEvent
 import com.mohammadfayaz.hn.utils.error

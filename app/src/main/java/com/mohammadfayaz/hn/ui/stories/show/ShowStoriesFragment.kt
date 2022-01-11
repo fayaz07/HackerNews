@@ -1,15 +1,14 @@
-package com.mohammadfayaz.hn.ui.show_stories
+package com.mohammadfayaz.hn.ui.stories.show
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.mohammadfayaz.hn.databinding.FragmentShowStoriesBinding
-import com.mohammadfayaz.hn.ui.adapters.loading_adapter.LoadingIndicatorAdapter
+import com.mohammadfayaz.hn.ui.adapters.loading.LoadingIndicatorAdapter
 import com.mohammadfayaz.hn.ui.adapters.stories.StoryListAdapter
 import com.mohammadfayaz.hn.ui.base.BaseFragment
 import com.mohammadfayaz.hn.utils.ViewEvent

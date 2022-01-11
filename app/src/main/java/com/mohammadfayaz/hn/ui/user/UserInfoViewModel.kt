@@ -1,8 +1,8 @@
-package com.mohammadfayaz.hn.ui.ask_stories
+package com.mohammadfayaz.hn.ui.user
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AskStoriesViewModel @Inject constructor() : ViewModel()
+class UserInfoViewModel @Inject constructor() : ViewModel()

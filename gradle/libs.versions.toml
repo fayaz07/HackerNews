@@ -32,6 +32,7 @@ junit = "4.13.2"
 ktlintPlugin = "10.1.0"
 truth = "1.1.3"
 
+detekt = "1.18.1"
 
 [libraries]
 # Plugins go here
@@ -39,6 +40,7 @@ gradle-android = { module = "com.android.tools.build:gradle", version.ref = "gra
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "gradleKotlin" }
 androidx-safeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 gradle-daggerHiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "daggerHilt" }
+gradle-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 # all other dependencies go here
 androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" }

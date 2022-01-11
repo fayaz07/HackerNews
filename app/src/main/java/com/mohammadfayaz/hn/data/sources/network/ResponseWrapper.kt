@@ -31,8 +31,7 @@ sealed class ResponseWrapper<out T> {
           GenericError(res.code(), errorResponse)
         }
       } catch (throwable: Throwable) {
-        Timber.tag(safeApiCall).d("Exception caught- ")
-        throwable.printStackTrace()
+        Timber.tag(safeApiCall).d("Exception caught- $throwable")
         when (throwable) {
           is IOException -> {
             Timber.tag(safeApiCall).d("Network Error - ")

@@ -11,6 +11,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import timber.log.Timber
+import java.io.IOException
+import java.lang.IndexOutOfBoundsException
 
 class StoryPagingSource(
   private val getItem: suspend (Int) -> ApiResult<StoryModel>,
@@ -77,8 +79,11 @@ class StoryPagingSource(
           nextKey = if (list.isEmpty()) null else position + 1
         )
       }
-    } catch (e: Exception) {
-//      LoadResult.Error(e)
+    } catch (e: IndexOutOfBoundsException) {
+      LoadResult.Error<Any, Any>(e)
+      throw e
+    } catch (e: IOException) {
+      LoadResult.Error<Any, Any>(e)
       throw e
     }
   }

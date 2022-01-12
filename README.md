@@ -7,6 +7,7 @@
    <a href="https://circleci.com/gh/fayaz07/HackerNews/tree/main"><img alt="CircleCI" src="https://circleci.com/gh/fayaz07/HackerNews/tree/main.svg?style=svg" /></a> 
    <a href="https://ktlint.github.io/"><img alt="ktlint" src="https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg" /></a>
    <a href="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml"><img alt="lint-check" src="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml/badge.svg"/> </a>
+   <a href="https://github.com/fayaz07/HackerNews/actions/workflows/detekt.yml"><img alt="lint-check" src="https://github.com/fayaz07/HackerNews/actions/workflows/detekt.yml/badge.svg"/> </a>
 </div>
 
 ## About app

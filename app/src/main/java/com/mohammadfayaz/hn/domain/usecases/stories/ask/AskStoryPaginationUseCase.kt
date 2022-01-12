@@ -1,8 +1,9 @@
-package com.mohammadfayaz.hn.domain.usecases
+package com.mohammadfayaz.hn.domain.usecases.stories.ask
 
 import androidx.paging.PagingData
 import com.mohammadfayaz.hn.data.repository.AskStoriesRepo
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.domain.usecases.BaseUseCase
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.mohammadfayaz.hn.ui.jobs
+package com.mohammadfayaz.hn.ui.stories.job
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

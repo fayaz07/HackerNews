@@ -1,10 +1,9 @@
-package com.mohammadfayaz.hn.ui.jobs
+package com.mohammadfayaz.hn.ui.stories.job
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -100,7 +99,7 @@ class JobsFragment : BaseFragment() {
 
   private fun listenToLoadingStates() {
     adapter.addLoadStateListener { loadStates ->
-      binding.progressBar.isVisible = loadStates.refresh is LoadState.Loading
+      binding.progressBar.showHide(loadStates.refresh is LoadState.Loading)
       if (loadStates.refresh is LoadState.Error) {
         showHideErrorViews(true)
         binding.errorViewLayout.errorTextView.text =

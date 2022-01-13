@@ -47,9 +47,9 @@
       style="@style/TextAppearance.MaterialComponents.Caption"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/story"
-      android:textSize="18sp"
       android:alpha="0.5"
+      android:text="@string/story"
+      android:textSize="16sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />

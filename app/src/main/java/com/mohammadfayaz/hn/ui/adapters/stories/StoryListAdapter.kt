@@ -62,6 +62,7 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
           IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_heart)
         scoreTextView.text = story.score.toString()
         commentsTextView.text = story.kids?.size.toString()
+        storyTypeTextView.text = story.storyType.string
       }
     }
   }

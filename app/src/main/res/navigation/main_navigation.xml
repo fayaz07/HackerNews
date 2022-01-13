@@ -9,11 +9,7 @@
     android:id="@+id/jobs"
     android:name="com.mohammadfayaz.hn.ui.jobs.JobsFragment"
     android:label="@string/jobs"
-    tools:layout="@layout/fragment_jobs">
-    <action
-      android:id="@+id/action_jobsFragment_to_jobDetailFragment"
-      app:destination="@id/jobDetailFragment" />
-  </fragment>
+    tools:layout="@layout/fragment_jobs"/>
   <fragment
     android:id="@+id/showStories"
     android:name="com.mohammadfayaz.hn.ui.stories.show.ShowStoriesFragment"
@@ -29,15 +25,6 @@
     android:name="com.mohammadfayaz.hn.ui.user.UserInfoFragment"
     android:label="fragment_user_info"
     tools:layout="@layout/fragment_user_info" />
-  <fragment
-    android:id="@+id/jobDetailFragment"
-    android:name="com.mohammadfayaz.hn.ui.jobs.detail.JobDetailFragment"
-    android:label="fragment_job_detail"
-    tools:layout="@layout/fragment_job_detail" >
-    <action
-      android:id="@+id/action_jobDetailFragment_to_userInfoFragment"
-      app:destination="@id/userInfoFragment" />
-  </fragment>
   <fragment
     android:id="@+id/askStories"
     android:name="com.mohammadfayaz.hn.ui.stories.ask.AskStoriesFragment"

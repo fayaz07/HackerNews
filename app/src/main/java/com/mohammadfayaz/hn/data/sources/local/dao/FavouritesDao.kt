@@ -12,4 +12,7 @@ interface FavouritesDao : BaseDao<FavouriteModel> {
 
   @Query("SELECT * FROM favourites WHERE id = :id")
   suspend fun getById(id: Int): FavouriteModel?
+
+  @Query("SELECT * FROM favourites ORDER BY savedOn DESC")
+  suspend fun getAll(): List<FavouriteModel>
 }

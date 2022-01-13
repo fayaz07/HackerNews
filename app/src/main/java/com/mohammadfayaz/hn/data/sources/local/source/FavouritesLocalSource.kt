@@ -22,4 +22,6 @@ class FavouritesLocalSource @Inject constructor(private val favouritesDao: Favou
       true
     }
   }
+
+  suspend fun getAll() = favouritesDao.getAll()
 }

@@ -9,11 +9,12 @@ import com.mohammadfayaz.hn.data.sources.local.converters.ListConverters
 import com.mohammadfayaz.hn.data.sources.local.dao.FavouritesDao
 import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
 import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
+import com.mohammadfayaz.hn.domain.models.FavouriteModel
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 
 @Database(
-  entities = [StoryModel::class, StoryIdModel::class],
+  entities = [StoryModel::class, StoryIdModel::class, FavouriteModel::class],
   version = 1,
   exportSchema = false
 )

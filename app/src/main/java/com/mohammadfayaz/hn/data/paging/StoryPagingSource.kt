@@ -76,7 +76,6 @@ class StoryPagingSource(
         nextKey = if (list.isEmpty()) null else position + 1
       )
     }
-
   }
 
   private fun printLogStatement(position: Int) {

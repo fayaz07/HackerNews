@@ -38,7 +38,7 @@ class IdsNetworkSource @Inject constructor(private val api: HackerNewsAPI) : Bas
   }
 
   private suspend fun apiCallByStoryType(storyType: StoryType):
-      ResponseWrapper<Response<IdsResponse>> {
+    ResponseWrapper<Response<IdsResponse>> {
     return ResponseWrapper.safeApiCall {
       when (storyType) {
         StoryType.JOB -> api.getJobStories()

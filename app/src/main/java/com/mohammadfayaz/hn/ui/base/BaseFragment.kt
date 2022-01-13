@@ -53,6 +53,7 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
   }
 
   companion object {
+    const val NETWORK_ERROR: Int = 2000
     const val FETCHED_IDS: Int = 1
   }
 }

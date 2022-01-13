@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mohammadfayaz.hn.domain.usecases.stories.top.GetTopStoryIdsUseCase
-import com.mohammadfayaz.hn.domain.usecases.stories.top.TopStoryPaginationUseCase
+import com.mohammadfayaz.hn.domain.usecases.stories.job.GetJobStoryIdsUseCase
+import com.mohammadfayaz.hn.domain.usecases.stories.job.JobStoryPaginationUseCase
 import com.mohammadfayaz.hn.ui.base.BaseFragment
 import com.mohammadfayaz.hn.utils.*
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,8 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JobsViewModel @Inject constructor(
-  private val getTopStoryIdsUseCase: GetTopStoryIdsUseCase,
-  private val topStoryPaginationUseCase: TopStoryPaginationUseCase
+  private val getJobStoryIdsUseCase: GetJobStoryIdsUseCase,
+  private val jobStoryPaginationUseCase: JobStoryPaginationUseCase
 ) : ViewModel() {
 
   private val _liveData = MutableLiveData<ViewEvent>()
@@ -28,7 +28,7 @@ class JobsViewModel @Inject constructor(
   fun pullData() {
     viewModelScope.launch {
       _liveData.load()
-      val response = getTopStoryIdsUseCase.invoke()
+      val response = getJobStoryIdsUseCase.invoke()
       if (response.success)
         _liveData.success(response.result!!, response.message, BaseFragment.FETCHED_IDS)
       else
@@ -36,5 +36,5 @@ class JobsViewModel @Inject constructor(
     }
   }
 
-  fun getPaginatedFlow(idsList: List<Int>) = topStoryPaginationUseCase.invoke(idsList)
+  fun getPaginatedFlow(idsList: List<Int>) = jobStoryPaginationUseCase.invoke(idsList)
 }

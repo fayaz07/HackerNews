@@ -14,7 +14,7 @@ class IdsRepo @Inject constructor(
 ) : IIdsRepo {
 
   override suspend fun fetchStoryIds(storyType: StoryType): ApiResult<List<Int>> {
-    val networkResponse = idsNetworkSource.getShowStoryIds()
+    val networkResponse = idsNetworkSource.getIdsByType(storyType)
     val localResponse: List<StoryIdModel> = fetchIdsFromDb(storyType)
 
     val idsList = mutableSetOf<Int>()

@@ -51,4 +51,8 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
     )
     Toast.makeText(requireContext(), centeredText, Toast.LENGTH_SHORT).show()
   }
+
+  companion object {
+    const val FETCHED_IDS: Int = 1
+  }
 }

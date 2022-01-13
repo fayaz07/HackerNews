@@ -119,8 +119,4 @@ class ShowStoriesFragment : BaseFragment() {
       }
     }
   }
-
-  companion object {
-    const val FETCHED_IDS: Int = 1
-  }
 }

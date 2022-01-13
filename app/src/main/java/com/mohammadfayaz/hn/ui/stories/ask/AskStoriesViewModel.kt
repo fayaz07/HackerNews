@@ -6,8 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mohammadfayaz.hn.domain.usecases.stories.ask.AskStoryPaginationUseCase
 import com.mohammadfayaz.hn.domain.usecases.stories.ask.GetAskStoryIdsUseCase
-import com.mohammadfayaz.hn.ui.stories.show.ShowStoriesFragment
-import com.mohammadfayaz.hn.utils.*
+import com.mohammadfayaz.hn.ui.base.BaseFragment.Companion.FETCHED_IDS
+import com.mohammadfayaz.hn.utils.AppConstants.API_ERROR
+import com.mohammadfayaz.hn.utils.ViewEvent
+import com.mohammadfayaz.hn.utils.error
+import com.mohammadfayaz.hn.utils.load
+import com.mohammadfayaz.hn.utils.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,9 +34,9 @@ class AskStoriesViewModel @Inject constructor(
       _liveData.load()
       val response = getAskStoryIdsUseCase.invoke()
       if (response.success)
-        _liveData.success(response.result!!, response.message, ShowStoriesFragment.FETCHED_IDS)
+        _liveData.success(response.result!!, response.message, FETCHED_IDS)
       else
-        _liveData.error(response.message, AppConstants.API_ERROR, null)
+        _liveData.error(response.message, API_ERROR, null)
     }
   }
 

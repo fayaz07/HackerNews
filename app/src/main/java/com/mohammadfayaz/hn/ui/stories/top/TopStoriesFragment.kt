@@ -65,7 +65,7 @@ class TopStoriesFragment : BaseFragment() {
   }
 
   override fun addObservers() {
-    viewModel.liveData.observe(viewLifecycleOwner) {
+    viewModel.viewEvent.observe(viewLifecycleOwner) {
       handleViewEvents(it)
     }
 

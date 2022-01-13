@@ -13,6 +13,7 @@ import com.mohammadfayaz.hn.ui.adapters.loading.LoadingIndicatorAdapter
 import com.mohammadfayaz.hn.ui.adapters.stories.StoryListAdapter
 import com.mohammadfayaz.hn.ui.base.BaseFragment
 import com.mohammadfayaz.hn.utils.ViewEvent
+import com.mohammadfayaz.hn.utils.extensions.showHide
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -40,13 +41,9 @@ class ShowStoriesFragment : BaseFragment() {
     return binding.root
   }
 
-  private fun showHideLoader(show: Boolean) {
-    binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
-  }
+  private fun showHideLoader(show: Boolean) = binding.progressBar.showHide(show)
 
-  private fun showHideErrorViews(show: Boolean) {
-    binding.errorViewLayout.root.visibility = if (show) View.VISIBLE else View.GONE
-  }
+  private fun showHideErrorViews(show: Boolean) = binding.errorViewLayout.root.showHide(show)
 
   override fun registerViewEvents() {
     adapter = StoryListAdapter(this)

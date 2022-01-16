@@ -2,6 +2,7 @@ package com.mohammadfayaz.hn.di
 
 import android.content.Context
 import com.mohammadfayaz.hn.data.sources.local.HackerNewsDB
+import com.mohammadfayaz.hn.data.sources.local.dao.CommentsDao
 import com.mohammadfayaz.hn.data.sources.local.dao.FavouritesDao
 import com.mohammadfayaz.hn.data.sources.local.dao.IdsDao
 import com.mohammadfayaz.hn.data.sources.local.dao.StoryDao
@@ -26,4 +27,7 @@ class DatabaseModule {
 
   @Provides
   fun provideFavouritesDao(db: HackerNewsDB): FavouritesDao = db.favouritesDao()
+
+  @Provides
+  fun provideCommentsDao(db: HackerNewsDB): CommentsDao = db.commentsDao()
 }

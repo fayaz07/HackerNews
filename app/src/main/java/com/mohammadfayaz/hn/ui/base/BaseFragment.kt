@@ -30,6 +30,7 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
 
   override fun onClick(item: StoryModel) {
     Timber.d("$item ")
+
     if (item.url == null) {
       showError("Url or webpage for the story was removed")
       return

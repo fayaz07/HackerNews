@@ -29,5 +29,14 @@
     android:id="@+id/askStories"
     android:name="com.mohammadfayaz.hn.ui.stories.ask.AskStoriesFragment"
     android:label="@string/ask_stories"
-    tools:layout="@layout/fragment_ask_stories"/>
+    tools:layout="@layout/fragment_ask_stories">
+    <action
+      android:id="@+id/action_askStories_to_askStoryDetailFragment"
+      app:destination="@id/askStoryDetailFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/askStoryDetailFragment"
+    android:name="com.mohammadfayaz.hn.ui.stories.ask.detail.AskStoryDetailFragment"
+    android:label="Ask Story"
+    tools:layout="@layout/fragment_ask_story_detail" />
 </navigation>

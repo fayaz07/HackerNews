@@ -33,6 +33,7 @@ ktlintPlugin = "10.1.0"
 truth = "1.1.3"
 
 detekt = "1.18.1"
+androidxTest = "2.1.0"
 
 [libraries]
 # Plugins go here
@@ -92,6 +93,7 @@ ktlint-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref =
 
 truth-assert = { module = "com.google.truth:truth", version.ref = "truth" }
 
+androidx-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidxTest" }
 
 [bundles]
 androidxCore = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-legacySupport"]
@@ -112,6 +114,6 @@ androidxViews = ["androidx-recyclerView", "androidx-swipeRefresh"]
 
 androidxCache = ["androidx-roomRuntime", "androidx-roomKtx", "androidx-paging"]
 
-testDependencies = ["truth-assert", "google-daggerHiltTest", "junit-test"]
+testDependencies = ["truth-assert", "google-daggerHiltTest", "junit-test", "androidx-testing"]
 
 daggerTestsAnnotation = ["google-daggerHiltTestAnnotation"]

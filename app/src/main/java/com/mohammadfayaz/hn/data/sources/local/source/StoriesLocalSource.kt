@@ -12,6 +12,11 @@ class StoriesLocalSource @Inject constructor(private val storyDao: StoryDao) : B
     item.setDefaults()
     item.title = item.title?.replace("Show HN: ", "")
       ?.replace("Ask HN: ", "")
+    if (item.time != null) {
+      item.time = item.time!! * 1000L
+    } else {
+      item.time = System.currentTimeMillis()
+    }
     Timber.d("Storing story in localdb")
     storyDao.insert(item)
   }

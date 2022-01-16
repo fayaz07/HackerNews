@@ -10,6 +10,7 @@ import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.fragment.app.viewModels
 import com.mohammadfayaz.hn.databinding.FragmentAskStoryDetailBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.utils.AppDateTimeUtils
 import com.mohammadfayaz.hn.utils.extensions.gone
 import com.mohammadfayaz.hn.utils.icons.AppIcons
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,6 +44,7 @@ class AskStoryDetailFragment : Fragment() {
         } else {
           descriptionTextView.gone()
         }
+        timeTextView.text = AppDateTimeUtils.formatDate(it.time)
         commentsImageView.icon = AppIcons.fawComment(binding.root.context)
         scoreImageView.icon = AppIcons.fawHeart(binding.root.context)
         scoreTextView.text = it.score.toString()

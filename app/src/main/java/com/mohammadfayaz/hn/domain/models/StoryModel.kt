@@ -22,7 +22,7 @@ data class StoryModel(
   @SerializedName("parent") val parent: Int? = -1,
   @SerializedName("score") val score: Int? = 0,
   @SerializedName("text") val text: String? = "",
-  @SerializedName("time") val time: Long? = 0,
+  @SerializedName("time") var time: Long? = 0,
 
   @SerializedName("kids") var kids: List<Int>? = emptyList(),
   @SerializedName("parts") var parts: List<Int>? = emptyList(),

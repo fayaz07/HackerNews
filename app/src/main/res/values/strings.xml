@@ -14,4 +14,5 @@
   <string name="save_as_favourite">Save as Favourite</string>
     <string name="story">STORY</string>
     <string name="comments">Comments</string>
+  <string name="here_goes_the_description_of_the_question">Here goes the description of the question</string>
 </resources>

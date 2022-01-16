@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.fragment.app.viewModels
-import com.mikepenz.iconics.IconicsDrawable
-import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mohammadfayaz.hn.databinding.FragmentAskStoryDetailBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.utils.extensions.gone
+import com.mohammadfayaz.hn.utils.icons.AppIcons
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,10 +38,13 @@ class AskStoryDetailFragment : Fragment() {
       storyItem?.let {
         titleTextView.text = it.title
         authorNameTextView.text = it.by
-        commentsImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_comment)
-        scoreImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_heart)
+        if (it.text != null) {
+          descriptionTextView.text = HtmlCompat.fromHtml(it.text, FROM_HTML_MODE_COMPACT)
+        } else {
+          descriptionTextView.gone()
+        }
+        commentsImageView.icon = AppIcons.fawComment(binding.root.context)
+        scoreImageView.icon = AppIcons.fawHeart(binding.root.context)
         scoreTextView.text = it.score.toString()
         commentsTextView.text = it.kids?.size.toString()
       }

@@ -8,6 +8,7 @@ import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mohammadfayaz.hn.databinding.LayoutStoryItemBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.utils.icons.AppIcons
 
 class StoryListAdapter constructor(private val listener: StoryItemClickListener) :
   PagingDataAdapter<StoryModel, StoryListAdapter.StoryViewHolder>(StoryDiffUtilCallBack()) {
@@ -57,9 +58,9 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
         authorNameTextView.text = story.by
         titleTextView.text = story.title
         commentsImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_comment)
+          AppIcons.fawComment(binding.root.context)
         scoreImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_heart)
+          AppIcons.fawHeart(binding.root.context)
         scoreTextView.text = story.score.toString()
         commentsTextView.text = story.kids?.size.toString()
         storyTypeTextView.text = story.storyType.string.uppercase()

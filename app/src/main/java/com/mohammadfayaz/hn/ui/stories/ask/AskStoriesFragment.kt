@@ -17,6 +17,7 @@ import com.mohammadfayaz.hn.utils.extensions.showHide
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class AskStoriesFragment : BaseFragment() {
@@ -38,7 +39,14 @@ class AskStoriesFragment : BaseFragment() {
     registerViewEvents()
     addObservers()
 
+    Timber.d("OnCreateView")
+
     return binding.root
+  }
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    Timber.d("onDestroyView")
   }
 
   override fun registerViewEvents() {

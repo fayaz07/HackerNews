@@ -11,6 +11,7 @@ class StoriesLocalSource @Inject constructor(private val storyDao: StoryDao) : B
     item.storyType = type
     item.setDefaults()
     item.title = item.title?.replace("Show HN: ", "")
+      ?.replace("Ask HN: ", "")
     Timber.d("Storing story in localdb")
     storyDao.insert(item)
   }

@@ -1,13 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ui.stories.ask.detail.AskStoryDetailFragment">
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/titleTextView"
+    style="@style/TextAppearance.AppCompat.Headline"
+    android:layout_width="0sp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="8sp"
+    android:text="@string/story_title"
+    android:textStyle="bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/authorNameTextView"
+    style="@style/TextAppearance.MaterialComponents.Body2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/author"
+    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+    app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/timeTextView"
+    style="@style/TextAppearance.MaterialComponents.Body2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:text="@string/sample_date"
+    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+    app:layout_constraintTop_toBottomOf="@+id/authorNameTextView" />
+
+  <com.mikepenz.iconics.view.IconicsImageView
+    android:id="@+id/commentsImageView"
+    android:layout_width="16sp"
+    android:layout_height="16sp"
+    android:layout_marginStart="32sp"
+    app:iiv_icon="gmd-favorite"
+    app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
+    app:layout_constraintStart_toEndOf="@+id/timeTextView"
+    app:layout_constraintTop_toTopOf="@+id/timeTextView"
+    app:tint="@color/iconColor" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/commentsTextView"
+    style="@style/TextAppearance.MaterialComponents.Body2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8sp"
+    android:text="@string/zero"
+    app:layout_constraintBottom_toBottomOf="@+id/commentsImageView"
+    app:layout_constraintStart_toEndOf="@+id/commentsImageView"
+    app:layout_constraintTop_toTopOf="@+id/commentsImageView" />
+
+  <com.mikepenz.iconics.view.IconicsImageView
+    android:id="@+id/scoreImageView"
+    android:layout_width="16sp"
+    android:layout_height="16sp"
+    android:layout_marginStart="16sp"
+    app:iiv_icon="gmd-favorite"
+    app:layout_constraintBottom_toBottomOf="@+id/timeTextView"
+    app:layout_constraintStart_toEndOf="@+id/commentsTextView"
+    app:layout_constraintTop_toTopOf="@+id/timeTextView"
+    app:tint="@color/iconColor" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/scoreTextView"
+    style="@style/TextAppearance.MaterialComponents.Body2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8sp"
+    android:text="@string/zero"
+    app:layout_constraintBottom_toBottomOf="@+id/scoreImageView"
+    app:layout_constraintStart_toEndOf="@+id/scoreImageView"
+    app:layout_constraintTop_toTopOf="@+id/scoreImageView" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+    android:id="@+id/commentsHeadline"
+    style="@style/TextAppearance.AppCompat.Title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:text="@string/comments"
+    app:layout_constraintStart_toStartOf="@+id/titleTextView"
+    app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+
+  <View
+    android:id="@+id/view"
+    android:layout_width="0sp"
+    android:layout_height="1sp"
+    android:layout_marginTop="4sp"
+    android:background="@color/captionTextColor"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/commentsHeadline"
+    tools:ignore="SmallSp" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/commentsRecyclerView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.stories.ask.detail.AskStoryDetailFragment">
+    android:layout_height="0sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/view" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

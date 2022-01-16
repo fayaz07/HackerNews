@@ -1,7 +1,9 @@
 package com.mohammadfayaz.hn.ui.stories.ask.detail
 
-import androidx.lifecycle.ViewModel
+import com.mohammadfayaz.hn.ui.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AskStoryDetailViewModel : ViewModel() {
-  // TODO: Implement the ViewModel
+@HiltViewModel
+class AskStoryDetailViewModel @Inject constructor() : BaseViewModel() {
 }

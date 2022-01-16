@@ -38,5 +38,9 @@
     android:id="@+id/askStoryDetailFragment"
     android:name="com.mohammadfayaz.hn.ui.stories.ask.detail.AskStoryDetailFragment"
     android:label="Ask Story"
-    tools:layout="@layout/fragment_ask_story_detail" />
+    tools:layout="@layout/fragment_ask_story_detail" >
+    <argument
+      android:name="storyItem"
+      app:argType="com.mohammadfayaz.hn.domain.models.StoryModel" />
+  </fragment>
 </navigation>

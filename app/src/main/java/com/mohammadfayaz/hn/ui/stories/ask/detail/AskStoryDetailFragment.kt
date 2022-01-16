@@ -1,12 +1,12 @@
 package com.mohammadfayaz.hn.ui.stories.ask.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mohammadfayaz.hn.databinding.FragmentAskStoryDetailBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
@@ -22,7 +22,8 @@ class AskStoryDetailFragment : Fragment() {
   private val viewModel: AskStoryDetailViewModel by viewModels()
 
   override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
+    inflater: LayoutInflater,
+    container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
     binding = FragmentAskStoryDetailBinding.inflate(layoutInflater)
@@ -54,7 +55,5 @@ class AskStoryDetailFragment : Fragment() {
   }
 
   private fun addObservers() {
-
   }
-
 }

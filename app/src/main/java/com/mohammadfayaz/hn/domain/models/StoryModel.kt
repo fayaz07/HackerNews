@@ -37,4 +37,8 @@ data class StoryModel(
       parts = emptyList()
     }
   }
+
+  override fun toString(): String {
+    return "StoryModel{id: $id, title: $title, url: $url, type: $type}"
+  }
 }

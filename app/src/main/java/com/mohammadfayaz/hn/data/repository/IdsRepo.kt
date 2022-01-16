@@ -6,6 +6,7 @@ import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
 import com.mohammadfayaz.hn.domain.repository.IIdsRepo
+import timber.log.Timber
 import javax.inject.Inject
 
 class IdsRepo @Inject constructor(
@@ -14,7 +15,15 @@ class IdsRepo @Inject constructor(
 ) : IIdsRepo {
 
   override suspend fun fetchStoryIds(storyType: StoryType): ApiResult<List<Int>> {
-    val networkResponse = idsNetworkSource.getIdsByType(storyType)
+    val networkResponse = if (AppCache.canFetch(storyType)) {
+      idsNetworkSource.getIdsByType(storyType)
+    } else {
+      Timber.d(
+        "Not fetching ids for type: $storyType " +
+          "as the app just fetched ids less than 5 mins ago"
+      )
+      ApiResult.OK("", emptyList())
+    }
     val localResponse: List<StoryIdModel> = fetchIdsFromDb(storyType)
 
     val idsList = mutableSetOf<Int>()

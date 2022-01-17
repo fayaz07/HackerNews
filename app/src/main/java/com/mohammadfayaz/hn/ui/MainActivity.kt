@@ -39,7 +39,9 @@ class MainActivity : AppCompatActivity() {
     navController = navHostFragment.navController
 
     navController.addOnDestinationChangedListener { _, destination, _ ->
-      if (destination.id == R.id.askStoryDetailFragment) {
+      if (destination.id == R.id.askStoryDetailFragment ||
+        destination.id == R.id.commentsFragment
+      ) {
         binding.bottomNavBar.gone()
       } else {
         binding.bottomNavBar.show()

@@ -1,12 +1,14 @@
 package com.mohammadfayaz.hn.ui.stories.ask.detail
 
-import com.mohammadfayaz.hn.domain.usecases.comments.CommentsPaginationUseCase
 import com.mohammadfayaz.hn.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class AskStoryDetailViewModel @Inject constructor(private val useCase: CommentsPaginationUseCase) :
+class AskStoryDetailViewModel @Inject constructor() :
   BaseViewModel() {
-  fun getComments(ids: List<Int>) = useCase.invoke(ids)
+  fun init() {
+    Timber.d("init")
+  }
 }

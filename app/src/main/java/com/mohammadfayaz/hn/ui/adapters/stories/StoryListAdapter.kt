@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mohammadfayaz.hn.databinding.LayoutStoryItemBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.utils.AppDateTimeUtils
-import com.mohammadfayaz.hn.utils.icons.AppIcons
 import java.util.*
 
 class StoryListAdapter constructor(private val listener: StoryItemClickListener) :
@@ -57,10 +56,10 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
       binding.apply {
         authorNameTextView.text = story.by
         titleTextView.text = story.title
-        commentsImageView.icon =
-          AppIcons.fawComment(binding.root.context)
-        scoreImageView.icon =
-          AppIcons.fawHeart(binding.root.context)
+//        commentsImageView.icon =
+//          AppIcons.fawComment(binding.root.context)
+//        scoreImageView.icon =
+//          AppIcons.fawHeart(binding.root.context)
         scoreTextView.text = story.score.toString()
         commentsTextView.text = story.kids?.size.toString()
         storyTypeTextView.text = story.storyType.string.uppercase()

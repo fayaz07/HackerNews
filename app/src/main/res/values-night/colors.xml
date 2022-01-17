@@ -19,6 +19,7 @@
 
   <color name="captionTextColor">#6C6C6C</color>
   <color name="iconColor">@color/white</color>
+  <color name="dotColor">#707070</color>
 
   <color name="splashBgColor">@color/black</color>
 

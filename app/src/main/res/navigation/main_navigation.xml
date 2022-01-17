@@ -42,5 +42,17 @@
     <argument
       android:name="storyItem"
       app:argType="com.mohammadfayaz.hn.domain.models.StoryModel" />
+    <action
+      android:id="@+id/action_askStoryDetailFragment_to_commentsFragment"
+      app:destination="@id/commentsFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/commentsFragment"
+    android:name="com.mohammadfayaz.hn.ui.stories.comments.CommentsFragment"
+    android:label="@string/comments"
+    tools:layout="@layout/fragment_comments">
+    <argument
+      android:name="ids"
+      app:argType="com.mohammadfayaz.hn.domain.models.IdsModel" />
   </fragment>
 </navigation>

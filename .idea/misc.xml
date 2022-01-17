@@ -10,7 +10,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_story_detailed.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_ask_stories.xml" value="0.34057971014492755" />
-        <entry key="app/src/main/res/layout/fragment_ask_story_detail.xml" value="0.3129528985507246" />
+        <entry key="app/src/main/res/layout/fragment_ask_story_detail.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/fragment_comments.xml" value="0.1752786220871327" />
         <entry key="app/src/main/res/layout/fragment_job_detail.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_jobs.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/fragment_new_stories.xml" value="0.35520833333333335" />
@@ -23,8 +24,9 @@
         <entry key="app/src/main/res/layout/layout_loading_indicator.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/layout_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/layout_show_story.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/layout_story_item.xml" value="0.2819767441860465" />
+        <entry key="app/src/main/res/layout/layout_story_item.xml" value="0.34797630799605134" />
         <entry key="app/src/main/res/layout/non_working.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/view_dot.xml" value="1.9939897656944932" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />

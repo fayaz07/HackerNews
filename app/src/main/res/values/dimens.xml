@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <dimen name="splashscreen_icon_size">200sp</dimen>
+  <dimen name="dot_view_size">8sp</dimen>
+  <dimen name="margin_between_story_constraints">8sp</dimen>
+  <dimen name="small_text_size">12sp</dimen>
 </resources>

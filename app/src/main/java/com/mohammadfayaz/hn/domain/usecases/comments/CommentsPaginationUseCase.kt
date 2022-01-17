@@ -13,4 +13,3 @@ class CommentsPaginationUseCase @Inject constructor(private val repo: CommentsRe
     return repo.getPaginatedFlow(ids)
   }
 }
-

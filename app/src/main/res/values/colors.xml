@@ -18,7 +18,8 @@
   <color name="secondaryTextColor">#000000</color>
 
   <color name="captionTextColor">#6C6C6C</color>
-  <color name="iconColor">@color/black</color>
+  <color name="iconColor">#989898</color>
+  <color name="dotColor">#707070</color>
 
   <color name="splashBgColor">@color/primaryColor</color>
 

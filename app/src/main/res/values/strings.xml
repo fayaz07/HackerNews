@@ -15,4 +15,6 @@
     <string name="story">STORY</string>
     <string name="comments">Comments</string>
   <string name="here_goes_the_description_of_the_question">Here goes the description of the question</string>
+    <string name="posted_by">posted by</string>
+    <string name="view_comments">VIEW COMMENTS</string>
 </resources>

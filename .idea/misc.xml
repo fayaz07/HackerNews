@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_story_detailed.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_ask_stories.xml" value="0.34057971014492755" />
-        <entry key="app/src/main/res/layout/fragment_ask_story_detail.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/fragment_ask_story_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_comments.xml" value="0.1752786220871327" />
         <entry key="app/src/main/res/layout/fragment_job_detail.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_jobs.xml" value="0.34010416666666665" />

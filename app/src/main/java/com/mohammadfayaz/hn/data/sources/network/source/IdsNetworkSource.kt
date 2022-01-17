@@ -2,24 +2,20 @@ package com.mohammadfayaz.hn.data.sources.network.source
 
 import com.mohammadfayaz.hn.data.sources.network.ResponseWrapper
 import com.mohammadfayaz.hn.data.sources.network.api.HackerNewsAPI
+import com.mohammadfayaz.hn.data.sources.network.response.IdsResponse
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
+import retrofit2.Response
 import javax.inject.Inject
 
 class IdsNetworkSource @Inject constructor(private val api: HackerNewsAPI) : BaseNetworkSource() {
 
-  suspend fun getShowStoryIds(): ApiResult<List<Int>> {
-    return getIdsByType(StoryType.SHOW)
-  }
-
-  private suspend fun getIdsByType(storyType: StoryType): ApiResult<List<Int>> {
+  suspend fun getIdsByType(storyType: StoryType): ApiResult<List<Int>> {
     val idsList = mutableSetOf<Int>()
 
     return when (
-      val networkResponse = ResponseWrapper.safeApiCall {
-        api.getShowStories()
-      }
+      val networkResponse = apiCallByStoryType(storyType)
     ) {
       is ResponseWrapper.GenericError ->
         ApiResult.ERROR(networkResponse.error + ", no data available in cached storage")
@@ -37,6 +33,18 @@ class IdsNetworkSource @Inject constructor(private val api: HackerNewsAPI) : Bas
         } else {
           ApiResult.ERROR("No data found")
         }
+      }
+    }
+  }
+
+  private suspend fun apiCallByStoryType(storyType: StoryType):
+    ResponseWrapper<Response<IdsResponse>> {
+    return ResponseWrapper.safeApiCall {
+      when (storyType) {
+        StoryType.JOB -> api.getJobStories()
+        StoryType.SHOW -> api.getShowStories()
+        StoryType.ASK -> api.getAskStories()
+        StoryType.TOP -> api.getTopStories()
       }
     }
   }

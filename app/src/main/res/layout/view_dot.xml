@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="8sp"
+  android:layout_height="8sp"
+  android:src="@drawable/ic_baseline_fiber_manual_record_24"
+  android:tint="@color/iconColor"
+  tools:ignore="SmallSp" />

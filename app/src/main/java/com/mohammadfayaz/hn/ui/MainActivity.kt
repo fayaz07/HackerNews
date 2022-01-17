@@ -9,6 +9,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.mohammadfayaz.hn.R
 import com.mohammadfayaz.hn.databinding.ActivityMainBinding
+import com.mohammadfayaz.hn.utils.extensions.gone
+import com.mohammadfayaz.hn.utils.extensions.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,6 +37,16 @@ class MainActivity : AppCompatActivity() {
       supportFragmentManager.findFragmentById(R.id.mainNavHostFragment) as NavHostFragment
 
     navController = navHostFragment.navController
+
+    navController.addOnDestinationChangedListener { _, destination, _ ->
+      if (destination.id == R.id.askStoryDetailFragment ||
+        destination.id == R.id.commentsFragment
+      ) {
+        binding.bottomNavBar.gone()
+      } else {
+        binding.bottomNavBar.show()
+      }
+    }
 
     setupActionBarWithNavController(navController)
 

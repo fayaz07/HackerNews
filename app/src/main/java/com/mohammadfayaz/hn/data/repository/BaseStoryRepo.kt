@@ -6,19 +6,20 @@ import com.mohammadfayaz.hn.data.sources.network.source.StoriesNetworkSource
 import com.mohammadfayaz.hn.domain.models.ApiResult
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.StoryType
+import com.mohammadfayaz.hn.domain.repository.IBaseStoryRepo
 import kotlinx.coroutines.flow.Flow
 import timber.log.Timber
 
 abstract class BaseStoryRepo(
   private val storiesNetworkSource: StoriesNetworkSource,
   private val storyLocalSource: StoriesLocalSource
-) {
+) : IBaseStoryRepo {
 
-  abstract suspend fun fetchItemById(id: Int): ApiResult<StoryModel>
+  abstract override suspend fun fetchItemById(id: Int): ApiResult<StoryModel>
 
-  abstract fun getPaginatedFlow(idsList: List<Int>): Flow<PagingData<StoryModel>>
+  abstract override fun getPaginatedFlow(idsList: List<Int>): Flow<PagingData<StoryModel>>
 
-  protected suspend fun fetchItemByIdAndType(id: Int, type: StoryType): ApiResult<StoryModel> {
+  override suspend fun fetchItemByIdAndType(id: Int, type: StoryType): ApiResult<StoryModel> {
     val fromLocal = fetchItemByIdFromLocalDb(id)
     if (fromLocal != null) {
       Timber.d("Item exists in localdb $fromLocal")

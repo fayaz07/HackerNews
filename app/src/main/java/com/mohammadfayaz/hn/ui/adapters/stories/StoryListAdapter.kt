@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.mikepenz.iconics.IconicsDrawable
-import com.mikepenz.iconics.typeface.library.fontawesome.FontAwesome
 import com.mohammadfayaz.hn.databinding.LayoutStoryItemBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.utils.AppDateTimeUtils
+import java.util.*
 
 class StoryListAdapter constructor(private val listener: StoryItemClickListener) :
   PagingDataAdapter<StoryModel, StoryListAdapter.StoryViewHolder>(StoryDiffUtilCallBack()) {
@@ -56,12 +56,14 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
       binding.apply {
         authorNameTextView.text = story.by
         titleTextView.text = story.title
-        commentsImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_comment)
-        scoreImageView.icon =
-          IconicsDrawable(binding.root.context, FontAwesome.Icon.faw_heart)
+//        commentsImageView.icon =
+//          AppIcons.fawComment(binding.root.context)
+//        scoreImageView.icon =
+//          AppIcons.fawHeart(binding.root.context)
         scoreTextView.text = story.score.toString()
         commentsTextView.text = story.kids?.size.toString()
+        storyTypeTextView.text = story.storyType.string.uppercase()
+        timeTextView.text = AppDateTimeUtils.formatDate(story.time)
       }
     }
   }

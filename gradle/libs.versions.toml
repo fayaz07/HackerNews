@@ -32,6 +32,10 @@ junit = "4.13.2"
 ktlintPlugin = "10.1.0"
 truth = "1.1.3"
 
+detekt = "1.18.1"
+androidxTest = "2.1.0"
+joda = "2.10.13"
+
 
 [libraries]
 # Plugins go here
@@ -39,6 +43,7 @@ gradle-android = { module = "com.android.tools.build:gradle", version.ref = "gra
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "gradleKotlin" }
 androidx-safeArgs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 gradle-daggerHiltPlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "daggerHilt" }
+gradle-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 # all other dependencies go here
 androidx-ktxCore = { module = "androidx.core:core-ktx", version.ref = "ktxCore" }
@@ -90,6 +95,9 @@ ktlint-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref =
 
 truth-assert = { module = "com.google.truth:truth", version.ref = "truth" }
 
+androidx-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidxTest" }
+
+joda-time = { module = "joda-time:joda-time", version.ref = "joda" }
 
 [bundles]
 androidxCore = ["androidx-ktxCore", "androidx-appcompat", "androidx-constraintLayout", "androidx-splashScreen", "androidx-legacySupport"]
@@ -100,7 +108,7 @@ google = ["google-material", "google-daggerHilt", "google-dagger", "google-gson"
 
 kapt = ["kapt-daggerHilt", "kapt-dagger", "kapt-room"]
 
-jakewharton = ["jakewharton-timber"]
+jakewharton = ["jakewharton-timber", "joda-time"]
 
 retrofit = ["retrofit-okHttpLogger", "retrofit-core", "retrofit-gsonConverter"]
 
@@ -110,6 +118,6 @@ androidxViews = ["androidx-recyclerView", "androidx-swipeRefresh"]
 
 androidxCache = ["androidx-roomRuntime", "androidx-roomKtx", "androidx-paging"]
 
-testDependencies = ["truth-assert", "google-daggerHiltTest", "junit-test"]
+testDependencies = ["truth-assert", "google-daggerHiltTest", "junit-test", "androidx-testing"]
 
 daggerTestsAnnotation = ["google-daggerHiltTestAnnotation"]

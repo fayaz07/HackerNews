@@ -6,11 +6,14 @@ import android.text.SpannableString
 import android.text.style.AlignmentSpan
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.domain.models.StoryType
 import com.mohammadfayaz.hn.ui.adapters.stories.StoryItemClickListener
-import com.mohammadfayaz.hn.ui.story_detail.StoryDetailedActivity
+import com.mohammadfayaz.hn.ui.stories.ask.AskStoriesFragmentDirections
+import com.mohammadfayaz.hn.ui.stories.detail.StoryDetailedActivity
 import timber.log.Timber
 
 abstract class BaseFragment : Fragment(), StoryItemClickListener {
@@ -30,6 +33,13 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
 
   override fun onClick(item: StoryModel) {
     Timber.d("$item ")
+
+    if (item.storyType == StoryType.ASK) {
+      val action = AskStoriesFragmentDirections.actionAskStoriesToAskStoryDetailFragment(item)
+      findNavController().navigate(action)
+      return
+    }
+
     if (item.url == null) {
       showError("Url or webpage for the story was removed")
       return
@@ -50,5 +60,10 @@ abstract class BaseFragment : Fragment(), StoryItemClickListener {
       Spannable.SPAN_INCLUSIVE_INCLUSIVE
     )
     Toast.makeText(requireContext(), centeredText, Toast.LENGTH_SHORT).show()
+  }
+
+  companion object {
+    const val NETWORK_ERROR: Int = 2000
+    const val FETCHED_IDS: Int = 1
   }
 }

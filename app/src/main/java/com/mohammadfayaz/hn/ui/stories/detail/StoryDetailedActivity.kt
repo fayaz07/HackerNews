@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.View
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
@@ -13,9 +12,14 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+import com.mohammadfayaz.hn.R
 import com.mohammadfayaz.hn.databinding.ActivityStoryDetailedBinding
 import com.mohammadfayaz.hn.domain.models.StoryModel
+import com.mohammadfayaz.hn.utils.ViewEvent
+import com.mohammadfayaz.hn.utils.extensions.gone
+import com.mohammadfayaz.hn.utils.extensions.show
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -35,6 +39,37 @@ class StoryDetailedActivity : AppCompatActivity() {
     setContentView(binding.root)
 
     handleIntentData()
+    addObservers()
+  }
+
+  private fun addObservers() {
+    viewModel.viewEvent.observe(this) {
+      when (it) {
+        is ViewEvent.Error<*> -> {
+        }
+        ViewEvent.Idle -> {
+        }
+        ViewEvent.Loading -> {
+        }
+        is ViewEvent.Success<*> -> {
+          handleViewModelSuccessEvents(it)
+        }
+      }
+    }
+  }
+
+  private fun handleViewModelSuccessEvents(it: ViewEvent.Success<*>) {
+    when (it.code) {
+      FAVOURITE_EVENT -> {
+        binding.floatingActionButton.setImageDrawable(
+          ContextCompat.getDrawable(
+            this,
+            if (it.data as Boolean) R.drawable.ic_baseline_favorite_24
+            else R.drawable.ic_baseline_favorite_border_24
+          )
+        )
+      }
+    }
   }
 
   private fun handleIntentData() {
@@ -48,7 +83,7 @@ class StoryDetailedActivity : AppCompatActivity() {
     binding.toolbar.title = storyItem.title
     viewModel.isFavourite(storyItem.id)
 
-    registerViewEvents()
+    registerViewEvents(storyItem)
 
     loadWebPage(storyItem)
   }
@@ -65,16 +100,8 @@ class StoryDetailedActivity : AppCompatActivity() {
     }
   }
 
-  private fun startLoading() {
-    binding.progressBar.visibility = View.VISIBLE
-  }
-
-  private fun stopLoading() {
-    binding.progressBar.visibility = View.GONE
-  }
-
   @SuppressLint("SetJavaScriptEnabled")
-  private fun registerViewEvents() {
+  private fun registerViewEvents(storyItem: StoryModel) {
     binding.apply {
       webView.apply {
         settings.javaScriptEnabled = true
@@ -84,6 +111,10 @@ class StoryDetailedActivity : AppCompatActivity() {
 
       toolbar.setNavigationOnClickListener {
         finish()
+      }
+
+      floatingActionButton.setOnClickListener {
+        viewModel.saveUnSaveAsFavourite(storyItem.id, storyItem.storyType)
       }
     }
   }
@@ -115,12 +146,12 @@ class StoryDetailedActivity : AppCompatActivity() {
   inner class MyWebViewClient : WebViewClient() {
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
       super.onPageStarted(view, url, favicon)
-      startLoading()
+      binding.progressBar.show()
       Timber.d("onPageStarted $url")
     }
 
     override fun onPageFinished(view: WebView?, url: String?) {
-      stopLoading()
+      binding.progressBar.gone()
       super.onPageFinished(view, url)
       Timber.d("onPageFinished")
     }

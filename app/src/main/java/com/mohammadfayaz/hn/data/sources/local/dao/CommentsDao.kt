@@ -8,4 +8,7 @@ import com.mohammadfayaz.hn.domain.models.CommentModel
 interface CommentsDao : BaseDao<CommentModel> {
   @Query("SELECT * FROM comments WHERE parent = :storyId ORDER BY time DESC")
   suspend fun getByStoryId(storyId: Int): List<CommentModel>
+
+  @Query("SELECT * FROM comments WHERE id = :id")
+  suspend fun getById(id: Int): CommentModel?
 }

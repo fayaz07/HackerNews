@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
@@ -8,7 +8,7 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/titleTextView"
@@ -92,7 +92,7 @@
       android:id="@+id/descriptionTextView"
       style="@style/TextAppearance.MaterialComponents.Body1"
       android:layout_width="0sp"
-      android:layout_height="wrap_content"
+      android:layout_height="24sp"
       android:layout_marginTop="16dp"
       android:layout_marginEnd="8dp"
       android:text="@string/here_goes_the_description_of_the_question"
@@ -115,7 +115,9 @@
       android:id="@+id/view"
       android:layout_width="0sp"
       android:layout_height="1sp"
+      android:layout_marginStart="4sp"
       android:layout_marginTop="4sp"
+      android:layout_marginEnd="4sp"
       android:background="@color/captionTextColor"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -126,10 +128,29 @@
       android:id="@+id/commentsRecyclerView"
       android:layout_width="match_parent"
       android:layout_height="0sp"
+      android:nestedScrollingEnabled="true"
+      android:orientation="vertical"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/view" />
 
+    <ProgressBar
+      android:id="@+id/progressBar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      app:layout_constraintBottom_toBottomOf="@+id/view"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+      android:id="@+id/errorViewLayout"
+      layout="@layout/layout_load_error"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:visibility="gone" />
+
   </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</RelativeLayout>

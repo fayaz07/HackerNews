@@ -68,7 +68,7 @@ class CommentsPagingSource(
             list.add(response.result!!)
           }
         }
-//        Timber.d("Res: $list")
+        Timber.d("Res: $list")
       }
       LoadResult.Page(
         data = list,

@@ -2,6 +2,7 @@ package com.mohammadfayaz.hn.ui.adapters.comments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mohammadfayaz.hn.databinding.LayoutCommentBinding
@@ -38,7 +39,7 @@ class CommentListAdapter :
     fun bind(story: CommentModel) {
       binding.apply {
         authorNameTextView.text = story.by
-        commentTextView.text = story.text
+        commentTextView.text = HtmlCompat.fromHtml(story.text, HtmlCompat.FROM_HTML_MODE_COMPACT)
         timeTextView.text = AppDateTimeUtils.formatDate(story.time)
       }
     }

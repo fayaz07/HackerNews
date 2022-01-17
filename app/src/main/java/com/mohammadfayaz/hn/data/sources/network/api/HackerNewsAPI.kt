@@ -2,6 +2,7 @@ package com.mohammadfayaz.hn.data.sources.network.api
 
 import com.mohammadfayaz.hn.data.sources.network.EndPoints
 import com.mohammadfayaz.hn.data.sources.network.response.IdsResponse
+import com.mohammadfayaz.hn.domain.models.CommentModel
 import com.mohammadfayaz.hn.domain.models.StoryModel
 import com.mohammadfayaz.hn.domain.models.UpdatesModel
 import com.mohammadfayaz.hn.domain.models.UserModel
@@ -28,6 +29,9 @@ interface HackerNewsAPI {
 
   @GET(EndPoints.ITEM_BY_ID)
   suspend fun getStoryById(@Path("id") id: Int): Response<StoryModel>
+
+  @GET(EndPoints.ITEM_BY_ID)
+  suspend fun getCommentById(@Path("id") id: Int): Response<CommentModel>
 
   @GET(EndPoints.USER_BY_ID)
   suspend fun getUserById(@Path("id") id: String): Response<UserModel>

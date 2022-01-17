@@ -8,9 +8,5 @@ import kotlinx.coroutines.flow.Flow
 interface ICommentsRepo {
   suspend fun fetchCommentById(id: Int): ApiResult<CommentModel>
 
-  suspend fun storeCommentInDb(id: Int)
-
-  suspend fun getCommentFromDb(id: Int)
-
   fun getPaginatedFlow(ids: List<Int>): Flow<PagingData<CommentModel>>
 }

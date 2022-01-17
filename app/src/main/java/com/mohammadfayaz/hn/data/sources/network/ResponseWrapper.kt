@@ -18,6 +18,7 @@ sealed class ResponseWrapper<out T> {
     private const val SOMETHING_WENT_WRONG: String = "Something went wrong"
     private const val SOMETHING_WENT_WRONG_CODE: Int = 500
 
+    @Suppress("SwallowedException", "TooGenericExceptionCaught")
     suspend fun <T> safeApiCall(apiCall: suspend () -> T): ResponseWrapper<T> {
       var response: ResponseWrapper<T>
       try {

@@ -42,24 +42,29 @@ class AskStoryDetailFragment : Fragment() {
       val storyItem: StoryModel? = arguments?.getParcelable("storyItem")
 
       if (storyItem != null) {
-        storyItem.let {
-          titleTextView.text = it.title
-          authorNameTextView.text = it.by
-          if (it.text != null) {
-            descriptionTextView.text = HtmlCompat.fromHtml(it.text, FROM_HTML_MODE_COMPACT)
-          } else {
-            descriptionTextView.gone()
-          }
-          timeTextView.text = AppDateTimeUtils.formatDate(it.time)
-          scoreTextView.text = it.score.toString()
-          commentsTextView.text = it.kids?.size.toString()
-
-          viewCommentsButton.setOnClickListener {
-            handleCommentsButtonClick(storyItem)
-          }
-        }
+        updateUI(storyItem)
       } else {
         showError("Unable to show story details")
+      }
+    }
+  }
+
+  private fun updateUI(storyItem: StoryModel) {
+    binding.apply {
+
+      titleTextView.text = storyItem.title
+      authorNameTextView.text = storyItem.by
+      if (storyItem.text != null) {
+        descriptionTextView.text = HtmlCompat.fromHtml(storyItem.text, FROM_HTML_MODE_COMPACT)
+      } else {
+        descriptionTextView.gone()
+      }
+      timeTextView.text = AppDateTimeUtils.formatDate(storyItem.time)
+      scoreTextView.text = storyItem.score.toString()
+      commentsTextView.text = storyItem.kids?.size.toString()
+
+      viewCommentsButton.setOnClickListener {
+        handleCommentsButtonClick(storyItem)
       }
     }
   }

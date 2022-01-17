@@ -45,7 +45,8 @@ class StoryDetailedActivity : AppCompatActivity() {
       return
     }
 
-    binding.toolbar.title = storyItem.title?.replace("Show HN: ", "")
+    binding.toolbar.title = storyItem.title
+    viewModel.isFavourite(storyItem.id)
 
     registerViewEvents()
 
@@ -100,6 +101,7 @@ class StoryDetailedActivity : AppCompatActivity() {
   }
 
   companion object {
+    const val FAVOURITE_EVENT = 1
     private const val STORY_DATA = "story_data"
     private const val NO_STORY_DATA_AVAILABLE = "Invalid story data/no story data available"
 

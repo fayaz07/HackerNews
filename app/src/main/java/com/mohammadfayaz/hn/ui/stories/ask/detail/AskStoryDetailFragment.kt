@@ -92,7 +92,7 @@ class AskStoryDetailFragment : Fragment() {
       } else {
         descriptionTextView.gone()
       }
-      timeTextView.text = AppDateTimeUtils.formatDate(storyItem.time)
+      timeTextView.text = AppDateTimeUtils.whenDidThisHappen(storyItem.time)
       scoreTextView.text = storyItem.score.toString()
       commentsTextView.text = storyItem.kids?.size.toString()
 

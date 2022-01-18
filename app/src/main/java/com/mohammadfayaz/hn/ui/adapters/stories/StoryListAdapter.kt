@@ -63,7 +63,7 @@ class StoryListAdapter constructor(private val listener: StoryItemClickListener)
         scoreTextView.text = story.score.toString()
         commentsTextView.text = story.kids?.size.toString()
         storyTypeTextView.text = story.storyType.string.uppercase()
-        timeTextView.text = AppDateTimeUtils.formatDate(story.time)
+        timeTextView.text = AppDateTimeUtils.whenDidThisHappen(story.time)
       }
     }
   }

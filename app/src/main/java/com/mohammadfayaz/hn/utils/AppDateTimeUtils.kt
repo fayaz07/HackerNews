@@ -21,7 +21,7 @@ object AppDateTimeUtils {
 
   const val DEF_TIME_MULTIPLY: Long = ONE_SECOND
 
-  // TODO: need to think of a better algorithm
+  // need to think of a better algorithm
   fun whenDidThisHappen(time: Long?): String {
     if (time != null) {
 

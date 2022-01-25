@@ -2,23 +2,20 @@ package com.mohammadfayaz.hn.data.sources.local
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.mohammadfayaz.hn.data.sources.local.source.IdsLocalSource
 import com.mohammadfayaz.hn.di.DatabaseModule
-import com.mohammadfayaz.hn.utils.SourceConstants.FAKE_LOCAL_IDS
 import com.mohammadfayaz.hn.domain.models.StoryIdModel
 import com.mohammadfayaz.hn.domain.models.StoryType
 import com.mohammadfayaz.hn.utils.DbConstants.FAKE_DB
+import com.mohammadfayaz.hn.utils.SourceConstants.FAKE_LOCAL_IDS
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import junit.framework.TestCase
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import java.lang.Thread.sleep
 import javax.inject.Inject
 import javax.inject.Named
 

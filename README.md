@@ -3,7 +3,7 @@
    <h1 align="center"> HackerNews </h1>
    <p align="center">Android app consuming <a href="https://hacker-news.firebaseio.com/v0/">HackerNews API</a>, built with modern android architecture components.</p>
    <a  href="https://codebeat.co/projects/github-com-fayaz07-hackernews-main"><img alt="codebeat badge" src="https://codebeat.co/badges/4dcfd535-f589-4121-b014-e212a9abb337" /></a> 
-   <a href="https://www.codacy.com/gh/fayaz07/HackerNews/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fayaz07/HackerNews&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/437257ee0dfa4fb9948ce147729270be"/></a> 
+   <a href="https://www.codacy.com/gh/fayaz07/HackerNews/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fayaz07/HackerNews&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/6eeaa36394cf4c75a8c751e2f9b9c7d0"/></a> 
    <a href="https://circleci.com/gh/fayaz07/HackerNews/tree/main"><img alt="CircleCI" src="https://circleci.com/gh/fayaz07/HackerNews/tree/main.svg?style=svg" /></a> 
    <a href="https://ktlint.github.io/"><img alt="ktlint" src="https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg" /></a>
    <a href="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml"><img alt="lint-check" src="https://github.com/fayaz07/HackerNews/actions/workflows/ktlint.yml/badge.svg"/> </a>

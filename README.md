@@ -12,6 +12,8 @@
 
 ## About app
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cf802649976046c1b5ac0bed540cb786)](https://app.codacy.com/gh/fayaz07/HackerNews?utm_source=github.com&utm_medium=referral&utm_content=fayaz07/HackerNews&utm_campaign=Badge_Grade_Settings)
+
 1. Manages dependencies using Gradle's [**version catalog and toml**](https://docs.gradle.org/current/userguide/platforms.html) config.
 2. Android [Splash Screen](https://developer.android.com/guide/topics/ui/splash-screen) API
 3. [ViewBinding](https://developer.android.com/topic/libraries/view-binding)

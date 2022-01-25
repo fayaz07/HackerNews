@@ -80,22 +80,8 @@ class LocalIdsSourceTest {
     }
   }
 
-  @Test
-  fun cThereShouldBeStories(): Unit = runBlocking {
-
-//    val all = idsLocalSource.getIdsByStoryType(StoryType.SHOW)
-//    println(all)
-
-    StoryType.values().asList().forEach { type ->
-      val selected = items.filter {
-        it.type == type
-      }
-      matchItemsCount(type, selected.count())
-    }
-  }
-
   @After
   fun tearDownDb() {
-//    db.close()
+    db.close()
   }
 }

@@ -6,7 +6,7 @@ dependencyResolutionManagement {
 //        jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "News"
+rootProject.name = "HackerNews"
 include ':app'
 
 enableFeaturePreview("VERSION_CATALOGS")

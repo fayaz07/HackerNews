@@ -30,7 +30,7 @@
 
 ## Screenshots
 
-<img src="screenshots/Screenshot_1642326281.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642326294.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327175.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327163.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327181.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327190.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327210.png" width="33%" height="33%"/> <img src="screenshots/Screenshot_1642327197.png" width="33%" height="33%"/>  
+<img src="screenshots/S1.png" width="33%" height="33%"/> <img src="screenshots/S2.png" width="33%" height="33%"/> <img src="screenshots/S3.png" width="33%" height="33%"/> <img src="screenshots/S4.png" width="33%" height="33%"/> <img src="screenshots/S5.png" width="33%" height="33%"/> <img src="screenshots/S6.png" width="33%" height="33%"/> 
 
 ## Config
 

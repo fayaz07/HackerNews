@@ -40,7 +40,7 @@ class CommentListAdapter :
       binding.apply {
         authorNameTextView.text = story.by
         commentTextView.text = HtmlCompat.fromHtml(story.text, HtmlCompat.FROM_HTML_MODE_COMPACT)
-        timeTextView.text = AppDateTimeUtils.formatDate(story.time)
+        timeTextView.text = AppDateTimeUtils.whenDidThisHappen(story.time)
       }
     }
   }

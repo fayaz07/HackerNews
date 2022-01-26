@@ -30,7 +30,7 @@
 
 ## Screenshots
 
-<img src="screenshots/S1.png" width="33%" height="33%"/> <img src="screenshots/S2.png" width="33%" height="33%"/> <img src="screenshots/S3.png" width="33%" height="33%"/> <img src="screenshots/S4.png" width="33%" height="33%"/> <img src="screenshots/S5.png" width="33%" height="33%"/> <img src="screenshots/S6.png" width="33%" height="33%"/> 
+<img src="screenshots/S1.png" width="30%" height="30%"/> <img src="screenshots/S2.png" width="30%" height="30%"/> <img src="screenshots/S3.png" width="30%" height="30%"/> <img src="screenshots/S4.png" width="30%" height="30%"/> <img src="screenshots/S5.png" width="30%" height="30%"/> <img src="screenshots/S6.png" width="30%" height="30%"/> 
 
 ## Config
 
@@ -46,3 +46,7 @@ hn.apiVersion=v0/
 https://madscorecard.withgoogle.com/scorecards/496158960/
 
 <img src="screenshots/mad/summary.png"/>
+
+## Asset attribution
+
+<a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by Smashicons - Flaticon</a>

@@ -1,5 +1,6 @@
 package com.mohammadfayaz.hn.ui.adapters.comments
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
@@ -36,10 +37,27 @@ class CommentListAdapter :
   ) :
     RecyclerView.ViewHolder(binding.root) {
 
+//    init {
+//      binding.authorNameTextView.setOnClickListener {
+//        Toast.makeText(binding.root.context, "author-click", Toast.LENGTH_SHORT).show()
+//      }
+//    }
+
+    @SuppressLint("SetTextI18n")
     fun bind(story: CommentModel) {
+
+      var emptySpace = " "
+
+      repeat(story.by.length * 2) {
+        emptySpace += " "
+      }
+
       binding.apply {
         authorNameTextView.text = story.by
-        commentTextView.text = HtmlCompat.fromHtml(story.text, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        commentTextView.text =
+          emptySpace +
+          HtmlCompat.fromHtml(story.text, HtmlCompat.FROM_HTML_MODE_COMPACT).toString()
+            .trimEnd()
         timeTextView.text = AppDateTimeUtils.whenDidThisHappen(story.time)
       }
     }

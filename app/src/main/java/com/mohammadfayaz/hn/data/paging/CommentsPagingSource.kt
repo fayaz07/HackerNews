@@ -45,6 +45,10 @@ class CommentsPagingSource(
           minOffset = maxOffset - MAX_ITEMS_LIMIT
         }
 
+        if (minOffset == -1) {
+          minOffset = 0
+        }
+
         val multipleIds = ids.subList(
           minOffset,
           maxOffset

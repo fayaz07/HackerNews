@@ -8,12 +8,12 @@
 
   <item
     android:id="@+id/askStories"
-    android:icon="@drawable/ic_baseline_auto_stories_24"
+    android:icon="@drawable/ic_baseline_source_24"
     android:title="@string/ask_stories" />
 
   <item
     android:id="@+id/topStories"
-    android:icon="@drawable/ic_baseline_auto_stories_24"
+    android:icon="@drawable/ic_baseline_star_border_24"
     android:title="@string/top_stories" />
 
   <item
